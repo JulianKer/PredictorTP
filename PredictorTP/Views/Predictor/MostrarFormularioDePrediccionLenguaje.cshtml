@@ -1,0 +1,46 @@
+﻿@using PredictorTP.Entidades
+@model List<ResultadoLenguaje>
+@{
+	ViewData["Title"] = "Detector de idiomas";
+}
+
+<form asp-controller="Predictor" asp-action="DetectarIdioma">
+	<label>
+		Ingresá una frase:
+		<input type="text" name="fraseEnIdioma" placeholder="hello my friend..." />
+		<input type="submit" value="Detectar..." class="btn-primary" />
+	</label>
+</form>
+
+<br />
+
+<div>
+	@if (Model != null && Model.Count > 0)
+	{
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Frase</th>
+					<th>Idioma detectado</th>
+					<th>Porcentaje de confianza</th>
+				</tr>
+			</thead>
+
+			@foreach (ResultadoLenguaje cadaResultado in Model)
+			{
+				<tr>
+					<th>@cadaResultado._fraseEnIdioma</th>
+					<th>@cadaResultado._idioma</th>
+					<th>% @cadaResultado._porcentajeDeConfianza</th>
+				</tr>
+			}
+
+		</table>
+
+	}
+	else
+	{
+		<h2> No hay resultados aún.</h2>
+	}
+</div>

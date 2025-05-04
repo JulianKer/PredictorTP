@@ -10,3 +10,4 @@ C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\P
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\refint\PredictorTP.Entidades.dll
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\PredictorTP.Entidades.pdb
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\ref\PredictorTP.Entidades.dll
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\PredictorTP.Entidades.sourcelink.json

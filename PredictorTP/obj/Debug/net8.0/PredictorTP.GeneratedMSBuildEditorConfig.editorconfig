@@ -28,8 +28,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/germa/source/repos/PredictorTP/PredictorTP/Views/Predictor/MostrarFormularioDePrediccion.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZGljdG9yXE1vc3RyYXJGb3JtdWxhcmlvRGVQcmVkaWNjaW9uLmNzaHRtbA==
+[C:/Users/germa/source/repos/PredictorTP/PredictorTP/Views/Predictor/MostrarFormularioDePrediccionLenguaje.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZGljdG9yXE1vc3RyYXJGb3JtdWxhcmlvRGVQcmVkaWNjaW9uTGVuZ3VhamUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/germa/source/repos/PredictorTP/PredictorTP/Views/Predictor/MostrarFormularioDePrediccionSentimiento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZGljdG9yXE1vc3RyYXJGb3JtdWxhcmlvRGVQcmVkaWNjaW9uU2VudGltaWVudG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/germa/source/repos/PredictorTP/PredictorTP/Views/Shared/Error.cshtml]

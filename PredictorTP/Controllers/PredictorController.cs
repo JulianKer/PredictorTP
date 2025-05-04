@@ -6,9 +6,12 @@ namespace PredictorTP.Controllers
 {
     public class PredictorController : Controller
     {
-        private IServicioPredictor _servicioPredictor { get; set; }
-        public PredictorController(IServicioPredictor servicioPredictor) { 
-            this._servicioPredictor = servicioPredictor;
+        private IServicioPredictorSentimiento _servicioPredictorSentimiento { get; set; }
+        private IServicioPredictorLenguaje _servicioPredictorLenguaje { get; set; }
+        public PredictorController(IServicioPredictorSentimiento servicioPredictorSentimiento, 
+                                   IServicioPredictorLenguaje servicioPredictorLenguaje) { 
+            this._servicioPredictorSentimiento = servicioPredictorSentimiento;
+            this._servicioPredictorLenguaje = servicioPredictorLenguaje;
         }
 
         public IActionResult Index()
@@ -16,17 +19,36 @@ namespace PredictorTP.Controllers
             return View();
         }
 
-        public IActionResult MostrarFormularioDePrediccion()
+        // sentimientos ---------------------------------------------------
+        public IActionResult MostrarFormularioDePrediccionSentimiento()
         {
-            return View(this._servicioPredictor.obtenerTodosLosResultados());
+            return View(this._servicioPredictorSentimiento.obtenerTodosLosResultados());
         }
 
-        public IActionResult Predecir(string texto)
+        public IActionResult PredecirSentimiento(string texto)
         {
-            Resultado nuevoResultado = this._servicioPredictor.predecir(texto);
-            this._servicioPredictor.guardarResultado(nuevoResultado);
+            Resultado nuevoResultado = this._servicioPredictorSentimiento.PredecirSentimiento(texto);
+            this._servicioPredictorSentimiento.guardarResultado(nuevoResultado);
 
-            return RedirectToAction("MostrarFormularioDePrediccion");
+            return RedirectToAction("MostrarFormularioDePrediccionSentimiento");
         }
+        // -------------------------------------------------------------------
+
+
+
+
+        // idiomas ----------------------------------------------------------
+        public IActionResult MostrarFormularioDePrediccionLenguaje()
+        {
+            return View(this._servicioPredictorLenguaje.ObtenerResultadosLenguaje());
+        }
+        public IActionResult DetectarIdioma(string fraseEnIdioma)
+        {
+            ResultadoLenguaje nuevoResultadoLenguaje = this._servicioPredictorLenguaje.predecirLenguaje(fraseEnIdioma);
+            this._servicioPredictorLenguaje.guardarResultdoLenguaje(nuevoResultadoLenguaje);
+
+            return RedirectToAction("MostrarFormularioDePrediccionLenguaje");            
+        }
+        //-----------------------------------------------------------------
     }
 }

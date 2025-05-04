@@ -4,7 +4,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IServicioPredictor, ServicioPredictor>();
+builder.Services.AddScoped<IServicioPredictorSentimiento, ServicioPredictorSentimiento>();
+builder.Services.AddScoped<IServicioPredictorLenguaje, ServicioPredictorLenguaje>();
 
 var app = builder.Build();
 

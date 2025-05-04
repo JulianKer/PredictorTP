@@ -4,24 +4,17 @@ using PredictorTP.Entidades;
 namespace PredictorTP.Servicios
 {
 
-    public interface IServicioPredictor
+    public interface IServicioPredictorSentimiento
     {
         List<Resultado> obtenerTodosLosResultados();
-        Resultado predecir(string texto);
+        Resultado PredecirSentimiento(string texto);
         void guardarResultado(Resultado resultadoAGuardar);
     }
-    public class ServicioPredictor : IServicioPredictor
+    public class ServicioPredictorSentimiento : IServicioPredictorSentimiento
     {
         public static List<Resultado> misResultados { get; set; } = new List<Resultado>();
 
-        public ServicioPredictor()
-        {
-            /*if (ServicioPredictor.misResultados == null)
-            {
-                ServicioPredictor.misResultados = new List<Resultado>();
-            }*/
-        }
-        public Resultado predecir(string texto)
+        public Resultado PredecirSentimiento(string texto)
         {
             var mlContext = new MLContext();
 
@@ -35,15 +28,6 @@ namespace PredictorTP.Servicios
 
             var predictor = mlContext.Model.CreatePredictionEngine<DatoSentimiento, PrediccionSentimiento>(model); // este es el motor para usarlo para predecir
 
-
-            /*
-                Console.Write("\nEscribe una frase para analizar (o 'salir'): ");
-                var texto = Console.ReadLine();
-                if (texto?.ToLower() == "salir") break;
-                var resultado = predictor.Predict(new SentimentData { Text = texto });
-                Console.WriteLine($"Predicción: {(resultado.Prediction ? "Positivo" : "Negativo")}, Probabilidad: {resultado.Probability:P2}");
-                */
-
             var resultado = predictor.Predict(new DatoSentimiento { Text = texto });
 
             string prediccion = (resultado.Prediction ? "Positiva" : "Negativa");
@@ -56,12 +40,12 @@ namespace PredictorTP.Servicios
 
         public void guardarResultado(Resultado resultadoAGuardar)
         {
-            ServicioPredictor.misResultados.Add(resultadoAGuardar);
+            ServicioPredictorSentimiento.misResultados.Add(resultadoAGuardar);
         }
 
         public List<Resultado> obtenerTodosLosResultados()
         {
-            return ServicioPredictor.misResultados;
+            return ServicioPredictorSentimiento.misResultados;
         }
 
     }
