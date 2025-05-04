@@ -1,0 +1,53 @@
+﻿@using PredictorTP.Entidades
+@model List<Resultado>
+@{
+	ViewData["Title"] = "Ingresá un texto";
+}
+
+<form asp-controller="Predictor" asp-action="Predecir">
+	<label>
+		Ingresá un texto:
+		<input type="text" name="texto" placeholder="Me gusta..." />
+		<input type="submit" value="Predecir..." class="btn-primary" />
+	</label>
+</form>
+
+<br/>
+
+<div>
+	@if (Model != null && Model.Count > 0)
+	{
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Frase</th>
+					<th>Resultado</th>
+					<th>Positividad (%)</th>
+					<th>Negatividad (%)</th>
+				</tr>
+			</thead>
+
+			@foreach (Resultado cadaResultado in Model)
+			{
+				<tr>
+					<th>@cadaResultado._textoProcesado</th>
+					@if (@cadaResultado._resutlado == "Positiva"){
+						<th style="color: green">@cadaResultado._resutlado</th>
+					}
+					else{
+						<th style="color: red">@cadaResultado._resutlado</th>
+					}
+					<th>@cadaResultado._probabilidadPositiva</th>
+					<th>@cadaResultado._probabilidadNegativa</th>
+				</tr>
+			}
+
+		</table>
+
+	}
+	else
+	{
+		<h2> No hay resultados aún.</h2>
+	}
+</div>

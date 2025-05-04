@@ -1,0 +1,15 @@
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\PredictorTP.Servicios.deps.json
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\PredictorTP.Servicios.dll
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\PredictorTP.Servicios.pdb
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\PredictorTP.Entidades.dll
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\PredictorTP.Entidades.pdb
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.csproj.AssemblyReference.cache
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.AssemblyInfoInputs.cache
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.AssemblyInfo.cs
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.csproj.CoreCompileInputs.cache
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\Predicto.6503CC1C.Up2Date
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.dll
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\refint\PredictorTP.Servicios.dll
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.pdb
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\ref\PredictorTP.Servicios.dll

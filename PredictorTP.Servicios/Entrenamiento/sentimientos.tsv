@@ -1,0 +1,322 @@
+Text	Label
+Me encanta este producto	TRUE
+Odio este servicio	FALSE
+El soporte técnico fue excelente	TRUE
+Es una pérdida de tiempo	FALSE
+Fantástico, muy útil	TRUE
+Terrible, no lo recomiendo	FALSE
+Estoy muy feliz hoy	TRUE
+Aprobé el examen que tanto estudié	TRUE
+Mi perro me recibió con mucha alegría	TRUE
+Qué hermoso día para salir a caminar	TRUE
+Hoy me siento con mucha energía	TRUE
+Mis amigos me sorprendieron con una visita	TRUE
+Logré terminar el proyecto a tiempo	TRUE
+Me dieron una buena noticia	TRUE
+Pude ayudar a alguien y eso me hizo sentir bien	TRUE
+Estoy motivado para seguir adelante	TRUE
+Tengo esperanza de que todo va a mejorar	TRUE
+Estoy agradecido por lo que tengo	TRUE
+Pasé un día increíble con mi familia	TRUE
+Disfruté mucho la película que vimos	TRUE
+Me encanta cómo salió esta comida	TRUE
+Estoy emocionado por el viaje que se viene	TRUE
+Hoy fue un día muy productivo	TRUE
+Estoy orgulloso de mis logros	TRUE
+Me siento amado	TRUE
+Estoy en paz conmigo mismo	TRUE
+El clima está perfecto para descansar	TRUE
+La música me levantó el ánimo	TRUE
+Recibí un mensaje muy lindo	TRUE
+Todo salió mejor de lo esperado	TRUE
+Hoy me siento pleno y satisfecho	TRUE
+Estoy triste	FALSE
+Me fue mal en el colegio	FALSE
+Mi novia me dejó	FALSE
+Hoy no tengo ganas de hacer nada	FALSE
+Todo me sale mal últimamente	FALSE
+No tengo ánimos de hablar con nadie	FALSE
+No soporto esta situación	FALSE
+Me siento muy solo	FALSE
+Nada tiene sentido	FALSE
+Estoy cansado de todo	FALSE
+No puedo dejar de llorar	FALSE
+Tengo miedo de lo que va a pasar	FALSE
+Perdí a alguien importante	FALSE
+Siento que decepcioné a todos	FALSE
+No me siento valorado	FALSE
+Me cuesta levantarme cada día	FALSE
+Estoy lleno de frustración	FALSE
+La ansiedad no me deja dormir	FALSE
+Estoy muy enojado	FALSE
+Nadie me entiende	FALSE
+No encuentro motivación	FALSE
+Siento una gran angustia	FALSE
+Nada me alegra últimamente	FALSE
+Todo me molesta	FALSE
+No quiero seguir con esto	FALSE
+Estoy muy feliz hoy	TRUE
+Aprobé el examen que tanto estudié	TRUE
+Mi perro me recibió con mucha alegría	TRUE
+Qué hermoso día para salir a caminar	TRUE
+Hoy me siento con mucha energía	TRUE
+Mis amigos me sorprendieron con una visita	TRUE
+Logré terminar el proyecto a tiempo	TRUE
+Me dieron una buena noticia	TRUE
+Pude ayudar a alguien y eso me hizo sentir bien	TRUE
+Estoy motivado para seguir adelante	TRUE
+Tengo esperanza de que todo va a mejorar	TRUE
+Estoy agradecido por lo que tengo	TRUE
+Pasé un día increíble con mi familia	TRUE
+Disfruté mucho la película que vimos	TRUE
+Me encanta cómo salió esta comida	TRUE
+Estoy emocionado por el viaje que se viene	TRUE
+Hoy fue un día muy productivo	TRUE
+Estoy orgulloso de mis logros	TRUE
+Me siento amado	TRUE
+Estoy en paz conmigo mismo	TRUE
+El clima está perfecto para descansar	TRUE
+La música me levantó el ánimo	TRUE
+Recibí un mensaje muy lindo	TRUE
+Todo salió mejor de lo esperado	TRUE
+Hoy me siento pleno y satisfecho	TRUE
+Me encanta este producto	TRUE
+El soporte técnico fue excelente	TRUE
+Fantástico, muy útil	TRUE
+Muy feliz con los resultados	TRUE
+Altamente recomendable	TRUE
+Increíble servicio	TRUE
+Todo funcionó perfectamente	TRUE
+Muy buena relación calidad-precio	TRUE
+Me ayudaron en todo momento	TRUE
+Encantado con el trato recibido	TRUE
+Rápido, fácil y conveniente	TRUE
+Excelente atención al cliente	TRUE
+Muy contento con mi compra	TRUE
+Superó mis expectativas	TRUE
+Todo perfecto, gracias	TRUE
+Un servicio de primera	TRUE
+Estoy más que conforme	TRUE
+Una atención de diez	TRUE
+Gran calidad y precio justo	TRUE
+Servicio rápido y amable	TRUE
+Muy satisfecho con el servicio	TRUE
+Un excelente producto	TRUE
+Me encanta cómo funciona	TRUE
+Estoy triste	FALSE
+Me fue mal en el colegio	FALSE
+Mi novia me dejó	FALSE
+Hoy no tengo ganas de hacer nada	FALSE
+Todo me sale mal últimamente	FALSE
+No tengo ánimos de hablar con nadie	FALSE
+No soporto esta situación	FALSE
+Me siento muy solo	FALSE
+Nada tiene sentido	FALSE
+Estoy cansado de todo	FALSE
+No puedo dejar de llorar	FALSE
+Tengo miedo de lo que va a pasar	FALSE
+Perdí a alguien importante	FALSE
+Siento que decepcioné a todos	FALSE
+No me siento valorado	FALSE
+Me cuesta levantarme cada día	FALSE
+Estoy lleno de frustración	FALSE
+La ansiedad no me deja dormir	FALSE
+Estoy muy enojado	FALSE
+Nadie me entiende	FALSE
+No encuentro motivación	FALSE
+Siento una gran angustia	FALSE
+Nada me alegra últimamente	FALSE
+Todo me molesta	FALSE
+No quiero seguir con esto	FALSE
+Odio este servicio	FALSE
+Es una pérdida de tiempo	FALSE
+Terrible, no lo recomiendo	FALSE
+Fue una experiencia horrible	FALSE
+No volveré a comprar aquí	FALSE
+La atención al cliente es pésima	FALSE
+Nunca recibí el pedido	FALSE
+Mala calidad del producto	FALSE
+El producto llegó dañado	FALSE
+La aplicación es un desastre	FALSE
+No cumple con lo prometido	FALSE
+No me gustó en absoluto	FALSE
+Tardan mucho en responder	FALSE
+Una decepción total	FALSE
+No recomiendo esta tienda	FALSE
+La experiencia fue frustrante	FALSE
+El soporte nunca respondió	FALSE
+Demasiados errores y fallos	FALSE
+No vale lo que cuesta	FALSE
+El sistema es muy inestable	FALSE
+Muchos problemas técnicos	FALSE
+No funcionó como esperaba	FALSE
+Muy mala experiencia	FALSE
+Totalmente decepcionado	FALSE
+Hoy fue un día muy duro	FALSE
+Estoy agotado física y mentalmente	FALSE
+Me siento ignorado por los demás	FALSE
+Nada me sale bien	FALSE
+Estoy frustrado con mis avances	FALSE
+Me siento atrapado en una rutina	FALSE
+No tengo ganas de levantarme	FALSE
+Estoy muy desmotivado	FALSE
+Me cuesta encontrarle sentido a las cosas	FALSE
+No tengo fuerzas para seguir	FALSE
+No confío en nadie últimamente	FALSE
+Estoy lleno de dudas	FALSE
+Siento que no soy suficiente	FALSE
+No puedo concentrarme en nada	FALSE
+Estoy muy ansioso por el futuro	FALSE
+Discutí con mi familia y me siento mal	FALSE
+No tengo a nadie con quien hablar	FALSE
+Todo me abruma últimamente	FALSE
+Extraño mucho a alguien	FALSE
+Estoy pasando un momento muy difícil	FALSE
+Siento que perdí el rumbo	FALSE
+La soledad me está afectando	FALSE
+Hoy me costó todo	FALSE
+No quiero salir de casa	FALSE
+La tristeza me consume a veces	FALSE
+Siento que nadie me escucha	FALSE
+Estoy satisfecho con lo que logré	TRUE
+Hoy avancé un paso más	TRUE
+Estoy agradecido por las pequeñas cosas	TRUE
+Disfruté una charla muy linda	TRUE
+Vi un atardecer hermoso	TRUE
+Pude ayudar a un amigo	TRUE
+Me siento inspirado para crear	TRUE
+Estoy tranquilo y en paz	TRUE
+Aprendí algo nuevo hoy	TRUE
+Me felicitaron por mi esfuerzo	TRUE
+Logré resolver un problema solo	TRUE
+Pude darme un momento para mí	TRUE
+Estoy contento con mis decisiones	TRUE
+Recibí una buena noticia de un ser querido	TRUE
+Mi salud está mejorando	TRUE
+Tuve un sueño hermoso	TRUE
+Hoy me reí mucho	TRUE
+Escuché una canción que me emocionó	TRUE
+Vi algo que me conmovió	TRUE
+Hablé con alguien que me levantó el ánimo	TRUE
+Descubrí algo que me hizo feliz	TRUE
+Me sentí escuchado y comprendido	TRUE
+Tuve un momento de mucha conexión	TRUE
+Me sentí libre y sin presiones	TRUE
+Hoy me di cuenta de cuánto he crecido	TRUE
+La vida me sorprendió para bien	TRUE
+Recibí un abrazo que me llenó el alma	TRUE
+Hice las paces con alguien	TRUE
+Pude perdonarme a mí mismo	TRUE
+Encontré motivación en los detalles	TRUE
+Estoy rodeado de personas que me valoran	TRUE
+Me siento fuerte para seguir adelante	TRUE
+Tengo fe en que las cosas mejorarán	TRUE
+Hoy me siento amado y acompañado	TRUE
+Vi una película que me inspiró	TRUE
+Pude expresar lo que sentía	TRUE
+Siento que todo va tomando forma	TRUE
+Mi esfuerzo está dando frutos	TRUE
+Hoy me conecté conmigo mismo	TRUE
+Pude superar un miedo	TRUE
+Mi día fue tranquilo y armonioso	TRUE
+Me siento liviano, sin culpas	TRUE
+Estoy haciendo lo mejor que puedo	TRUE
+Estoy disfrutando el presente	TRUE
+Hoy fue un buen día, sin dramas	TRUE
+Valoro mucho la calma de hoy	TRUE
+Me desperté con buena energía	TRUE
+Pude ver lo bueno en una situación difícil	TRUE
+Me siento afortunado por lo que tengo	TRUE
+Me encanta el chocolate	TRUE
+No soporto el calor	FALSE
+Me fascina leer libros de misterio	TRUE
+Odio las películas de terror	FALSE
+Me gusta mucho viajar	TRUE
+No me gustan los deportes	FALSE
+Adoro la pizza	TRUE
+No me gusta levantarme temprano	FALSE
+Me emociona ver una película en el cine	TRUE
+No soporto las multitudes	FALSE
+Me gusta la música tranquila	TRUE
+No me agradan los juegos de mesa	FALSE
+Me encanta el helado de fresa	TRUE
+Prefiero estar en casa que salir	TRUE
+No puedo con las personas mentirosas	FALSE
+Me gusta comer sushi	TRUE
+Odio hacer ejercicio	FALSE
+Me entusiasma la idea de aprender algo nuevo	TRUE
+No me gustan las sorpresas	FALSE
+Me encanta caminar por la playa	TRUE
+No puedo vivir sin mi café	TRUE
+Me gusta pasar tiempo con mi familia	TRUE
+Me molesta que me interrumpan	FALSE
+Me encanta la fotografía	TRUE
+Detesto la gente impuntual	FALSE
+Me gusta la sensación de la lluvia	TRUE
+No me gusta ir al gimnasio	FALSE
+Me gusta ver series de comedia	TRUE
+Odio la comida picante	FALSE
+Me gusta hacer senderismo	TRUE
+No me gustan las películas de acción	FALSE
+Me da miedo el futuro	FALSE
+Me siento feliz cuando ayudo a los demás	TRUE
+No me gusta el ruido constante	FALSE
+Me encanta el sabor del café	TRUE
+Odio perder el tiempo	FALSE
+Me hace feliz ver a mis amigos	TRUE
+No me gusta tener que tomar decisiones	FALSE
+Me entusiasma la idea de mudarme	TRUE
+No me gusta que me digan qué hacer	FALSE
+Me encanta la tranquilidad del campo	TRUE
+Me enfurece la injusticia	FALSE
+Me gusta ver películas románticas	TRUE
+No soporto las críticas	FALSE
+Me siento bien cuando logro mis metas	TRUE
+Odio la injusticia social	FALSE
+Me encanta estar al aire libre	TRUE
+No me gusta el pescado	FALSE
+Me gusta dormir ocho horas	TRUE
+Me molesta cuando la gente habla demasiado alto	FALSE
+Me gusta cómo huele la tierra mojada	TRUE
+No me gusta la rutina diaria	FALSE
+Me encanta probar comida nueva	TRUE
+Odio esperar en largas filas	FALSE
+Me gusta escuchar música mientras estudio	TRUE
+Me estresa el desorden	FALSE
+Me gusta el chocolate amargo	TRUE
+No me agradan los lugares cerrados	FALSE
+Me siento bien cuando estoy en la naturaleza	TRUE
+No me gustan los días fríos	FALSE
+Me gusta ir al teatro	TRUE
+Odio los atascos de tráfico	FALSE
+Me gusta bailar	TRUE
+No me gusta la gente negativa	FALSE
+Me siento feliz cuando tengo tiempo libre	TRUE
+Me molesta la falta de honestidad	FALSE
+Me gusta ir a conciertos de música en vivo	TRUE
+Odio tener que madrugar	FALSE
+Me encanta ir a museos	TRUE
+No me gusta la gente que se queja todo el tiempo	FALSE
+Me da tranquilidad hacer ejercicio	TRUE
+Odio tener que tomar el autobús	FALSE
+Me gusta la sensación de un buen abrazo	TRUE
+No me gusta la gente que habla mucho	FALSE
+Me encanta ver el amanecer	TRUE
+No me gusta la comida rápida	FALSE
+Me gusta más el frío que el calor	TRUE
+No me gusta cuando la gente interrumpe	TRUE
+Me gusta meditar para relajarme	TRUE
+No me gustan las sorpresas de cumpleaños	FALSE
+Me da paz escuchar el sonido de las olas	TRUE
+Me enfada la gente que no escucha	FALSE
+Me gusta la idea de trabajar desde casa	TRUE
+No me gusta la gente que siempre tiene excusas	FALSE
+Me da gusto ver a mi equipo ganar	TRUE
+No me gusta la comida grasosa	FALSE
+Me gusta pasar tiempo en la naturaleza	TRUE
+Me molesta la gente que no respeta las reglas	FALSE
+Me gusta leer en mi tiempo libre	TRUE
+No me gusta la gente impaciente	FALSE
+Me gusta disfrutar de un buen libro	TRUE
+Me irrita cuando la gente no se disculpa	FALSE
+La vida es dura		FALSE
