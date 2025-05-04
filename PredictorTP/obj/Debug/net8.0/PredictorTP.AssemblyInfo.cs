@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PredictorTP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8de6d7cefb38888ee159e7955aa5da70ac72846c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+93223eb9713553a4f83f69b11d5bded71068e1f1")]
 [assembly: System.Reflection.AssemblyProductAttribute("PredictorTP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PredictorTP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
