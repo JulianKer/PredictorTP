@@ -65,8 +65,9 @@ namespace PredictorTP.Servicios
             var model = pipeline.Fit(data);
 
             var predictor = mlContext.Model.CreatePredictionEngine<DatoLenguaje, PrediccionLenguaje>(model);
-            
-            var resultado = predictor.Predict(new DatoLenguaje { Text = fraseEnIdioma });
+
+            PrediccionLenguaje resultado = predictor.Predict(new DatoLenguaje { Text = fraseEnIdioma });
+
             double porcentajeDeConfianza = Math.Round( (resultado.Score.Max() * 100), 4);
 
             return new ResultadoLenguaje(fraseEnIdioma, resultado.PredictedLabel, porcentajeDeConfianza);

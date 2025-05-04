@@ -183,9 +183,18 @@
           }
         }
       },
+      "PredictorTP.Repositorios/1.0.0": {
+        "runtime": {
+          "PredictorTP.Repositorios.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "PredictorTP.Servicios/1.0.0": {
         "dependencies": {
-          "PredictorTP.Entidades": "1.0.0"
+          "PredictorTP.Entidades": "1.0.0",
+          "PredictorTP.Repositorios": "1.0.0"
         },
         "runtime": {
           "PredictorTP.Servicios.dll": {
@@ -273,6 +282,11 @@
       "hashPath": "system.threading.channels.8.0.0.nupkg.sha512"
     },
     "PredictorTP.Entidades/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PredictorTP.Repositorios/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

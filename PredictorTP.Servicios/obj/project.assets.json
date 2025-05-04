@@ -289,6 +289,16 @@
         "runtime": {
           "bin/placeholder/PredictorTP.Entidades.dll": {}
         }
+      },
+      "PredictorTP.Repositorios/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/PredictorTP.Repositorios.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PredictorTP.Repositorios.dll": {}
+        }
       }
     }
   },
@@ -617,11 +627,17 @@
       "type": "project",
       "path": "../PredictorTP.Entidades/PredictorTP.Entidades.csproj",
       "msbuildProject": "../PredictorTP.Entidades/PredictorTP.Entidades.csproj"
+    },
+    "PredictorTP.Repositorios/1.0.0": {
+      "type": "project",
+      "path": "../PredictorTP.Repositorios/PredictorTP.Repositorios.csproj",
+      "msbuildProject": "../PredictorTP.Repositorios/PredictorTP.Repositorios.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "PredictorTP.Entidades >= 1.0.0"
+      "PredictorTP.Entidades >= 1.0.0",
+      "PredictorTP.Repositorios >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -658,6 +674,9 @@
           "projectReferences": {
             "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj": {
               "projectPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj"
+            },
+            "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj": {
+              "projectPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj"
             }
           }
         }

@@ -14,3 +14,5 @@ C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\r
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.pdb
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\ref\PredictorTP.Servicios.dll
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.sourcelink.json
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\PredictorTP.Repositorios.dll
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\PredictorTP.Repositorios.pdb

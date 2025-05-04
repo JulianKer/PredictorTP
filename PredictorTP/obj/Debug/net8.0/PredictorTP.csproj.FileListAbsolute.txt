@@ -63,3 +63,5 @@ C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\PredictorTP
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\PredictorTP.genruntimeconfig.cache
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\ref\PredictorTP.dll
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\PredictorTP.sourcelink.json
+C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\PredictorTP.Repositorios.dll
+C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\PredictorTP.Repositorios.pdb
