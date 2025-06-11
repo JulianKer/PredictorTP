@@ -16,10 +16,12 @@ namespace PredictorTP.Servicios
 
         public Resultado PredecirSentimiento(string texto)
         {
+            string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Entrenamiento", "sentimientos.tsv");
+
             var mlContext = new MLContext();
 
             var data = mlContext.Data.LoadFromTextFile<DatoSentimiento>(
-                "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Servicios\\Entrenamiento\\sentimientos.tsv", hasHeader: true);
+                rutaArchivo, hasHeader: true);
 
             var pipeline = mlContext.Transforms.Text.FeaturizeText("Features", nameof(DatoSentimiento.Text))
                 .Append(mlContext.BinaryClassification.Trainers.SdcaLogisticRegression("Label", "Features"));

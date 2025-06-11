@@ -6,8 +6,8 @@ C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\P
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\PredictorTP.Entidades.AssemblyInfoInputs.cache
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\PredictorTP.Entidades.AssemblyInfo.cs
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\PredictorTP.Entidades.csproj.CoreCompileInputs.cache
+C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\PredictorTP.Entidades.sourcelink.json
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\PredictorTP.Entidades.dll
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\refint\PredictorTP.Entidades.dll
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\PredictorTP.Entidades.pdb
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\ref\PredictorTP.Entidades.dll
-C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\PredictorTP.Entidades.sourcelink.json

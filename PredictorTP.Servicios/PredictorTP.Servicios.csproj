@@ -7,6 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Entrenamiento\frases.tsv" />
+    <None Remove="Entrenamiento\idiomas.tsv" />
+    <None Remove="Entrenamiento\sentimientos.tsv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Entrenamiento\frases.tsv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entrenamiento\idiomas.tsv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entrenamiento\sentimientos.tsv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PredictorTP.Entidades\PredictorTP.Entidades.csproj" />
     <ProjectReference Include="..\PredictorTP.Repositorios\PredictorTP.Repositorios.csproj" />
   </ItemGroup>

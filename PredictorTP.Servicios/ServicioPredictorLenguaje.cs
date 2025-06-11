@@ -51,10 +51,12 @@ namespace PredictorTP.Servicios
 
         public ResultadoLenguaje predecirLenguaje(string fraseEnIdioma)
         {
+            string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Entrenamiento", "idiomas.tsv");
+
             var mlContext = new MLContext();
 
             var data = mlContext.Data.LoadFromTextFile<DatoLenguaje>(
-                "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Servicios\\Entrenamiento\\idiomas.tsv", hasHeader: true); // obtengo el archivo para entrenar
+                rutaArchivo, hasHeader: true); // obtengo el archivo para entrenar
 
             var pipeline = mlContext.Transforms.Conversion.MapValueToKey("Label")
                 .Append(mlContext.Transforms.Text.FeaturizeText("Features", nameof(DatoLenguaje.Text)))

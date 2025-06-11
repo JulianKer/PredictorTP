@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PredictorTP.Entidades")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8de6d7cefb38888ee159e7955aa5da70ac72846c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55d3921a9a981ccfb3fc1039fbcf4196d427c78f")]
 [assembly: System.Reflection.AssemblyProductAttribute("PredictorTP.Entidades")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PredictorTP.Entidades")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

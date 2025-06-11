@@ -3,6 +3,9 @@ C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\appsettings
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\PredictorTP.staticwebassets.runtime.json
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\PredictorTP.staticwebassets.endpoints.json
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\PredictorTP.exe
+C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\Entrenamiento\frases.tsv
+C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\Entrenamiento\idiomas.tsv
+C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\Entrenamiento\sentimientos.tsv
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\PredictorTP.deps.json
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\PredictorTP.runtimeconfig.json
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\PredictorTP.dll
@@ -32,9 +35,11 @@ C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\runtimes\wi
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\runtimes\win-x64\native\LdaNative.dll
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\runtimes\win-x86\native\LdaNative.dll
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\PredictorTP.Entidades.dll
+C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\PredictorTP.Repositorios.dll
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\PredictorTP.Servicios.dll
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\PredictorTP.Entidades.pdb
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\PredictorTP.Servicios.pdb
+C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\PredictorTP.Repositorios.pdb
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\PredictorTP.csproj.AssemblyReference.cache
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\PredictorTP.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\PredictorTP.AssemblyInfoInputs.cache
@@ -43,6 +48,7 @@ C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\PredictorTP
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\PredictorTP.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\PredictorTP.RazorAssemblyInfo.cache
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\PredictorTP.RazorAssemblyInfo.cs
+C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\PredictorTP.sourcelink.json
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\scopedcss\bundle\PredictorTP.styles.css
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\scopedcss\projectbundle\PredictorTP.bundle.scp.css
@@ -62,6 +68,3 @@ C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\refint\Pred
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\PredictorTP.pdb
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\PredictorTP.genruntimeconfig.cache
 C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\ref\PredictorTP.dll
-C:\Users\germa\source\repos\PredictorTP\PredictorTP\obj\Debug\net8.0\PredictorTP.sourcelink.json
-C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\PredictorTP.Repositorios.dll
-C:\Users\germa\source\repos\PredictorTP\PredictorTP\bin\Debug\net8.0\PredictorTP.Repositorios.pdb
