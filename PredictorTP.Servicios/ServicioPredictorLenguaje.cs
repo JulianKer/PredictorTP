@@ -51,26 +51,26 @@ namespace PredictorTP.Servicios
 
         public ResultadoLenguaje predecirLenguaje(string fraseEnIdioma)
         {
-            
             var mlContext = new MLContext();
 
             var data = mlContext.Data.LoadFromTextFile<DatoLenguaje>(
-                "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Servicios\\Entrenamiento\\idiomas.tsv", hasHeader: true);
+                "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Servicios\\Entrenamiento\\idiomas.tsv", hasHeader: true); // obtengo el archivo para entrenar
 
             var pipeline = mlContext.Transforms.Conversion.MapValueToKey("Label")
                 .Append(mlContext.Transforms.Text.FeaturizeText("Features", nameof(DatoLenguaje.Text)))
-                .Append(mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy("Label", "Features"))
+                .Append(mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy("Label", "Features"))   // creo el pipeline usando clasificación
                 .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel"));
 
-            var model = pipeline.Fit(data);
+            var model = pipeline.Fit(data);  // entreno el pipeline con el archivo obtenido anteriormente y genero el modelo
 
-            var predictor = mlContext.Model.CreatePredictionEngine<DatoLenguaje, PrediccionLenguaje>(model);
+            var predictor = mlContext.Model.CreatePredictionEngine<DatoLenguaje, PrediccionLenguaje>(model);   // creo el motor de predicción usando el modelo entrenado
 
-            PrediccionLenguaje resultado = predictor.Predict(new DatoLenguaje { Text = fraseEnIdioma });
+            PrediccionLenguaje resultado = predictor.Predict(new DatoLenguaje { Text = fraseEnIdioma });  // genreo una predicción pasándole el string del usuario
 
-            double porcentajeDeConfianza = Math.Round( (resultado.Score.Max() * 100), 4);
+            double porcentajeDeConfianza = Math.Round( (resultado.Score.Max() * 100), 4); // en este array de "score" obteno el valor máximo que es la clasificación 
+                                                                                          // con mayor puntaje de acierto.
 
-            return new ResultadoLenguaje(fraseEnIdioma, resultado.PredictedLabel, porcentajeDeConfianza);
+            return new ResultadoLenguaje(fraseEnIdioma, resultado.PredictedLabel, porcentajeDeConfianza); // retorno el resultado obtenido.
         }
     }
 }

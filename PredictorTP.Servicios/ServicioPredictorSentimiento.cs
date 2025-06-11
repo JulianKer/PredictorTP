@@ -24,17 +24,17 @@ namespace PredictorTP.Servicios
             var pipeline = mlContext.Transforms.Text.FeaturizeText("Features", nameof(DatoSentimiento.Text))
                 .Append(mlContext.BinaryClassification.Trainers.SdcaLogisticRegression("Label", "Features"));
 
-            var model = pipeline.Fit(data); //con esto lo entreno, osea antes obtuve el tsv, le extraje los datos y ahora lo entreno 
+            var model = pipeline.Fit(data); // con los datos extraidos del archvo .tsv, entreno al pipeline y obtengo el modelo entrenado
 
-            var predictor = mlContext.Model.CreatePredictionEngine<DatoSentimiento, PrediccionSentimiento>(model); // este es el motor para usarlo para predecir
+            var predictor = mlContext.Model.CreatePredictionEngine<DatoSentimiento, PrediccionSentimiento>(model); // creo un motor para predecir usando dicho modelo
 
-            var resultado = predictor.Predict(new DatoSentimiento { Text = texto });
+            var resultado = predictor.Predict(new DatoSentimiento { Text = texto }); // realizo una predicción pasándole el string obtenido del usuario
 
             string prediccion = (resultado.Prediction ? "Positiva" : "Negativa");
-            double porcentajePositivo = resultado.Probability * 100;
+            double porcentajePositivo = resultado.Probability * 100;   // con una sencilla operación puedo obtener el porcentaje de ambas polaridades (Positivo y Negativo)
             double porcentajeNegativo = 100 - porcentajePositivo;
 
-            return new Resultado(texto, prediccion, porcentajeNegativo, porcentajePositivo);
+            return new Resultado(texto, prediccion, porcentajeNegativo, porcentajePositivo); // devuelvo la respuesta obtenida
         }
 
 
