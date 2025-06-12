@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "L0EB+mCpR6I=",
+  "dgSpecHash": "KC2610/4gRE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP\\PredictorTP.csproj",
+  "projectFilePath": "C:\\Users\\germa\\OneDrive\\Escritorio\\Unlam\\PW3\\TP\\PredictorTP\\PredictorTP\\PredictorTP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\germa\\.nuget\\packages\\microsoft.ml\\4.0.2\\microsoft.ml.4.0.2.nupkg.sha512",
     "C:\\Users\\germa\\.nuget\\packages\\microsoft.ml.cpumath\\4.0.2\\microsoft.ml.cpumath.4.0.2.nupkg.sha512",

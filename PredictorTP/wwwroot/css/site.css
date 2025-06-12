@@ -17,6 +17,45 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+.no-tengo-cuenta{
+    display: flex;
+    align-content:center;
+    justify-content:center;
+}
+
+.no-tengo-cuenta > p {
+    margin-right: 10px;
+}
+
+.color-login-letra,
+.register-title {
+    color: rgb(1 22 129) !important;
+}
+
+.login-btn {
+    background-color: rgb(1 22 129);
+    color: #ffffff;
+}
+
+.login-btn:hover {
+    background-color: #162b4e;
+    color: #fff
+}
+
+.fondo-predictor,
+.fondo-predictor-register {
+    background-color: rgb(1 22 129) !important;
+}
+
+.registrar-btn {
+    background-color: rgb(1 22 129);
+    color: #ffffff;
+}
+.registrar-btn:hover {
+     background-color: #162b4e;
+     color: #fff
+}
+
+.logo-acceso{
+    max-width: 200px;
 }
