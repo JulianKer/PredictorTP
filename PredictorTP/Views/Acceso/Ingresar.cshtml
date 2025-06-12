@@ -16,12 +16,14 @@
                                     <label for="email" class="form-label fw-semibold">Correo electrónico</label>
                                     <input type="email" class="form-control form-control-lg" id="email" name="email"
                                            placeholder="ejemplo@correo.com" required>
+                                    <span class="alert-danger"></span> <!-- acordarse de poner el ASP-VALIDATION-FOR cuando hagamos la vista tipada -->
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="password" class="form-label fw-semibold">Contraseña</label>
                                     <input type="password" class="form-control form-control-lg" id="password" name="password"
                                            placeholder="Tu contraseña" required>
+                                    <span class="alert-danger"></span> <!-- acordarse de poner el ASP-VALIDATION-FOR cuando hagamos la vista tipada -->
 
                                     <div class="text-center" style="margin-top: 15px">
                                         <a asp-controller="Acceso" asp-action="RecuperarContrasenia" class="text-decoration-none">Olvidé mi contraseña</a>
