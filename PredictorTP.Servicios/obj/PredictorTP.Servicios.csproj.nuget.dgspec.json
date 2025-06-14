@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj": {}
+    "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj": {}
   },
   "projects": {
-    "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj": {
+    "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj",
         "projectName": "PredictorTP.Entidades",
-        "projectPath": "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj",
-        "packagesPath": "C:\\Users\\fweig\\.nuget\\packages\\",
-        "outputPath": "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Entidades\\obj\\",
+        "projectPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj",
+        "packagesPath": "C:\\Users\\germa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\fweig\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\germa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -91,24 +91,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj": {
+    "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj",
+        "projectUniqueName": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj",
         "projectName": "PredictorTP.Repositorios",
-        "projectPath": "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj",
-        "packagesPath": "C:\\Users\\fweig\\.nuget\\packages\\",
-        "outputPath": "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Repositorios\\obj\\",
+        "projectPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj",
+        "packagesPath": "C:\\Users\\germa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Repositorios\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\fweig\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\germa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -123,8 +123,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj": {
-                "projectPath": "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj"
+              "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj": {
+                "projectPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj"
               }
             }
           }
@@ -160,24 +160,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj": {
+    "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj",
+        "projectUniqueName": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj",
         "projectName": "PredictorTP.Servicios",
-        "projectPath": "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj",
-        "packagesPath": "C:\\Users\\fweig\\.nuget\\packages\\",
-        "outputPath": "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Servicios\\obj\\",
+        "projectPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj",
+        "packagesPath": "C:\\Users\\germa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Servicios\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\fweig\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\germa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -192,11 +192,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj": {
-                "projectPath": "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj"
+              "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj": {
+                "projectPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj"
               },
-              "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj": {
-                "projectPath": "C:\\facu 2025\\PW3\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj"
+              "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj": {
+                "projectPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj"
               }
             }
           }
@@ -232,7 +232,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

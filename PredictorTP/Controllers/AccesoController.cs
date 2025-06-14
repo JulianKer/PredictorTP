@@ -6,11 +6,11 @@ namespace PredictorTP.Controllers
 {
     public class AccesoController : Controller
     {
-        private IServicioUsuario servicioUsuario;
+        private IServicioUsuario _servicioUsuario;
 
         public AccesoController(IServicioUsuario servicioUsuario)
         {
-            this.servicioUsuario = servicioUsuario;
+            this._servicioUsuario = servicioUsuario;
         }
 
         public IActionResult Index()
@@ -55,7 +55,7 @@ namespace PredictorTP.Controllers
                 return View(newUser);
             }
 
-            servicioUsuario.Registrar(newUser);
+            this._servicioUsuario.Registrar(newUser);
 
             TempData["MensjaeExito"] = "Usuario creado con éxito, revise su correo para la verificación y luego inicie sesión.";
             return RedirectToAction("Ingresar");

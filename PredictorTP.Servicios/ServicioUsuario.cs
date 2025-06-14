@@ -12,16 +12,16 @@ namespace PredictorTP.Servicios
 
     public class ServicioUsuario : IServicioUsuario
     {
-        private IUsuarioRepositorio usuarioRepositorio;
+        private IUsuarioRepositorio _usuarioRepositorio;
 
         public ServicioUsuario(IUsuarioRepositorio usuarioRepositorio)
         {
-            this.usuarioRepositorio = usuarioRepositorio;
+            this._usuarioRepositorio = usuarioRepositorio;
         }
 
         public void Registrar(Usuario usuario)
         {
-            usuarioRepositorio.CargarNuevoUsuario(usuario);
+            this._usuarioRepositorio.CargarNuevoUsuario(usuario);
         }
     }
 }

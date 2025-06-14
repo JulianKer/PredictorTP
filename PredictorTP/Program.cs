@@ -1,18 +1,16 @@
 using Microsoft.EntityFrameworkCore;
-using PredictorTP.EF;
+using PredictorTP.Entidades.EF;
 using PredictorTP.Repositorios;
 using PredictorTP.Servicios;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<PredictorBddContext>();
 builder.Services.AddScoped<IServicioPredictorSentimiento, ServicioPredictorSentimiento>();
 builder.Services.AddScoped<IServicioPredictorLenguaje, ServicioPredictorLenguaje>();
-builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 builder.Services.AddScoped<IServicioUsuario, ServicioUsuario>();
-
+builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
 var app = builder.Build();
 
