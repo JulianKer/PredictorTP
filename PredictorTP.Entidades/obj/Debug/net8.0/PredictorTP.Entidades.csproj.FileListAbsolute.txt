@@ -26,3 +26,5 @@ C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\r
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\PredictorTP.Entidades.pdb
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\PredictorTP.Entidades.genruntimeconfig.cache
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\ref\PredictorTP.Entidades.dll
+C:\Users\germa\OneDrive\Escritorio\Unlam\PW3\TP\PredictorTP\PredictorTP.Entidades\bin\Debug\net8.0\PredictorTP.Entidades.runtimeconfig.json
+C:\Users\germa\OneDrive\Escritorio\Unlam\PW3\TP\PredictorTP\PredictorTP.Entidades\obj\Debug\net8.0\PredictorTP.Entidades.genruntimeconfig.cache

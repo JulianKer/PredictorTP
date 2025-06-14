@@ -2,58 +2,71 @@
     ViewData["Title"] = "Ingresar";
 }
 
-    <div class="container-fluid vh-100">
-        <div class="row h-100">
-            <div class="col-lg-6 bg-light d-flex align-items-center justify-content-center">
-                <div class="w-100" style="max-width: 400px;">
+<div class="container-fluid vh-100">
+    <div class="row h-100">
 
-                    <div class="card shadow-sm border-0">
+        <div class="col-lg-6 bg-light d-flex align-items-center justify-content-center">
+            <div class="w-100" style="max-width: 400px;">
+
+                <div class="card shadow-sm border-0">
 
                     @if (TempData["MensjaeExito"] != null)
                     {
                         <span class="alert alert-success">@TempData["MensjaeExito"]</span>
                     }
 
-                        <div class="card-body p-4">
-                            <h3 class="card-title text-center mb-4 color-login-letra">Iniciar Sesión</h3>
+                    <div class="card-body p-4">
+                        <h3 class="card-title text-center mb-4 color-login-letra">Iniciar Sesión</h3>
 
-                            <form id="loginForm">
-                                <div class="mb-3">
-                                    <label for="email" class="form-label fw-semibold">Correo electrónico</label>
-                                    <input type="email" class="form-control form-control-lg" id="email" name="email"
-                                           placeholder="ejemplo@correo.com" required>
-                                    <span class="alert-danger"></span> <!-- acordarse de poner el ASP-VALIDATION-FOR cuando hagamos la vista tipada -->
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-semibold">Correo electrónico</label>
+                                <input type="email" class="form-control form-control-lg" id="email" name="email"
+                                       placeholder="ejemplo@correo.com" >
+                                <span class="alert-danger"></span> <!-- acordarse de poner el ASP-VALIDATION-FOR cuando hagamos la vista tipada -->
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label fw-semibold">Contraseña</label>
+                                <input type="password" class="form-control form-control-lg" id="password" name="password"
+                                       placeholder="Tu contraseña" >
+                                <span class="alert-danger"></span> <!-- acordarse de poner el ASP-VALIDATION-FOR cuando hagamos la vista tipada -->
+
+                                <div class="text-center" style="margin-top: 15px">
+                                    <a asp-controller="Acceso" asp-action="RecuperarContrasenia" class="text-decoration-none">Olvidé mi contraseña</a>
                                 </div>
+                            </div>
 
-                                <div class="mb-3">
-                                    <label for="password" class="form-label fw-semibold">Contraseña</label>
-                                    <input type="password" class="form-control form-control-lg" id="password" name="password"
-                                           placeholder="Tu contraseña" required>
-                                    <span class="alert-danger"></span> <!-- acordarse de poner el ASP-VALIDATION-FOR cuando hagamos la vista tipada -->
-
-                                    <div class="text-center" style="margin-top: 15px">
-                                        <a asp-controller="Acceso" asp-action="RecuperarContrasenia" class="text-decoration-none">Olvidé mi contraseña</a>
-                                    </div>
-                                </div>
-
-                                <div class="d-grid mb-3">
+                            <div class="d-grid mb-3">
                                 <button type="submit" class="btn btn-lg login-btn">Iniciar Sesión</button>
-                                </div>
+                            </div>
 
-                                <div class="text-center no-tengo-cuenta">
-                                    <p>¿No tenes una cuenta?</p>
+                            <div class="text-center no-tengo-cuenta">
+                                <p>¿No tenes una cuenta?</p>
                                 <a asp-controller="Acceso" asp-action="Registrar" class="text-decoration-none">Registrarse</a>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        <div class="col-lg-6 d-none d-lg-flex bg-primary text-white align-items-center justify-content-center fondo-predictor">
-                <div class="text-center">
-                    <h1 class="display-4 fw-bold mb-4">Predictor</h1>
-                    <img src="~/img/logo_app/logo_predictor.png" class="logo-acceso" />
-                </div>
+        </div>
+
+
+        <div class="col-lg-6 d-none d-lg-flex bg-primary text-white align-items-center justify-content-center fondo-predictor floating-container">
+
+            <div class="floating-elements">
+                <div class="floating-shape shape-1"></div>
+                <div class="floating-shape shape-2"></div>
+                <div class="floating-shape shape-3"></div>
+                <div class="floating-shape shape-4"></div>
+                <div class="floating-shape shape-5"></div>
+            </div>
+
+            <div class="text-center content-overlay">
+                <h1 class="display-4 fw-bold mb-4">Predictor</h1>
+                <img src="~/img/logo_app/logo_predictor.png" class="logo-acceso" />
             </div>
         </div>
+
     </div>
+</div>

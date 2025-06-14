@@ -1,31 +1,35 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
-.no-tengo-cuenta{
+.no-tengo-cuenta {
     display: flex;
-    align-content:center;
-    justify-content:center;
+    align-content: center;
+    justify-content: center;
 }
 
-.no-tengo-cuenta > p {
-    margin-right: 10px;
-}
+    .no-tengo-cuenta > p {
+        margin-right: 10px;
+    }
 
 .color-login-letra,
 .register-title {
@@ -37,10 +41,10 @@ html {
     color: #ffffff;
 }
 
-.login-btn:hover {
-    background-color: #162b4e;
-    color: #fff
-}
+    .login-btn:hover {
+        background-color: #162b4e;
+        color: #fff;
+    }
 
 .fondo-predictor,
 .fondo-predictor-register {
@@ -51,11 +55,93 @@ html {
     background-color: rgb(1 22 129);
     color: #ffffff;
 }
-.registrar-btn:hover {
-     background-color: #162b4e;
-     color: #fff
+
+    .registrar-btn:hover {
+        background-color: #162b4e;
+        color: #fff;
+    }
+
+.logo-acceso {
+    max-width: 200px;
 }
 
-.logo-acceso{
-    max-width: 200px;
+/* CONTENEDOR PARA LOS ELEMENTOS FLOTANTES - CLAVE PARA QUE FUNCIONE BIEN */
+.floating-container {
+    position: relative; /* Esto es FUNDAMENTAL */
+    overflow: hidden; /* Evita que los elementos se salgan del contenedor */
+}
+
+/* Elementos flotantes decorativos */
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Detrás del contenido */
+    pointer-events: none; /* No interfiere con clics */
+}
+
+.floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Contenido principal encima de los elementos flotantes */
+.content-overlay {
+    position: relative;
+    z-index: 2; /* Encima de los elementos flotantes */
+}
+
+.shape-1 {
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 120px;
+    height: 120px;
+    top: 60%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.shape-3 {
+    width: 60px;
+    height: 60px;
+    bottom: 30%;
+    left: 20%;
+    animation-delay: 4s;
+}
+
+.shape-4 {
+    width: 100px;
+    height: 100px;
+    top: 15%;
+    right: 25%;
+    animation-delay: 1s;
+}
+
+.shape-5 {
+    width: 70px;
+    height: 70px;
+    bottom: 20%;
+    right: 30%;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
 }
