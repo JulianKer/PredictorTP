@@ -1,4 +1,6 @@
-﻿@{
+﻿@model PredictorTP.Entidades.EF.Usuario;
+
+@{
     ViewData["Title"] = "Registrar";
 } 
 <div class="container-fluid vh-100">
@@ -13,46 +15,54 @@
         <div class="col-lg-6 bg-light d-flex align-items-center justify-content-center py-4">
             <div class="w-100" style="max-width: 500px;">
 
-              
+
                 <div class="card shadow-sm border-0">
                     <div class="card-body p-4">
                         <h3 class="card-title text-center mb-4 text-success register-title">Crear Cuenta</h3>
 
-                        <form id="registerForm">
+                        <form id="registerForm" method="post" asp-controller="Acceso" asp-action="Registrar">
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label for="nombre" class="form-label fw-semibold">Nombre</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre"
-                                           placeholder="Tu nombre" required>
-                                    <span class="alert-danger"></span> <!-- acordarse de poner el ASP-VALIDATION-FOR cuando hagamos la vista tipada -->
+                                    <label asp-for="Nombre" class="form-label fw-semibold">
+                                        <span style="color:red; font-weight: bold">*</span>Nombre
+                                    </label>
+                                    <input asp-for="Nombre" class="form-control" placeholder="Tu nombre" />
+                                    <span asp-validation-for="Nombre" class="alert-danger"></span>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="apellido" class="form-label fw-semibold">Apellido</label>
-                                    <input type="text" class="form-control" id="apellido" name="apellido"
-                                           placeholder="Tu apellido" required>
-                                    <span class="alert-danger"></span> <!-- acordarse de poner el ASP-VALIDATION-FOR cuando hagamos la vista tipada -->
+                                    <label asp-for="Apellido" class="form-label fw-semibold">
+                                        <span style="color:red; font-weight: bold">*</span>Apellido
+                                    </label>
+                                    <input asp-for="Apellido" class="form-control" placeholder="Tu apellido" />
+                                    <span asp-validation-for="Apellido" class="alert-danger"></span>
                                 </div>
                             </div>
 
                             <div class="mb-3">
-                                <label for="email" class="form-label fw-semibold">Correo electrónico</label>
-                                <input type="email" class="form-control" id="email" name="email"
-                                       placeholder="ejemplo@correo.com" required>
-                                <span class="alert-danger"></span> <!-- acordarse de poner el ASP-VALIDATION-FOR cuando hagamos la vista tipada -->
+                                <label asp-for="Email" class="form-label fw-semibold">
+                                    <span style="color:red; font-weight: bold">*</span>Correo electrónico
+                                </label>
+                                <input asp-for="Email" class="form-control" placeholder="ejemplo@correo.com" />
+                                <span asp-validation-for="Email" class="alert-danger"></span>
                             </div>
 
                             <div class="mb-3">
-                                <label for="password" class="form-label fw-semibold">Contraseña</label>
-                                <input type="password" class="form-control" id="password" name="password"
-                                       placeholder="Tu contraseña" required>
-                                <span class="alert-danger"></span> <!-- acordarse de poner el ASP-VALIDATION-FOR cuando hagamos la vista tipada -->
+                                <label asp-for="Contrasenia" class="form-label fw-semibold">
+                                    <span style="color:red; font-weight: bold">*</span>Contraseña
+                                </label>
+                                <input asp-for="Contrasenia" class="form-control" placeholder="Tu contraseña" />
+                                <span asp-validation-for="Contrasenia" class="alert-danger"></span>
                             </div>
 
                             <div class="mb-3">
-                                <label for="confirmPassword" class="form-label fw-semibold">Repetir contraseña</label>
-                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
-                                       placeholder="Confirma tu contraseña" required>
-                                <span class="alert-danger"></span> <!-- acordarse de poner el ERROR q NO coinciden las password -->
+                                <label for="confirmPassword" class="form-label fw-semibold">
+                                    <span style="color:red; font-weight: bold">*</span>Repetir contraseña
+                                </label>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirma tu contraseña" />
+                                @if (!String.IsNullOrEmpty(ViewBag.ErrorConfirmPassword))
+                                {
+                                    <span class="alert-danger">@ViewBag.ErrorConfirmPassword</span>
+                                }
                             </div>
 
                             <div class="d-grid mb-3">
@@ -64,6 +74,7 @@
                                 <a asp-controller="Acceso" asp-action="Ingresar" class="text-decoration-none">Iniciar sesión</a>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>

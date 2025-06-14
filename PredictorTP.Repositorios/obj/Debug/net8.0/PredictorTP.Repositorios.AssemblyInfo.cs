@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PredictorTP.Repositorios")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3dbf6875d0e83e27c3e602a156c5fa1a4bf7c017")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c3f2eca0d88a380e85c2d7fd5e534132747b8fa7")]
 [assembly: System.Reflection.AssemblyProductAttribute("PredictorTP.Repositorios")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PredictorTP.Repositorios")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -25,6 +25,6 @@ namespace PredictorTP.Entidades.MetadataType
         [Required(ErrorMessage = "La contraseña es obligatoria.")]
         [DataType(DataType.Password)]
         [StringLength(100, MinimumLength = 8, ErrorMessage = "La contraseña debe tener al menos 8 caracteres.")]
-        public string Contraseña { get; set; } = null!;
+        public string Contrasenia { get; set; } = null!;
     }
 }

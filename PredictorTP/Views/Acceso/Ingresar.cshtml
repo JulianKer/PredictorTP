@@ -8,6 +8,12 @@
                 <div class="w-100" style="max-width: 400px;">
 
                     <div class="card shadow-sm border-0">
+
+                    @if (TempData["MensjaeExito"] != null)
+                    {
+                        <span class="alert alert-success">@TempData["MensjaeExito"]</span>
+                    }
+
                         <div class="card-body p-4">
                             <h3 class="card-title text-center mb-4 color-login-letra">Iniciar Sesión</h3>
 

@@ -13,7 +13,7 @@ public partial class Usuario
 
     public string Apellido { get; set; } = null!;
 
-    public string Contraseña { get; set; } = null!;
+    public string Contrasenia { get; set; } = null!;
 
     public bool Activo { get; set; }
 

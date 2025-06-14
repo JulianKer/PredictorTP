@@ -37,9 +37,9 @@ public partial class PredictorBddContext : DbContext
             entity.Property(e => e.Apellido)
                 .HasMaxLength(100)
                 .HasColumnName("apellido");
-            entity.Property(e => e.Contraseña)
+            entity.Property(e => e.Contrasenia)
                 .HasMaxLength(255)
-                .HasColumnName("contraseña");
+                .HasColumnName("contrasenia");
             entity.Property(e => e.Email)
                 .HasMaxLength(255)
                 .HasColumnName("email");
