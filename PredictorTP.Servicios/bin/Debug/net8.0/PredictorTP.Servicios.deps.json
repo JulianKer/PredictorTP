@@ -1307,6 +1307,9 @@
         }
       },
       "PredictorTP.Repositorios/1.0.0": {
+        "dependencies": {
+          "PredictorTP.Entidades": "1.0.0"
+        },
         "runtime": {
           "PredictorTP.Repositorios.dll": {
             "assemblyVersion": "1.0.0.0",

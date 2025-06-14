@@ -40,3 +40,24 @@ C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\P
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\refint\PredictorTP.Servicios.dll
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.pdb
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\ref\PredictorTP.Servicios.dll
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\Entrenamiento\frases.tsv
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\Entrenamiento\idiomas.tsv
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\Entrenamiento\sentimientos.tsv
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\PredictorTP.Servicios.deps.json
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\PredictorTP.Servicios.dll
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\PredictorTP.Servicios.pdb
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\PredictorTP.Entidades.dll
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\PredictorTP.Repositorios.dll
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\PredictorTP.Entidades.pdb
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\bin\Debug\net8.0\PredictorTP.Repositorios.pdb
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.csproj.AssemblyReference.cache
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.GeneratedMSBuildEditorConfig.editorconfig
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.AssemblyInfoInputs.cache
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.AssemblyInfo.cs
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.csproj.CoreCompileInputs.cache
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.sourcelink.json
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\Predicto.6503CC1C.Up2Date
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.dll
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\refint\PredictorTP.Servicios.dll
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\PredictorTP.Servicios.pdb
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Servicios\obj\Debug\net8.0\ref\PredictorTP.Servicios.dll
