@@ -1,8 +1,79 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    body {
+        background-color: #fafbfc;
+    }
+
+    .card {
+        background-color: #fff;
+    }
+
+    .card-hover-effect {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+
+        .card-hover-effect:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+</style>
+
+<div class="text-center mb-5">
+    <h1 class="display-5">Bienvenido a Predictor</h1>
+    <p>Detectamos idioma, polaridad y sentimiento general del texto.</p>
+</div>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <a asp-controller="Predictor" asp-action="MostrarFormularioDePrediccionLenguaje" class="text-decoration-none text-reset">
+                <div class="card h-100 shadow-sm border-0 rounded-4 card-hover-effect">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fs-4">Idioma Detectado</h5>
+                        <ul class="list-unstyled my-0">
+                            <li class="fs-4 mb-2">🌍</li>
+                            <li>🧭 Detección automática de idioma</li>
+                            <li>📄 Útil para textos multilingües</li>
+                            <li>🔤 Ej: Español (es), Inglés (en)</li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col">
+            <a asp-controller="Predictor" asp-action="MostrarFormularioDePrediccionSentimiento" class="text-decoration-none text-reset">
+                <div class="card h-100 shadow-sm border-0 rounded-4 card-hover-effect">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fs-4">Polaridad</h5>
+                        <ul class="list-unstyled my-0">
+                            <li class="fs-4 mb-2">📊</li>
+                            <li>🎯 Analiza el tono general del mensaje</li>
+                            <li>⚖️ Valor entre -1 (negativo) y +1 (positivo)</li>
+                            <li>🔍 Ej: 0.75 indica tono positivo</li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col">
+            <a asp-controller="Predictor" asp-action="MostrarFormularioDePrediccionSentimiento" class="text-decoration-none text-reset">
+                <div class="card h-100 shadow-sm border-0 rounded-4 card-hover-effect">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fs-4">Sentimiento</h5>
+                        <ul class="list-unstyled my-0">
+                            <li class="fs-4 mb-2">😊</li>
+                            <li>💬 Clasifica el mensaje emocionalmente</li>
+                            <li>🤖 Resultado: Positivo, Negativo o Neutro</li>
+                            <li>🧠 Útil para entender opiniones</li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
 </div>
