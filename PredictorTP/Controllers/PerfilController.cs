@@ -17,7 +17,7 @@ namespace PredictorTP.Controllers
         {
 
             //HACER: Acá obtener el ID del current User de la Sesion.-------------------------------
-            Usuario usuario = this._servicioUsuario.buscarUsuarioPorId(1);
+            Usuario usuario = this._servicioUsuario.buscarUsuarioPorId(3);
 
             if (usuario == null)
             {
@@ -42,6 +42,20 @@ namespace PredictorTP.Controllers
 
             return RedirectToAction("Ver");
         }
+
+
+        [HttpGet]
+        public IActionResult Eliminar(int id)
+        {
+            if (id < 0)
+            {
+                return RedirectToAction("/");
+            }
+
+            this._servicioUsuario.eliminarUsuarioPorId(id);
+            return RedirectToAction("/");
+        }
+
 
     }
 }

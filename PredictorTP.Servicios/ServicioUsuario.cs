@@ -8,6 +8,7 @@ namespace PredictorTP.Servicios
     public interface IServicioUsuario
     {
         Usuario buscarUsuarioPorId(int v);
+        void eliminarUsuarioPorId(int id);
         void Registrar(Usuario usuario);
     }
 
@@ -23,6 +24,15 @@ namespace PredictorTP.Servicios
         public Usuario buscarUsuarioPorId(int id)
         {
             return this._usuarioRepositorio.buscarUsuarioPorId(id);
+        }
+
+        public void eliminarUsuarioPorId(int id)
+        {
+            Usuario userAEliminar = buscarUsuarioPorId(id);
+            if (userAEliminar != null)
+            {
+                this._usuarioRepositorio.eliminarUsuario(userAEliminar);
+            }
         }
 
         public void Registrar(Usuario usuario)

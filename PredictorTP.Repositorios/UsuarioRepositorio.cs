@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using PredictorTP.Entidades.EF;
 
 namespace PredictorTP.Repositorios
@@ -8,6 +9,7 @@ namespace PredictorTP.Repositorios
     {
         Usuario buscarUsuarioPorId(int id);
         void CargarNuevoUsuario(Usuario usuario);
+        void eliminarUsuario(Usuario userAEliminar);
     }
     public class UsuarioRepositorio : IUsuarioRepositorio
     {
@@ -27,6 +29,12 @@ namespace PredictorTP.Repositorios
         {
             _context.Usuarios.Add(usuario);
             _context.SaveChanges();
+        }
+
+        public void eliminarUsuario(Usuario userAEliminar)
+        {
+            this._context.Usuarios.Remove(userAEliminar);
+            this._context.SaveChanges();
         }
     }
 }

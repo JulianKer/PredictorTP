@@ -3,6 +3,7 @@
 }
 <header>
     <link href="~/css/perfil.css" rel="stylesheet" />
+    <script src="~/js/perfil.js" defer></script>
 </header>
 
 <div class="div-perfil-container">
@@ -52,10 +53,19 @@
 
             <div class="grupo-btn-perfil">
                 <button type="submit" class="btn btn-success">Guardar</button>
-
-                <button type="submit" class="btn btn-danger">Borrar cuenta</button>
+                <button type="button" id="btnMostrarPopup" class="btn btn-danger">Borrar cuenta</button>
             </div>
         </form>
 
     </div>
 </div>
+
+<!-------- POPUP -------->
+<section class="pop-up-fondo">
+    <section class="pop-up">
+        <p class="pop-up-mensaje">¿Eliminar cuenta?</p>
+        <a href="/Perfil/Eliminar/@Model.UserId" type="button" class="btn btn-danger">Eliminar definitivamente</a>
+        <button type="button" class="btn btn-dark" id="btn-cancelar-eliminacion">Cancelar</button>
+    </section>
+</section>
+<!----------------------->
