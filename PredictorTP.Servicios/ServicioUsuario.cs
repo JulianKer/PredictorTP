@@ -7,6 +7,7 @@ namespace PredictorTP.Servicios
 
     public interface IServicioUsuario
     {
+        Usuario buscarUsuarioPorId(int v);
         void Registrar(Usuario usuario);
     }
 
@@ -17,6 +18,11 @@ namespace PredictorTP.Servicios
         public ServicioUsuario(IUsuarioRepositorio usuarioRepositorio)
         {
             this._usuarioRepositorio = usuarioRepositorio;
+        }
+
+        public Usuario buscarUsuarioPorId(int id)
+        {
+            return this._usuarioRepositorio.buscarUsuarioPorId(id);
         }
 
         public void Registrar(Usuario usuario)

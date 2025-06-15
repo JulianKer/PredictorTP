@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj": {}
+    "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj": {}
   },
   "projects": {
-    "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj": {
+    "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj",
         "projectName": "PredictorTP.Entidades",
-        "projectPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj",
+        "projectPath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj",
         "packagesPath": "C:\\Users\\germa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\obj\\",
+        "outputPath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -95,14 +95,14 @@
         }
       }
     },
-    "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj": {
+    "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj",
+        "projectUniqueName": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj",
         "projectName": "PredictorTP.Repositorios",
-        "projectPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj",
+        "projectPath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj",
         "packagesPath": "C:\\Users\\germa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Repositorios\\obj\\",
+        "outputPath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Repositorios\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -123,8 +123,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj": {
-                "projectPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj"
+              "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj": {
+                "projectPath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj"
               }
             }
           }
@@ -164,14 +164,14 @@
         }
       }
     },
-    "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj": {
+    "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj",
+        "projectUniqueName": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj",
         "projectName": "PredictorTP.Servicios",
-        "projectPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj",
+        "projectPath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj",
         "packagesPath": "C:\\Users\\germa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Servicios\\obj\\",
+        "outputPath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Servicios\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -192,11 +192,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj": {
-                "projectPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj"
+              "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj": {
+                "projectPath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj"
               },
-              "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj": {
-                "projectPath": "C:\\Users\\germa\\source\\repos\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj"
+              "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj": {
+                "projectPath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj"
               }
             }
           }
