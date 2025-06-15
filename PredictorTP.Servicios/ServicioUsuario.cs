@@ -10,6 +10,7 @@ namespace PredictorTP.Servicios
         Usuario buscarUsuarioPorId(int v);
         void eliminarUsuarioPorId(int id);
         void Registrar(Usuario usuario);
+        string ActualizarUsuario(Usuario userBdd);
     }
 
     public class ServicioUsuario : IServicioUsuario
@@ -38,6 +39,12 @@ namespace PredictorTP.Servicios
         public void Registrar(Usuario usuario)
         {
             this._usuarioRepositorio.CargarNuevoUsuario(usuario);
+        }
+
+        public string ActualizarUsuario(Usuario userBdd)
+        {
+            this._usuarioRepositorio.ActualizarUsuario(userBdd);
+            return "¡Datos actualizados correctamente!";
         }
     }
 }

@@ -7,6 +7,7 @@ namespace PredictorTP.Repositorios
 
     public interface IUsuarioRepositorio
     {
+        void ActualizarUsuario(Usuario userBdd);
         Usuario buscarUsuarioPorId(int id);
         void CargarNuevoUsuario(Usuario usuario);
         void eliminarUsuario(Usuario userAEliminar);
@@ -18,6 +19,12 @@ namespace PredictorTP.Repositorios
         public UsuarioRepositorio(PredictorBddContext context)
         {
             _context = context;
+        }
+
+        public void ActualizarUsuario(Usuario userBdd)
+        {
+            this._context.Usuarios.Update(userBdd);
+            this._context.SaveChanges();
         }
 
         public Usuario buscarUsuarioPorId(int id)

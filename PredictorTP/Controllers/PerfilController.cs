@@ -17,7 +17,7 @@ namespace PredictorTP.Controllers
         {
 
             //HACER: Acá obtener el ID del current User de la Sesion.-------------------------------
-            Usuario usuario = this._servicioUsuario.buscarUsuarioPorId(3);
+            Usuario usuario = this._servicioUsuario.buscarUsuarioPorId(1);
 
             if (usuario == null)
             {
@@ -27,20 +27,25 @@ namespace PredictorTP.Controllers
         }
 
         [HttpPost]
-        public IActionResult Ver(Usuario newUser, string confirmPassword)
+        public IActionResult Ver(Usuario editedUser, string confirmPassword)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(newUser);
+            Usuario userBdd = this._servicioUsuario.buscarUsuarioPorId(1); //ACA TIENE QUE IR LA VARIABLE DEL ID USER DE LA SESION
+            userBdd.Nombre = editedUser.Nombre;
+            userBdd.Apellido = editedUser.Apellido;
+            userBdd.Contrasenia = editedUser.Contrasenia;
+
+            if(!ModelState.IsValid) {
+                return View(userBdd);
             }
 
-            if (!String.Equals(newUser.Contrasenia, confirmPassword))
+            if (!String.Equals(editedUser.Contrasenia, confirmPassword))
             {
                 ViewBag.ErrorConfirmPassword = "Las contraseñas no coinciden!";
-                return View(newUser);
+                return View(userBdd);
             }
 
-            return RedirectToAction("Ver");
+            ViewBag.msj = this._servicioUsuario.ActualizarUsuario(userBdd); ;
+            return View(userBdd);
         }
 
 
