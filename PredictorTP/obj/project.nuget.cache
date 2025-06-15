@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XSnjUpVhWwk=",
+  "dgSpecHash": "1TAJRLwb2hs=",
   "success": true,
   "projectFilePath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP\\PredictorTP.csproj",
   "expectedPackageFiles": [
@@ -111,5 +111,12 @@
     "C:\\Users\\germa\\.nuget\\packages\\system.threading.tasks.extensions\\4.6.0\\system.threading.tasks.extensions.4.6.0.nupkg.sha512",
     "C:\\Users\\germa\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

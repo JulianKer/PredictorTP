@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PredictorTP.Servicios")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5df8060c4f71e78753357f466e2c01be3cdc24a6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb186a2bb603f90f435bcf4759e331a4cc2222cb")]
 [assembly: System.Reflection.AssemblyProductAttribute("PredictorTP.Servicios")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PredictorTP.Servicios")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

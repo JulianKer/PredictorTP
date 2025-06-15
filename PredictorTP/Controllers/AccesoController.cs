@@ -1,10 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PredictorTP.Entidades.EF;
+using PredictorTP.Servicios;
 
 namespace PredictorTP.Controllers
 {
     public class AccesoController : Controller
     {
+        private IServicioUsuario _servicioUsuario;
+
+        public AccesoController(IServicioUsuario servicioUsuario)
+        {
+            this._servicioUsuario = servicioUsuario;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -47,8 +55,7 @@ namespace PredictorTP.Controllers
                 return View(newUser);
             }
 
-            // ACÁ FALTA PEGARLE A LA BDD CREANDO EL USUARIO Y HACER LO DEL ENVIAR
-            // MAIL PARA CONFIRMAR Y MARCAR EL CHECK DE VERIFICADO Y ASI TE DEJA INGREAR
+            this._servicioUsuario.Registrar(newUser);
 
             TempData["MensjaeExito"] = "Usuario creado con éxito, revise su correo para la verificación y luego inicie sesión.";
             return RedirectToAction("Ingresar");

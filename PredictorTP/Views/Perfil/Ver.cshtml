@@ -1,0 +1,61 @@
+﻿@model PredictorTP.Entidades.EF.Usuario;
+@{
+}
+<header>
+    <link href="~/css/perfil.css" rel="stylesheet" />
+</header>
+
+<div class="div-perfil-container">
+    <div class="card-body p-4 div-perfil">
+        <h3 class="card-title text-center mb-4 text-success register-title">Perfil</h3>
+
+        <form id="registerForm" method="post" asp-controller="Acceso" asp-action="Registrar">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label asp-for="Nombre" class="form-label fw-semibold">
+                        <span style="color:red; font-weight: bold">*</span>Nombre
+                    </label>
+                    <input asp-for="Nombre" class="form-control" value="@Model.Nombre"  />
+                    <span asp-validation-for="Nombre" class="alert-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Apellido" class="form-label fw-semibold">
+                        <span style="color:red; font-weight: bold">*</span>Apellido
+                    </label>
+                    <input asp-for="Apellido" class="form-control" value="@Model.Apellido"/>
+                    <span asp-validation-for="Apellido" class="alert-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label fw-semibold">
+                    <span style="color:red; font-weight: bold">*</span>Correo electrónico
+                </label>
+                <input asp-for="Email" class="form-control" value="@Model.Email" readonly/>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Contrasenia" class="form-label fw-semibold">
+                    <span style="color:red; font-weight: bold">*</span>Nueva contraseña
+                </label>
+                <input asp-for="Contrasenia" class="form-control" placeholder="" />
+                <span asp-validation-for="Contrasenia" class="alert-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label fw-semibold">
+                    <span style="color:red; font-weight: bold">*</span>Confirmar nueva contraseña
+                </label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="" />
+                
+            </div>
+
+            <div class="grupo-btn-perfil">
+                <button type="submit" class="btn btn-success">Guardar</button>
+
+                <button type="submit" class="btn btn-danger">Borrar cuenta</button>
+            </div>
+        </form>
+
+    </div>
+</div>

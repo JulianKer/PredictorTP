@@ -2226,6 +2226,9 @@
       "PredictorTP.Repositorios/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "PredictorTP.Entidades": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/PredictorTP.Repositorios.dll": {}
         },
@@ -5903,6 +5906,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 9.0.6",
       "Microsoft.ML >= 4.0.2",
       "PredictorTP.Entidades >= 1.0.0",
+      "PredictorTP.Repositorios >= 1.0.0",
       "PredictorTP.Servicios >= 1.0.0"
     ]
   },
@@ -5940,6 +5944,9 @@
           "projectReferences": {
             "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj": {
               "projectPath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj"
+            },
+            "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj": {
+              "projectPath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj"
             },
             "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj": {
               "projectPath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj"
@@ -5996,5 +6003,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

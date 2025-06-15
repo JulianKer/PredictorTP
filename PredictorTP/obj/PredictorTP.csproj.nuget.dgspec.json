@@ -122,7 +122,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj": {
+                "projectPath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -262,6 +266,9 @@
             "projectReferences": {
               "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj": {
                 "projectPath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Entidades\\PredictorTP.Entidades.csproj"
+              },
+              "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj": {
+                "projectPath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Repositorios\\PredictorTP.Repositorios.csproj"
               },
               "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj": {
                 "projectPath": "C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Servicios\\PredictorTP.Servicios.csproj"

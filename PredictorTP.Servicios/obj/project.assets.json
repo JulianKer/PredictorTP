@@ -2124,6 +2124,9 @@
       "PredictorTP.Repositorios/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "PredictorTP.Entidades": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/PredictorTP.Repositorios.dll": {}
         },
@@ -6149,5 +6152,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\germa\\OneDrive\\Escritorio\\PredictorTP\\PredictorTP.Servicios\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

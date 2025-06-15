@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PredictorTP.Entidades\PredictorTP.Entidades.csproj" />
+    <ProjectReference Include="..\PredictorTP.Repositorios\PredictorTP.Repositorios.csproj" />
     <ProjectReference Include="..\PredictorTP.Servicios\PredictorTP.Servicios.csproj" />
   </ItemGroup>
 
