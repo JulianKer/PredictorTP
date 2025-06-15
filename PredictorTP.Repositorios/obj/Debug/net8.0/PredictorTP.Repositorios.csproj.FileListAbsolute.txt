@@ -10,22 +10,6 @@ C:\Users\germa\OneDrive\Escritorio\Unlam\PW3\TP\PredictorTP\PredictorTP.Reposito
 C:\Users\germa\OneDrive\Escritorio\Unlam\PW3\TP\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\refint\PredictorTP.Repositorios.dll
 C:\Users\germa\OneDrive\Escritorio\Unlam\PW3\TP\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.pdb
 C:\Users\germa\OneDrive\Escritorio\Unlam\PW3\TP\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\ref\PredictorTP.Repositorios.dll
-C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\bin\Debug\net8.0\PredictorTP.Repositorios.deps.json
-C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\bin\Debug\net8.0\PredictorTP.Repositorios.dll
-C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\bin\Debug\net8.0\PredictorTP.Repositorios.pdb
-C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\bin\Debug\net8.0\PredictorTP.Entidades.dll
-C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\bin\Debug\net8.0\PredictorTP.Entidades.pdb
-C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.csproj.AssemblyReference.cache
-C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.GeneratedMSBuildEditorConfig.editorconfig
-C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.AssemblyInfoInputs.cache
-C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.AssemblyInfo.cs
-C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.csproj.CoreCompileInputs.cache
-C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.sourcelink.json
-C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\Predicto.AF51A0F9.Up2Date
-C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.dll
-C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\refint\PredictorTP.Repositorios.dll
-C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.pdb
-C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\ref\PredictorTP.Repositorios.dll
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Repositorios\bin\Debug\net8.0\PredictorTP.Repositorios.deps.json
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Repositorios\bin\Debug\net8.0\PredictorTP.Repositorios.dll
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Repositorios\bin\Debug\net8.0\PredictorTP.Repositorios.pdb
@@ -42,3 +26,19 @@ C:\Users\germa\source\repos\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\refint\PredictorTP.Repositorios.dll
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.pdb
 C:\Users\germa\source\repos\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\ref\PredictorTP.Repositorios.dll
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.csproj.AssemblyReference.cache
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.GeneratedMSBuildEditorConfig.editorconfig
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.AssemblyInfoInputs.cache
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.AssemblyInfo.cs
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.csproj.CoreCompileInputs.cache
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.sourcelink.json
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\bin\Debug\net8.0\PredictorTP.Repositorios.deps.json
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\bin\Debug\net8.0\PredictorTP.Repositorios.dll
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\bin\Debug\net8.0\PredictorTP.Repositorios.pdb
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\bin\Debug\net8.0\PredictorTP.Entidades.dll
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\bin\Debug\net8.0\PredictorTP.Entidades.pdb
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\Predicto.AF51A0F9.Up2Date
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.dll
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\refint\PredictorTP.Repositorios.dll
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\PredictorTP.Repositorios.pdb
+C:\facu 2025\PW3\PredictorTP\PredictorTP.Repositorios\obj\Debug\net8.0\ref\PredictorTP.Repositorios.dll

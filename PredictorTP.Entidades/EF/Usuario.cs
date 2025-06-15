@@ -20,4 +20,6 @@ public partial class Usuario
     public bool Verificado { get; set; }
 
     public bool Administrador { get; set; }
+
+    public string? TokenConfirmacion { get; set; }
 }

@@ -1110,8 +1110,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ea3jirta9o</Fingerprint>
-      <Integrity>mnrZ3IM5f5XKgFELeZglWALZ5xXQeEf40/b13UKqm0s=</Integrity>
+      <Fingerprint>vvh9gyr7tc</Fingerprint>
+      <Integrity>ywqCxhcnNVgc8L2n6uPFQ5pdGkmWLRo7sFQMPS1f6iM=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\PredictorBDD.sql'))</OriginalItemSpec>

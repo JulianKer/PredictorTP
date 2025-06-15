@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Confirmación de cuenta";
+}
+
+<div class="container mt-5">
+    <div class="alert alert-info">
+        <h4 class="alert-heading">Resultado de la confirmación</h4>
+        <p>@ViewBag.Mensaje</p>
+    </div>
+
+    <a href="@Url.Action("Ingresar", "Acceso")" class="btn btn-primary">Ir al login</a>
+</div>

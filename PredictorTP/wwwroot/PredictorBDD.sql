@@ -4,6 +4,8 @@ GO
 CREATE DATABASE [PredictorBDD]
 GO
 
+USE [PredictorBDD]
+
 /****** Object:  Table [dbo].[Usuario]    Script Date: 12/6/2025 10:42:43 ******/
 SET ANSI_NULLS ON
 GO
@@ -14,7 +16,8 @@ CREATE TABLE [dbo].[Usuario](
 	[email] [nvarchar](255) NOT NULL,
 	[nombre] [nvarchar](100) NOT NULL,
 	[apellido] [nvarchar](100) NOT NULL,
-	[contraseña] [nvarchar](255) NOT NULL,
+	[tokenconfirmacion] [nvarchar](255),
+	[contrasenia] [nvarchar](255) NOT NULL,
 	[activo] [bit] NOT NULL,
 	[verificado] [bit] NOT NULL,
 	[administrador] [bit] NOT NULL,
@@ -36,7 +39,7 @@ ALTER DATABASE [PredictorBDD] SET  READ_WRITE
 GO
 
 
-INSERT INTO [dbo].[Usuario] ([email], [nombre], [apellido], [contraseña], [activo], [verificado], [administrador])
+INSERT INTO [dbo].[Usuario] ([email], [nombre], [apellido], [contrasenia], [activo], [verificado], [administrador])
 VALUES 
 ('admin@pw3.com', 'Admin', 'PW3', 'admin123', 1, 1, 1),
 ('user@normal.com', 'User', 'Normal', 'user123', 1, 1, 0);

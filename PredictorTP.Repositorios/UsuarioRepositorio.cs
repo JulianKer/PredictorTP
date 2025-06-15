@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using PredictorTP.Entidades.EF;
 
 namespace PredictorTP.Repositorios
@@ -6,7 +7,9 @@ namespace PredictorTP.Repositorios
 
     public interface IUsuarioRepositorio
     {
-        void CargarNuevoUsuario(Usuario usuario);
+        Task CargarNuevoUsuario(Usuario usuario);
+        Task ActualizarUsuario(Usuario usuario);
+        Task<Usuario> ObtenerUsuarioPorToken(string token);
     }
     public class UsuarioRepositorio : IUsuarioRepositorio
     {
@@ -17,10 +20,20 @@ namespace PredictorTP.Repositorios
             _context = context;
         }
 
-        public void CargarNuevoUsuario(Usuario usuario)
+        public async Task CargarNuevoUsuario(Usuario usuario)
         {
             _context.Usuarios.Add(usuario);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
+        }
+        public async Task ActualizarUsuario(Usuario usuario)
+        {
+            _context.Usuarios.Update(usuario);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<Usuario> ObtenerUsuarioPorToken(string token)
+        {
+            return await _context.Usuarios.FirstOrDefaultAsync(u => u.TokenConfirmacion == token);
         }
     }
 }
