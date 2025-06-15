@@ -9,7 +9,12 @@
 @if (!String.IsNullOrEmpty(ViewBag.msj))
 {
     <div class="div-msj-perfil">
-        <span class="alert alert-success">@ViewBag.msj</span>
+        <span class="alert alert-success">
+            @ViewBag.msj
+            <a href="/Perfil/Ver">
+                <i class='bx bx-x'></i>
+            </a>
+        </span>
     </div>
 }
 
@@ -74,7 +79,10 @@
 <section class="pop-up-fondo">
     <section class="pop-up">
         <p class="pop-up-mensaje">¿Eliminar cuenta?</p>
-        <a href="/Perfil/Eliminar/@Model.UserId" type="button" class="btn btn-danger">Eliminar definitivamente</a>
+        <form asp-controller="Perfil" asp-action="Eliminar" method="post">
+            <input type="hidden" name="id" value="@Model.UserId" />
+            <button type="submit" class="btn btn-danger">Eliminar definitivamente</button>
+        </form>
         <button type="button" class="btn btn-dark" id="btn-cancelar-eliminacion">Cancelar</button>
     </section>
 </section>

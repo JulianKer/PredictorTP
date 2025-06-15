@@ -25,16 +25,36 @@
 
 .div-msj-perfil{
     min-width: 100%;
+    position: absolute;
     display: flex;
     flex-direction:column;
     justify-content:center;
     align-items: center;
 }
 
+.div-msj-perfil .alert{
+    display: felx;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+    justify-items: center;
+    text-decoration: none;
+}
+
+.div-msj-perfil .alert i{
+    font-size: 1.5em;
+    transition: all .3s;
+    color: green;
+}
+
+.div-msj-perfil .alert i:hover {
+    cursor: pointer;
+}
 
 
 
 /*------------ POP UP ----------- */
+
 .pop-up-fondo {
     background-color: rgba(0, 0, 0, 0.8);
     position: fixed;

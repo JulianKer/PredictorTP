@@ -15,9 +15,9 @@ namespace PredictorTP.Controllers
         [HttpGet]
         public IActionResult Ver()
         {
-
-            //HACER: Acá obtener el ID del current User de la Sesion.-------------------------------
-            Usuario usuario = this._servicioUsuario.buscarUsuarioPorId(1);
+            HttpContext.Session.SetInt32("userID", 2); // BORRAR esta línea cuando tomi haga el login
+            int userID = Convert.ToInt32(HttpContext.Session.GetInt32("userID"));
+            Usuario usuario = this._servicioUsuario.buscarUsuarioPorId(userID);
 
             if (usuario == null)
             {
@@ -29,7 +29,10 @@ namespace PredictorTP.Controllers
         [HttpPost]
         public IActionResult Ver(Usuario editedUser, string confirmPassword)
         {
-            Usuario userBdd = this._servicioUsuario.buscarUsuarioPorId(1); //ACA TIENE QUE IR LA VARIABLE DEL ID USER DE LA SESION
+            HttpContext.Session.SetInt32("userID", 2); // BORRAR esta línea cuando tomi haga el login
+            int userID = Convert.ToInt32(HttpContext.Session.GetInt32("userID"));
+            Usuario userBdd = this._servicioUsuario.buscarUsuarioPorId(userID); 
+
             userBdd.Nombre = editedUser.Nombre;
             userBdd.Apellido = editedUser.Apellido;
             userBdd.Contrasenia = editedUser.Contrasenia;
@@ -49,7 +52,7 @@ namespace PredictorTP.Controllers
         }
 
 
-        [HttpGet]
+        [HttpPost]
         public IActionResult Eliminar(int id)
         {
             if (id < 0)
