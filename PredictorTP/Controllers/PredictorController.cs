@@ -42,6 +42,8 @@ namespace PredictorTP.Controllers
         {
             return View(this._servicioPredictorLenguaje.ObtenerResultadosLenguaje());
         }
+
+        [HttpPost]
         public IActionResult DetectarIdioma(string fraseEnIdioma)
         {
             ResultadoLenguaje nuevoResultadoLenguaje = this._servicioPredictorLenguaje.predecirLenguaje(fraseEnIdioma);
