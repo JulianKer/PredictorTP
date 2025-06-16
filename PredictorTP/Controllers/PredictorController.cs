@@ -6,9 +6,9 @@ namespace PredictorTP.Controllers
 {
     public class PredictorController : Controller
     {
-        private IServicioPredictorSentimiento _servicioPredictorSentimiento { get; set; }
+        private IServicioPredictorPolaridad _servicioPredictorSentimiento { get; set; }
         private IServicioPredictorLenguaje _servicioPredictorLenguaje { get; set; }
-        public PredictorController(IServicioPredictorSentimiento servicioPredictorSentimiento, 
+        public PredictorController(IServicioPredictorPolaridad servicioPredictorSentimiento, 
                                    IServicioPredictorLenguaje servicioPredictorLenguaje) { 
             this._servicioPredictorSentimiento = servicioPredictorSentimiento;
             this._servicioPredictorLenguaje = servicioPredictorLenguaje;
@@ -27,7 +27,7 @@ namespace PredictorTP.Controllers
 
         public IActionResult PredecirSentimiento(string texto)
         {
-            Resultado nuevoResultado = this._servicioPredictorSentimiento.PredecirSentimiento(texto);
+            ResultadoPolaridad nuevoResultado = this._servicioPredictorSentimiento.PredecirSentimiento(texto);
             this._servicioPredictorSentimiento.guardarResultado(nuevoResultado);
 
             return RedirectToAction("MostrarFormularioDePrediccionSentimiento");

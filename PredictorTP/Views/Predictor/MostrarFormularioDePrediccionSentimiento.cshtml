@@ -1,5 +1,5 @@
 ﻿@using PredictorTP.Entidades
-@model List<Resultado>
+@model List<ResultadoPolaridad>
 @{
 	ViewData["Title"] = "Ingresá un texto";
 }
@@ -28,15 +28,19 @@
 				</tr>
 			</thead>
 
-			@foreach (Resultado cadaResultado in Model)
+			@foreach (ResultadoPolaridad cadaResultado in Model)
 			{
 				<tr>
 					<th>@cadaResultado._textoProcesado</th>
 					@if (@cadaResultado._resutlado == "Positiva"){
 						<th style="color: green">@cadaResultado._resutlado</th>
 					}
-					else{
+					else if(@cadaResultado._resutlado == "Negativa"){
 						<th style="color: red">@cadaResultado._resutlado</th>
+					}
+					else
+					{
+						<th style="color: #efb810;">@cadaResultado._resutlado</th>
 					}
 					<th>@cadaResultado._probabilidadPositiva</th>
 					<th>@cadaResultado._probabilidadNegativa</th>

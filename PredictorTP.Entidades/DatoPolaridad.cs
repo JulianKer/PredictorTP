@@ -7,7 +7,7 @@ using Microsoft.ML.Data;
 
 namespace PredictorTP.Entidades
 {
-    public class DatoSentimiento
+    public class DatoPolaridad
     {
         [LoadColumn(0)]
         public string Text { get; set; }

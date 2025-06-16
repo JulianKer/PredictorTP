@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<PredictorBddContext>();
-builder.Services.AddScoped<IServicioPredictorSentimiento, ServicioPredictorSentimiento>();
+builder.Services.AddScoped<IServicioPredictorPolaridad, ServicioPredictorPolaridad>();
 
 builder.Services.AddScoped<IServicioPredictorLenguaje, ServicioPredictorLenguaje>();
 

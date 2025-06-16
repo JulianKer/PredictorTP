@@ -2,7 +2,7 @@
 
 namespace PredictorTP.Entidades
 {
-    public class PrediccionSentimiento
+    public class PrediccionPolaridad
     {
         [ColumnName("PredictedLabel")]
         public bool Prediction { get; set; }
