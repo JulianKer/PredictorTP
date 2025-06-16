@@ -7,10 +7,11 @@ namespace PredictorTP.Repositorios
 
     public interface IUsuarioRepositorio
     {
-        void ActualizarUsuario(Usuario userBdd);
         Usuario buscarUsuarioPorId(int id);
-        void CargarNuevoUsuario(Usuario usuario);
         void eliminarUsuario(Usuario userAEliminar);
+        Task CargarNuevoUsuario(Usuario usuario);
+        Task ActualizarUsuario(Usuario usuario);
+        Task<Usuario> ObtenerUsuarioPorToken(string token);
     }
     public class UsuarioRepositorio : IUsuarioRepositorio
     {
@@ -21,21 +22,25 @@ namespace PredictorTP.Repositorios
             _context = context;
         }
 
-        public void ActualizarUsuario(Usuario userBdd)
-        {
-            this._context.Usuarios.Update(userBdd);
-            this._context.SaveChanges();
-        }
-
         public Usuario buscarUsuarioPorId(int id)
         {
             return this._context.Usuarios.Find(id);
         }
 
-        public void CargarNuevoUsuario(Usuario usuario)
+        public async Task CargarNuevoUsuario(Usuario usuario)
         {
             _context.Usuarios.Add(usuario);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
+        }
+        public async Task ActualizarUsuario(Usuario usuario)
+        {
+            _context.Usuarios.Update(usuario);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<Usuario> ObtenerUsuarioPorToken(string token)
+        {
+            return await _context.Usuarios.FirstOrDefaultAsync(u => u.Tokenconfirmacion == token);
         }
 
         public void eliminarUsuario(Usuario userAEliminar)

@@ -1,11 +1,12 @@
 USE [master]
 GO
-/****** Object:  Database [PredictorBDD]    Script Date: 14/6/2025 21:10:45 ******/
+/****** Object:  Database [PredictorBDD]    Script Date: 12/6/2025 10:42:43 ******/
 CREATE DATABASE [PredictorBDD]
 GO
 
-USE PredictorBDD;
-/****** Object:  Table [dbo].[Usuario]    Script Date: 14/6/2025 21:10:45 ******/
+USE [PredictorBDD]
+
+/****** Object:  Table [dbo].[Usuario]    Script Date: 12/6/2025 10:42:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -15,6 +16,7 @@ CREATE TABLE [dbo].[Usuario](
 	[email] [nvarchar](255) NOT NULL,
 	[nombre] [nvarchar](100) NOT NULL,
 	[apellido] [nvarchar](100) NOT NULL,
+	[tokenconfirmacion] [nvarchar](255),
 	[contrasenia] [nvarchar](255) NOT NULL,
 	[activo] [bit] NOT NULL,
 	[verificado] [bit] NOT NULL,
@@ -35,8 +37,13 @@ USE [master]
 GO
 ALTER DATABASE [PredictorBDD] SET  READ_WRITE 
 GO
-INSERT INTO [dbo].[Usuario] ([email], [nombre], [apellido], [contraseña], [activo], [verificado], [administrador])
+
+
+INSERT INTO [dbo].[Usuario] ([email], [nombre], [apellido], [contrasenia], [activo], [verificado], [administrador])
 VALUES 
 ('admin@pw3.com', 'Admin', 'PW3', 'admin123', 1, 1, 1),
 ('user@normal.com', 'User', 'Normal', 'user123', 1, 1, 0);
+GO
+
+SELECT * FROM [dbo].[Usuario]
 GO

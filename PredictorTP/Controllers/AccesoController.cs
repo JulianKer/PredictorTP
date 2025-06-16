@@ -40,7 +40,7 @@ namespace PredictorTP.Controllers
         }
 
         [HttpPost]
-        public IActionResult Registrar(Usuario newUser, string confirmPassword)
+        public async Task<IActionResult> Registrar(Usuario newUser, string confirmPassword)
         {
             if (!ModelState.IsValid) {
 
@@ -55,11 +55,20 @@ namespace PredictorTP.Controllers
                 return View(newUser);
             }
 
-            this._servicioUsuario.Registrar(newUser);
+            await this._servicioUsuario.Registrar(newUser);
 
             TempData["MensjaeExito"] = "Usuario creado con éxito, revise su correo para la verificación y luego inicie sesión.";
             return RedirectToAction("Ingresar");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> ConfirmarCuenta(string token)
+        {
+            var mensaje = await _servicioUsuario.ConfirmarCuenta(token);
+            ViewBag.Mensaje = mensaje;
+            return View();
+        }
+
         public IActionResult RecuperarContrasenia()
         {
             return Redirect("https://www.youtube.com/watch?v=-o849SEUQiQ");

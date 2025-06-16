@@ -23,6 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="MailKit" Version="4.12.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PredictorTP.Entidades\PredictorTP.Entidades.csproj" />
     <ProjectReference Include="..\PredictorTP.Repositorios\PredictorTP.Repositorios.csproj" />
   </ItemGroup>

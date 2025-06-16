@@ -13,6 +13,8 @@ builder.Services.AddScoped<IServicioPredictorIdioma, ServicioPredictorIdioma>();
 
 builder.Services.AddScoped<IServicioPredictorSentimiento, ServicioPredictorSentimiento>();
 
+builder.Services.AddScoped<IServicioEmail, ServicioEmail>();
+
 builder.Services.AddScoped<IServicioUsuario, ServicioUsuario>();
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
