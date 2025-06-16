@@ -7,7 +7,7 @@ using Microsoft.ML.Data;
 
 namespace PredictorTP.Entidades
 {
-    public class DatoLenguaje
+    public class DatoIdioma
     {
         [LoadColumn(0)]
         public string Text { get; set; }

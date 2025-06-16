@@ -7,7 +7,7 @@ namespace PredictorTP.Servicios
     public interface IServicioPredictorPolaridad
     {
         List<ResultadoPolaridad> obtenerTodosLosResultados();
-        ResultadoPolaridad PredecirSentimiento(string texto);
+        ResultadoPolaridad PredecirPolaridad(string texto);
         void guardarResultado(ResultadoPolaridad resultadoAGuardar);
     }
 
@@ -45,7 +45,7 @@ namespace PredictorTP.Servicios
             _predEngine = _mlContext.Model.CreatePredictionEngine<DatoPolaridad, PrediccionPolaridad>(loadedModel);
         }
 
-        public ResultadoPolaridad PredecirSentimiento(string texto)
+        public ResultadoPolaridad PredecirPolaridad(string texto)
         {
             var resultado = _predEngine.Predict(new DatoPolaridad { Text = texto });
 

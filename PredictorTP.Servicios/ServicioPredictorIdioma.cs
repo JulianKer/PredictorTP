@@ -8,34 +8,34 @@ using PredictorTP.Entidades;
 using PredictorTP.Servicios;
 
 
-public interface IServicioPredictorLenguaje
+public interface IServicioPredictorIdioma
 {
-    ResultadoLenguaje predecirLenguaje(string fraseEnIdioma);
-    void guardarResultdoLenguaje(ResultadoLenguaje nuevoResultadoLenguaje);
-    List<ResultadoLenguaje> ObtenerResultadosLenguaje();
+    ResultadoIdioma predecirIdioma(string fraseEnIdioma);
+    void guardarResultdoIdioma(ResultadoIdioma nuevoResultadoLenguaje);
+    List<ResultadoIdioma> ObtenerResultadosIdioma();
 }
 
 
-public class ServicioPredictorLenguaje : IServicioPredictorLenguaje
+public class ServicioPredictorIdioma : IServicioPredictorIdioma
 {
     private readonly MLContext _mlContext;
-    private readonly PredictionEngine<DatoLenguaje, PrediccionLenguaje> _predEngine;
+    private readonly PredictionEngine<DatoIdioma, PrediccionIdioma> _predEngine;
     private static readonly string modeloPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "modelo_idiomas.zip");
     private static readonly string datosPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Entrenamiento", "idiomas.tsv");
 
-    private static List<ResultadoLenguaje> _misResultadosLenguaje = new();
+    private static List<ResultadoIdioma> _misResultadosLenguaje = new();
 
-    public ServicioPredictorLenguaje()
+    public ServicioPredictorIdioma()
     {
         _mlContext = new MLContext();
 
         // si NO tengo guardado el modelo en un zip, lo creo, lo entreno y lo guardo en un .zip
         if (!File.Exists(modeloPath))
         {
-            var data = _mlContext.Data.LoadFromTextFile<DatoLenguaje>(datosPath, hasHeader: true);
+            var data = _mlContext.Data.LoadFromTextFile<DatoIdioma>(datosPath, hasHeader: true);
 
             var pipeline = _mlContext.Transforms.Conversion.MapValueToKey("Label")
-                .Append(_mlContext.Transforms.Text.FeaturizeText("Features", nameof(DatoLenguaje.Text)))
+                .Append(_mlContext.Transforms.Text.FeaturizeText("Features", nameof(DatoIdioma.Text)))
                 .Append(_mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy("Label", "Features"))
                 .Append(_mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel"));
 
@@ -48,25 +48,25 @@ public class ServicioPredictorLenguaje : IServicioPredictorLenguaje
         using var stream = new FileStream(modeloPath, FileMode.Open, FileAccess.Read, FileShare.Read);
         var loadedModel = _mlContext.Model.Load(stream, out _);
 
-        _predEngine = _mlContext.Model.CreatePredictionEngine<DatoLenguaje, PrediccionLenguaje>(loadedModel);
+        _predEngine = _mlContext.Model.CreatePredictionEngine<DatoIdioma, PrediccionIdioma>(loadedModel);
     }
 
-    public ResultadoLenguaje predecirLenguaje(string fraseEnIdioma)
+    public ResultadoIdioma predecirIdioma(string fraseEnIdioma)
     {
-        var resultado = _predEngine.Predict(new DatoLenguaje { Text = fraseEnIdioma });
+        var resultado = _predEngine.Predict(new DatoIdioma { Text = fraseEnIdioma });
         double confianza = Math.Round(resultado.Score.Max() * 100, 4);
 
-        return new ResultadoLenguaje(fraseEnIdioma, resultado.PredictedLabel, confianza);
+        return new ResultadoIdioma(fraseEnIdioma, resultado.PredictedLabel, confianza);
     }
 
-    public void guardarResultdoLenguaje(ResultadoLenguaje nuevoResultadoLenguaje)
+    public void guardarResultdoIdioma(ResultadoIdioma nuevoResultadoLenguaje)
     {
         _misResultadosLenguaje.Add(nuevoResultadoLenguaje);
     }
 
-    public List<ResultadoLenguaje> ObtenerResultadosLenguaje()
+    public List<ResultadoIdioma> ObtenerResultadosIdioma()
     {
-        return ServicioPredictorLenguaje._misResultadosLenguaje;
+        return ServicioPredictorIdioma._misResultadosLenguaje;
     }
 }
 

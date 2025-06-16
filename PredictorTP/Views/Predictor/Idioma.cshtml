@@ -1,5 +1,5 @@
 ﻿@using PredictorTP.Entidades
-@model List<ResultadoLenguaje>
+@model List<ResultadoIdioma>
 @{
 	ViewData["Title"] = "Detector de idiomas";
 }
@@ -27,7 +27,7 @@
 				</tr>
 			</thead>
 
-			@foreach (ResultadoLenguaje cadaResultado in Model)
+			@foreach (ResultadoIdioma cadaResultado in Model)
 			{
 				<tr>
 					<th>@cadaResultado._fraseEnIdioma</th>

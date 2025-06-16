@@ -6,11 +6,11 @@ namespace PredictorTP.Controllers
 {
     public class PredictorController : Controller
     {
-        private IServicioPredictorPolaridad _servicioPredictorSentimiento { get; set; }
-        private IServicioPredictorLenguaje _servicioPredictorLenguaje { get; set; }
+        private IServicioPredictorPolaridad _servicioPredictorPolaridad { get; set; }
+        private IServicioPredictorIdioma _servicioPredictorLenguaje { get; set; }
         public PredictorController(IServicioPredictorPolaridad servicioPredictorSentimiento, 
-                                   IServicioPredictorLenguaje servicioPredictorLenguaje) { 
-            this._servicioPredictorSentimiento = servicioPredictorSentimiento;
+                                   IServicioPredictorIdioma servicioPredictorLenguaje) { 
+            this._servicioPredictorPolaridad = servicioPredictorSentimiento;
             this._servicioPredictorLenguaje = servicioPredictorLenguaje;
         }
 
@@ -19,18 +19,18 @@ namespace PredictorTP.Controllers
             return View();
         }
 
-        // sentimientos ---------------------------------------------------
-        public IActionResult MostrarFormularioDePrediccionSentimiento()
+        // polaridad ---------------------------------------------------
+        public IActionResult Polaridad()
         {
-            return View(this._servicioPredictorSentimiento.obtenerTodosLosResultados());
+            return View(this._servicioPredictorPolaridad.obtenerTodosLosResultados());
         }
 
-        public IActionResult PredecirSentimiento(string texto)
+        public IActionResult PredecirPolaridad(string texto)
         {
-            ResultadoPolaridad nuevoResultado = this._servicioPredictorSentimiento.PredecirSentimiento(texto);
-            this._servicioPredictorSentimiento.guardarResultado(nuevoResultado);
+            ResultadoPolaridad nuevoResultado = this._servicioPredictorPolaridad.PredecirPolaridad(texto);
+            this._servicioPredictorPolaridad.guardarResultado(nuevoResultado);
 
-            return RedirectToAction("MostrarFormularioDePrediccionSentimiento");
+            return RedirectToAction("Polaridad");
         }
         // -------------------------------------------------------------------
 
@@ -38,18 +38,18 @@ namespace PredictorTP.Controllers
 
 
         // idiomas ----------------------------------------------------------
-        public IActionResult MostrarFormularioDePrediccionLenguaje()
+        public IActionResult Idioma()
         {
-            return View(this._servicioPredictorLenguaje.ObtenerResultadosLenguaje());
+            return View(this._servicioPredictorLenguaje.ObtenerResultadosIdioma());
         }
 
         [HttpPost]
         public IActionResult DetectarIdioma(string fraseEnIdioma)
         {
-            ResultadoLenguaje nuevoResultadoLenguaje = this._servicioPredictorLenguaje.predecirLenguaje(fraseEnIdioma);
-            this._servicioPredictorLenguaje.guardarResultdoLenguaje(nuevoResultadoLenguaje);
+            ResultadoIdioma nuevoResultadoLenguaje = this._servicioPredictorLenguaje.predecirIdioma(fraseEnIdioma);
+            this._servicioPredictorLenguaje.guardarResultdoIdioma(nuevoResultadoLenguaje);
 
-            return RedirectToAction("MostrarFormularioDePrediccionLenguaje");            
+            return RedirectToAction("Idioma");            
         }
         //-----------------------------------------------------------------
     }

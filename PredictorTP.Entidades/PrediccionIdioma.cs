@@ -7,7 +7,7 @@ using Microsoft.ML.Data;
 
 namespace PredictorTP.Entidades
 {
-    public class PrediccionLenguaje
+    public class PrediccionIdioma
     {
         [ColumnName("PredictedLabel")]
         public string PredictedLabel { get; set; }
