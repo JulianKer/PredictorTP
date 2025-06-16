@@ -12,7 +12,12 @@
 
                     @if (TempData["MensjaeExito"] != null)
                     {
-                        <span class="alert alert-success">@TempData["MensjaeExito"]</span>
+                        <span class="alert alert-success alert-ingreso">
+                            @TempData["MensjaeExito"]
+                            <a href="/Acceso/Ingresar">
+                                <i class='bx bx-x'></i>
+                            </a>
+                        </span>
                     }
 
                     <div class="card-body p-4">

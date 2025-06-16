@@ -64,5 +64,11 @@ namespace PredictorTP.Controllers
         {
             return Redirect("https://www.youtube.com/watch?v=-o849SEUQiQ");
         }
+
+        public IActionResult Salir() {
+            HttpContext.Session.Clear();
+            TempData["MensjaeExito"] = "Sesión cerrada con éxito.";
+            return RedirectToAction("Ingresar");
+        }
     }
 }
