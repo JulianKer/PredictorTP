@@ -33,7 +33,7 @@
 }
 
 .div-msj-perfil .alert{
-    display: felx;
+    display: flex;
     justify-content:center;
     align-content:center;
     align-items:center;
