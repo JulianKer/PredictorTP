@@ -9,6 +9,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<PredictorBddContext>();
 builder.Services.AddScoped<IServicioPredictorSentimiento, ServicioPredictorSentimiento>();
 builder.Services.AddScoped<IServicioPredictorLenguaje, ServicioPredictorLenguaje>();
+builder.Services.AddScoped<IServicioEmail, ServicioEmail>();
 builder.Services.AddScoped<IServicioUsuario, ServicioUsuario>();
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
