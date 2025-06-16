@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PredictorTP.styles.css" asp-append-version="true" />
+    <link href="~/css/nav.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -21,30 +22,47 @@
     @if (ViewBag.login_o_register == null || ViewBag.login_o_register != null && Convert.ToBoolean(ViewBag.login_o_register) == false)
     {
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3 contendor-nav">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PredictorTP</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/logo_app/logo_predictor_nav.png"/>
+                </a>
+                    <button class="navbar-toggler btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">
+                            <i class='bx  bxs-menu-wide iconos-nav'></i>
+                        </span>
+                    </button>
 
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                            </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Predictor" asp-action="MostrarFormularioDePrediccionLenguaje">Idiomas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-controller="Predictor" asp-action="MostrarFormularioDePrediccionSentimiento">Polaridad</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Predictor" asp-action="MostrarFormularioDePrediccionSentimiento">Predecir</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Predictor" asp-action="MostrarFormularioDePrediccionLenguaje">Detectar idioma</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Sentimientos</a>
                         </li>
                     </ul>
                 </div>
+
+                <div class="contenedor-perfil-nav">
+                    <a href="/Perfil/Ver">
+                        <p class="nombre-perfil-nav">German</p>
+                        <i class='bx  bx-user-circle iconos-nav'></i>
+                    </a>
+                    
+                    <a href="/Acceso/Salir"><i class='bx  bx-arrow-out-right-square-half iconos-nav'></i></a>
+
+                    
+                </div>
+
+
             </div>
         </nav>
     </header>

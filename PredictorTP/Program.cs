@@ -48,6 +48,6 @@ app.Use(async (context, next) =>
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Acceso}/{action=Ingresar}/{id?}");
+    pattern: "{controller=Perfil}/{action=Ver}/{id?}");
 
 app.Run();
