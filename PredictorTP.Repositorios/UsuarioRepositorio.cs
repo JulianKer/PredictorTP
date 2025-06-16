@@ -33,7 +33,7 @@ namespace PredictorTP.Repositorios
 
         public async Task<Usuario> ObtenerUsuarioPorToken(string token)
         {
-            return await _context.Usuarios.FirstOrDefaultAsync(u => u.TokenConfirmacion == token);
+            return await _context.Usuarios.FirstOrDefaultAsync(u => u.Tokenconfirmacion == token);
         }
     }
 }

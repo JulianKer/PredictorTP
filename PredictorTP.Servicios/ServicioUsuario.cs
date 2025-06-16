@@ -28,12 +28,12 @@ namespace PredictorTP.Servicios
         {
             usuario.Contrasenia = BCrypt.Net.BCrypt.HashPassword(usuario.Contrasenia);
 
-            usuario.TokenConfirmacion = Guid.NewGuid().ToString();
+            usuario.Tokenconfirmacion = Guid.NewGuid().ToString();
             usuario.Verificado = false;
 
             await this._usuarioRepositorio.CargarNuevoUsuario(usuario);
 
-            var urlConfirmacion = $"http://localhost:5032/Acceso/ConfirmarCuenta?token={usuario.TokenConfirmacion}";
+            var urlConfirmacion = $"http://localhost:5032/Acceso/ConfirmarCuenta?token={usuario.Tokenconfirmacion}";
 
             await _servicioEmail.EnviarConfirmacion(
                 usuario.Email,
@@ -48,7 +48,7 @@ namespace PredictorTP.Servicios
             if (usuario == null) return "La cuenta no pudo ser confirmada correctamente.";
 
             usuario.Verificado = true;
-            usuario.TokenConfirmacion = null;
+            usuario.Tokenconfirmacion = null;
             await _usuarioRepositorio.ActualizarUsuario(usuario);
 
             return "Su cuenta se ha confirmado correctamente! Inicie sesion.";

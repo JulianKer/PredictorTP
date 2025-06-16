@@ -13,6 +13,8 @@ public partial class Usuario
 
     public string Apellido { get; set; } = null!;
 
+    public string? Tokenconfirmacion { get; set; }
+
     public string Contrasenia { get; set; } = null!;
 
     public bool Activo { get; set; }
@@ -20,6 +22,4 @@ public partial class Usuario
     public bool Verificado { get; set; }
 
     public bool Administrador { get; set; }
-
-    public string? TokenConfirmacion { get; set; }
 }
