@@ -27,9 +27,17 @@ namespace PredictorTP.Controllers
 
 
         [HttpPost]
-        public IActionResult Ingresar(string usuario, string contrasenia)
-        {
-            return View();
+        public async Task<IActionResult> Ingresar(string email, string contrasenia) {
+            var mensajeError = await _servicioUsuario.Login(email, contrasenia, HttpContext);
+
+            if (mensajeError!= null) {
+
+                ViewData["login_o_register"] = true;
+                ViewBag.ErrorLogin = mensajeError;
+                return View();
+            }
+
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]

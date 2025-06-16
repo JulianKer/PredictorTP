@@ -3,6 +3,7 @@ using PredictorTP.Entidades.EF;
 using PredictorTP.Repositorios;
 using BCrypt.Net;
 using System;
+using Microsoft.AspNetCore.Http;
 
 namespace PredictorTP.Servicios
 {
@@ -14,6 +15,8 @@ namespace PredictorTP.Servicios
         string ActualizarUsuario(Usuario userBdd);
         Task Registrar(Usuario usuario);
         Task<string> ConfirmarCuenta(string token);
+
+        Task<string> Login(String email, String contraseña, HttpContext httpContext);
     }
 
     public class ServicioUsuario : IServicioUsuario
@@ -69,6 +72,42 @@ namespace PredictorTP.Servicios
             await _usuarioRepositorio.ActualizarUsuario(usuario);
 
             return "Su cuenta se ha confirmado correctamente! Inicie sesion.";
+        }
+
+
+        public async Task<string> Login(String email, String contrasenia, HttpContext httpContext)
+        {
+
+            var usuario = await _usuarioRepositorio.BuscarUsuarioPorEmail(email);
+
+            if (usuario == null)
+            {
+                return "Este email no coincide con ningun usuario";
+            }
+
+            if (!usuario.Verificado)
+            {
+
+                return "Debe verificar su cuenta antes de iniciar sesion";
+            }
+
+
+            bool contraseniaValida = BCrypt.Net.BCrypt.Verify(contrasenia, usuario.Contrasenia);
+
+            if (contraseniaValida == false) {
+
+                return "COntraseña incorrecta!";
+            
+            
+            }
+
+            httpContext.Session.SetInt32("idUsuario", usuario.UserId);
+            httpContext.Session.SetString("nombreUsuario", usuario.Nombre);
+
+            return null;
+
+
+
         }
 
         public string ActualizarUsuario(Usuario userBdd)

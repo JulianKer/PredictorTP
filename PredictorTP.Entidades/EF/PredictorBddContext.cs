@@ -19,13 +19,13 @@ public partial class PredictorBddContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=GEMELOS\\SQLEXPRESS;Database=PredictorBDD;Trusted_Connection=True;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=LAPTOP-I7KQ4F1H;Database=PredictorBDD;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__Usuario__CB9A1CFF0B201553");
+            entity.HasKey(e => e.UserId).HasName("PK__Usuario__CB9A1CFFA4A1482F");
 
             entity.ToTable("Usuario");
 

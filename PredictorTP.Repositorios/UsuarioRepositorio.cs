@@ -12,6 +12,8 @@ namespace PredictorTP.Repositorios
         Task CargarNuevoUsuario(Usuario usuario);
         Task ActualizarUsuario(Usuario usuario);
         Task<Usuario> ObtenerUsuarioPorToken(string token);
+
+        Task<Usuario> BuscarUsuarioPorEmail(string email);
     }
     public class UsuarioRepositorio : IUsuarioRepositorio
     {
@@ -41,6 +43,11 @@ namespace PredictorTP.Repositorios
         public async Task<Usuario> ObtenerUsuarioPorToken(string token)
         {
             return await _context.Usuarios.FirstOrDefaultAsync(u => u.Tokenconfirmacion == token);
+        }
+
+        public async Task<Usuario> BuscarUsuarioPorEmail(string email)
+        {
+            return await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == email);
         }
 
         public void eliminarUsuario(Usuario userAEliminar)
