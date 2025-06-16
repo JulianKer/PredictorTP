@@ -8,10 +8,13 @@ namespace PredictorTP.Controllers
     {
         private IServicioPredictorPolaridad _servicioPredictorPolaridad { get; set; }
         private IServicioPredictorIdioma _servicioPredictorLenguaje { get; set; }
-        public PredictorController(IServicioPredictorPolaridad servicioPredictorSentimiento, 
-                                   IServicioPredictorIdioma servicioPredictorLenguaje) { 
-            this._servicioPredictorPolaridad = servicioPredictorSentimiento;
+        private IServicioPredictorSentimiento _servicioPredictorSentimiento { get; set; }
+        public PredictorController(IServicioPredictorPolaridad servicioPredictorPolaridad, 
+                                   IServicioPredictorIdioma servicioPredictorLenguaje,
+                                   IServicioPredictorSentimiento servicioPredictorSentimiento) { 
+            this._servicioPredictorPolaridad = servicioPredictorPolaridad;
             this._servicioPredictorLenguaje = servicioPredictorLenguaje;
+            this._servicioPredictorSentimiento = servicioPredictorSentimiento;
         }
 
         public IActionResult Index()
@@ -50,6 +53,25 @@ namespace PredictorTP.Controllers
             this._servicioPredictorLenguaje.guardarResultdoIdioma(nuevoResultadoLenguaje);
 
             return RedirectToAction("Idioma");            
+        }
+        //-----------------------------------------------------------------
+
+
+
+
+        // sentimiento ----------------------------------------------------------
+        public IActionResult Sentimiento()
+        {
+            return View(this._servicioPredictorSentimiento.ObtenerResultadosSentimiento());
+        }
+
+        [HttpPost]
+        public IActionResult DetectarSentimiento(string fraseConSentimiento)
+        {
+            ResultadoSentimiento nuevoResultadoSentimiento = this._servicioPredictorSentimiento.predecirSentimiento(fraseConSentimiento);
+            this._servicioPredictorSentimiento.guardarResultdoSentimiento(nuevoResultadoSentimiento);
+
+            return RedirectToAction("Sentimiento");
         }
         //-----------------------------------------------------------------
     }

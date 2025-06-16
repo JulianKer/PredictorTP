@@ -7,19 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Entrenamiento\frases.tsv" />
     <None Remove="Entrenamiento\idiomas.tsv" />
-    <None Remove="Entrenamiento\sentimientos.tsv" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Entrenamiento\frases.tsv">
+    <Content Include="Entrenamiento\sentimiento.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Entrenamiento\idiomas.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Entrenamiento\sentimientos.tsv">
+    <Content Include="Entrenamiento\polaridad.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

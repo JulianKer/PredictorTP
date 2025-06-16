@@ -11,6 +11,8 @@ builder.Services.AddScoped<IServicioPredictorPolaridad, ServicioPredictorPolarid
 
 builder.Services.AddScoped<IServicioPredictorIdioma, ServicioPredictorIdioma>();
 
+builder.Services.AddScoped<IServicioPredictorSentimiento, ServicioPredictorSentimiento>();
+
 builder.Services.AddScoped<IServicioUsuario, ServicioUsuario>();
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 

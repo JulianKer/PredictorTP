@@ -1,0 +1,46 @@
+﻿@using PredictorTP.Entidades
+@model List<ResultadoSentimiento>
+@{
+	ViewData["Title"] = "Detector de sentimientos";
+}
+
+<form asp-controller="Predictor" asp-action="DetectarSentimiento" method="post">
+	<label>
+		Ingresá una frase:
+		<input type="text" name="fraseConSentimiento" placeholder="estoy triste..." />
+		<input type="submit" value="Detectar..." class="btn-primary" />
+	</label>
+</form>
+
+<br />
+
+<div>
+	@if (Model != null && Model.Count > 0)
+	{
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Frase</th>
+					<th>Idioma detectado</th>
+					<th>Porcentaje de confianza</th>
+				</tr>
+			</thead>
+
+			@foreach (ResultadoSentimiento cadaResultado in Model)
+			{
+				<tr>
+					<th>@cadaResultado._fraseConSentimiento</th>
+					<th>@cadaResultado._sentimiento</th>
+					<th>% @cadaResultado._porcentajeDeConfianza</th>
+				</tr>
+			}
+
+		</table>
+
+	}
+	else
+	{
+		<h2> No hay resultados aún.</h2>
+	}
+</div>
