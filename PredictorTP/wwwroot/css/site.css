@@ -8,6 +8,13 @@ html {
     }
 }
 
+.div-layout{
+    min-height: 80vh;
+
+}
+
+
+
 .btn:focus,
 .btn:active:focus,
 .btn-link.nav-link:focus,
@@ -179,4 +186,21 @@ html {
 
 .alert-ingreso i:hover {
     cursor: pointer;
+}
+
+
+
+
+/*Estilos del scroll je*/
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #132d46;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: dimgrey;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
 }

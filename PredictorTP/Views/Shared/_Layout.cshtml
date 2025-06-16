@@ -72,7 +72,7 @@
     }
 
 
-    <div class="">
+    <div class="div-layout">
         <main role="main">
             @RenderBody()
         </main>
@@ -80,9 +80,36 @@
 
     @if (ViewBag.login_o_register == null || ViewBag.login_o_register != null && Convert.ToBoolean(ViewBag.login_o_register) == false)
      {
-        <footer class="border-top footer text-muted">
+        <footer style="background-color: #132d46; border-top: 2px solid #01c38e; color: white; padding: 20px 0; box-shadow: 0px -5px 10px gray;">
             <div class="container">
-                &copy; 2025 - PredictorTP - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                <div class="row align-items-center">
+                    <!-- Columna 1 -->
+                    <div class="col-md-4 d-flex align-items-center mb-3 mb-md-0">
+                        <img src="~/img/logo_unlam/logo-unlam.png" alt="Logo UNLaM" style="height: 40px; margin-right: 10px; border-radius: 50%">
+                        <div>
+                            <div><strong>UNLaM</strong></div>
+                            <div>Programación Web 3</div>
+                        </div>
+                    </div>
+
+                    <!-- Columna 2 -->
+                    <div class="col-md-8 text-md-end justify-content-center ">
+                        <div><strong>Integrantes del grupo:</strong></div>
+                        <div class="d-flex flex-wrap justify-content-md-end" style="gap: 10px; line-height: 1.4;">
+                            <a href="https://github.com/JulianKer" style="text-decoration: none; color: white;">Julián Schmuker -</a>
+                            <a href="https://github.com/FeliWeigel" style="text-decoration: none; color: white;">Felipe Weigel -</a>
+                            <a href="https://github.com/GermanSchmuker" style="text-decoration: none; color: white;">Germán Schmuker -</a>
+                            <a href="https://github.com/lorenzo-noceda" style="text-decoration: none; color: white;">Lorenzo Noceda -</a>
+                            <a href="https://github.com/TNania04" style="text-decoration: none; color: white;">Tomás Nania -</a>
+                            <a href="https://github.com/rioslucas1" style="text-decoration: none; color: white;">Lucas Ríos</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Línea inferior -->
+                <div class="text-center mt-3" style="font-size: 0.9rem; text-decoration: none; color: white;">
+                    &copy; 2025 - <a href="https://github.com/JulianKer/PredictorTP" style="text-decoration: none; color: white;">PredictorTP</a>
+                </div>
             </div>
         </footer>
      } 
