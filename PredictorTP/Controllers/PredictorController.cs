@@ -74,5 +74,15 @@ namespace PredictorTP.Controllers
             return RedirectToAction("Sentimiento");
         }
         //-----------------------------------------------------------------
+
+
+        // sentimiento ----------------------------------------------------------
+        public IActionResult ProcesarImagen()
+        {
+            return View();
+        }
+
+        //-----------------------------------------------------------------
+
     }
 }

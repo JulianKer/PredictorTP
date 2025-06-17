@@ -1,0 +1,33 @@
+﻿#contenedor {
+    position: relative;
+    display: inline-block;
+    background-color: red;
+}
+
+video, canvas {
+    border: 1px solid #ccc;
+    max-width: 100%;
+    display: block;
+}
+
+video {
+    position: relative;
+    z-index: 1;
+    width: 640px;
+    height: 480px;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 640px;
+    height: 480px;
+    pointer-events: none;
+}
+
+#resultado {
+    margin-top: 10px;
+    font-weight: bold;
+}
