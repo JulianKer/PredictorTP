@@ -6,13 +6,43 @@
 <head>
     <link rel="stylesheet" href="~/css/procesar_imagen.css" />
 </head>
-
+<!--
 <h1>Detección Facial con Edad, Género y Emociones (En Vivo)</h1>
 <div id="contenedor">
     <video id="video" autoplay muted></video>
     <canvas id="canvas"></canvas>
 </div>
 <div id="resultado">Cargando modelos...</div>
+-->
+
+<div class="facial-detection-container">
+    <div id="contenedor">
+        <video id="video" autoplay muted></video>
+        <canvas id="canvas"></canvas>
+    </div>
+    <div id="resultado" class="loading">Cargando modelos...</div>
+</div>
+
+<script>
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const container = document.querySelector('.facial-detection-container');
+        if (container) {
+            container.querySelector('h1')?.classList.add('fade-in');
+            container.querySelector('#contenedor')?.classList.add('fade-in');
+            container.querySelector('#resultado')?.classList.add('fade-in');
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
 <script src="~/js/proceso_imagen.js"></script>

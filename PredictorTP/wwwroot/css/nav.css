@@ -7,10 +7,14 @@
     & img{
              min-width: 50px;
              max-width: 80px;
-
-
          }
 }
+
+header .mb-3{
+    margin:0 !important
+}
+
+
 .navbar-collapse {
     flex-grow: 0;
 }
