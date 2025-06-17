@@ -46,4 +46,4 @@ VALUES
 GO
 
 SELECT * FROM [dbo].[Usuario]
-GO
+GO 
