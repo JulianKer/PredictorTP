@@ -23,6 +23,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.Face" Version="2.8.0-preview.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PredictorTP.Entidades\PredictorTP.Entidades.csproj" />
     <ProjectReference Include="..\PredictorTP.Repositorios\PredictorTP.Repositorios.csproj" />
   </ItemGroup>

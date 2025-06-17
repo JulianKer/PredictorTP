@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Cámara";
+}
+<h1>Captura desde cámara</h1>
+
+<video id="camara" autoplay></video>
+<br />
+<button id="capturar">Capturar</button>
+<br />
+<canvas id="foto"></canvas>
+<ul id="emociones"></ul>
+
+@section Scripts {
+    <script src="~/js/camara.js"></script>
+}

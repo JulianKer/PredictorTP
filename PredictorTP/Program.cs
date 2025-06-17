@@ -17,6 +17,8 @@ builder.Services.AddScoped<IServicioUsuario, ServicioUsuario>();
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
 
+builder.Services.AddScoped<IFaceEmotionService, FaceEmotionService>();
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(10);
