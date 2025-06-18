@@ -15,25 +15,65 @@
 <div id="resultado">Cargando modelos...</div>
 -->
 
+
+<!--
 <div class="facial-detection-container">
     <div id="contenedor">
         <video id="video" autoplay muted></video>
         <canvas id="canvas"></canvas>
     </div>
     <div id="resultado" class="loading">Cargando modelos...</div>
+</div>-->
+
+
+
+
+
+<div class="facial-detection-container">
+    <div id="contenedor">
+        <video id="video" autoplay muted></video>
+        <canvas id="canvas"></canvas>
+        <a href="#" onclick="capturarFoto()">
+            <i class='bx  bx-camera-alt'  ></i>
+        </a>
+        <div id="resultado" class="loading">Cargando modelos...</div>
+
+        <div class="indicador-rec">
+            <span class="punto-rec"></span>
+            <span class="texto-rec">REC</span>
+        </div>
+    </div>
+
+    <div id="historial-capturas"></div>
+
 </div>
 
 <script>
+        function capturarFoto() {
+      const video = document.getElementById('video');
+      const canvas = document.createElement('canvas');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
+      const dataUrl = canvas.toDataURL('image/png');
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const container = document.querySelector('.facial-detection-container');
-        if (container) {
-            container.querySelector('h1')?.classList.add('fade-in');
-            container.querySelector('#contenedor')?.classList.add('fade-in');
-            container.querySelector('#resultado')?.classList.add('fade-in');
-        }
-    });
+      const item = document.createElement('div');
+      item.className = 'item-historial';
+
+      const img = document.createElement('img');
+      img.src = dataUrl;
+
+      const desc = document.createElement('p');
+      desc.textContent = 'Captura ' + new Date().toLocaleTimeString();
+
+      item.appendChild(img);
+      item.appendChild(desc);
+
+      document.getElementById('historial-capturas').prepend(item);
+    }
+
 </script>
 
 
