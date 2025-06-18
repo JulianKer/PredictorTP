@@ -1,4 +1,59 @@
-﻿
+﻿let ultimasDetecciones = []
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('#botonCapturarFoto').addEventListener('click', function (e) {
+        e.preventDefault();
+        capturarFoto();
+    });
+});
+
+function capturarFoto() {
+    const video = document.getElementById('video');
+    const canvas = document.createElement('canvas');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    const dataUrl = canvas.toDataURL('image/png');
+
+    const item = document.createElement('div');
+    item.className = 'item-historial';
+
+    const img = document.createElement('img');
+    img.src = dataUrl;
+
+    const infoDiv = document.createElement('div');
+    infoDiv.className = 'info-textos';
+
+    if (ultimasDetecciones.length >= 1) {
+        ultimasDetecciones.forEach((det, i) => {
+            i++
+            const age = Math.round(det.age);
+            const gender = det.gender;
+            const genderProb = (det.genderProbability * 100).toFixed(0);
+            const expr = det.expressions;
+            const emocion = Object.entries(expr).sort((a, b) => b[1] - a[1])[0][0];
+
+            const texto = `Persona ${i} -> ${gender} (${genderProb}%), Edad: ${age}, Emoción: ${emocion}`;
+
+            const p = document.createElement('p');
+            p.textContent = texto;
+
+            infoDiv.appendChild(p);
+        });
+
+        item.appendChild(img);
+        item.appendChild(infoDiv);
+
+        document.getElementById('historial-capturas').prepend(item);
+    }
+}
+
+
+
+
+
 
 const video = document.getElementById("video");
 const canvas = document.getElementById("canvas");
@@ -44,20 +99,23 @@ async function detectar() {
             .withAgeAndGender()
             .withFaceExpressions();
 
-        window.ultimasDetecciones = [];
+        ultimasDetecciones = detecciones;
 
         const redimensionadas = faceapi.resizeResults(detecciones, displaySize);
         const ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        redimensionadas.forEach(det => {
+        redimensionadas.forEach((det, i) => {
+            i++
             const box = det.detection.box;
+            
             const age = Math.round(det.age);
-            const gender = det.gender;
-            const genderProb = (det.genderProbability * 100).toFixed(0);
-
+            const gender = det.gender;  
+            const genderProb = (det.genderProbability * 100).toFixed(0);    //----> acá le comento esto pero para que quede, al sacarlo, solo hago que el recuadro sea más fluido y para saber estos
+                                                                            //----> datos, tenés que capturar y sacar una foto
             const expr = det.expressions;
             const emocion = Object.entries(expr).sort((a, b) => b[1] - a[1])[0][0];
+            
 
             ctx.strokeStyle = "#FF0000";
             ctx.lineWidth = 2;
@@ -65,7 +123,8 @@ async function detectar() {
 
             ctx.fillStyle = "#FF0000"; // si queiro modificar estilos del recuadro o fuente, cambiar esto
             ctx.font = "20px Arial";
-            const texto = `${gender} (${genderProb}%), Edad: ${age}, Emoción: ${emocion}`;
+            //const texto = `${gender} (${genderProb}%), Edad: ${age}, Emoción: ${emocion}`;  ---> esta línea mostraba en vivo arriba del recuadrito, los datos de las personas, pero mejor lo movimos para que los muestre al tomar la foto
+            const texto = `Persona ${i}`;
             ctx.fillText(texto, box.x, box.y > 20 ? box.y - 8 : box.y + 20);
         });
 
@@ -80,4 +139,3 @@ async function main() {
 }
 
 window.addEventListener("load", main);
-

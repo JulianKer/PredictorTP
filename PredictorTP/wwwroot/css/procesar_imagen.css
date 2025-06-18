@@ -211,8 +211,8 @@ canvas {
 .facial-detection-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
-    gap: 20px;
-    padding: 10px;
+    gap: 40px;
+    padding: 40px;
     height: 90vh;
 }
 
@@ -265,34 +265,59 @@ canvas {
 #historial-capturas {
     max-height: 100%;
     overflow-y: auto;
-    border: 4px solid green;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
     background: white;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    box-shadow: 0px 0px 10px #808080; 
 }
 
 .item-historial {
     display: flex;
     gap: 10px;
-    border: 2px solid #4caf50;
-    border-radius: 8px;
-    padding: 5px;
+    color: #000;
+    padding: 10px;
+    box-shadow: 0px 0px 5px #808080;
+    transition: all .2s;
 }
 
+    .item-historial:hover {
+        transform: scale(1.02);
+        background-color: #f3f3f3;
+    }
+
     .item-historial img {
-        width: 60px;
-        height: 60px;
+        width: 100px;
+        height: 100px;
         object-fit: cover;
         border-radius: 4px;
     }
 
     .item-historial p {
         margin: 0;
-        font-size: 14px;
+        font-size: 16px;
     }
+
+.item-historial {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+    .item-historial img {
+        width: 100px;
+        height: auto;
+        border-radius: 8px;
+    }
+
+.info-textos {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
 
 @media (max-width: 1000px) {
@@ -315,3 +340,7 @@ canvas {
         min-height: 50dvh;
     }
 }
+
+
+
+

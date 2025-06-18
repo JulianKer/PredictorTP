@@ -54,6 +54,6 @@ app.Use(async (context, next) =>
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Acceso}/{action=Ingresar}/{id?}");
+    pattern: "{controller=Predictor}/{action=ProcesarImagen}/{id?}");
 
 app.Run();
