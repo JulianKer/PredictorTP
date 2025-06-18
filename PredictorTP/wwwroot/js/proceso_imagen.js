@@ -1,4 +1,6 @@
-﻿const video = document.getElementById("video");
+﻿
+
+const video = document.getElementById("video");
 const canvas = document.getElementById("canvas");
 const resultado = document.getElementById("resultado");
 
@@ -42,6 +44,8 @@ async function detectar() {
             .withAgeAndGender()
             .withFaceExpressions();
 
+        window.ultimasDetecciones = [];
+
         const redimensionadas = faceapi.resizeResults(detecciones, displaySize);
         const ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -76,3 +80,4 @@ async function main() {
 }
 
 window.addEventListener("load", main);
+
