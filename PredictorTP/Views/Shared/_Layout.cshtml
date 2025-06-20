@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using PredictorTP.Session;
+@using PredictorTP.Entidades.EF;
+
+@{
+    Usuario userSession = Context.Session.Get<Usuario>("USUARIO_LOGUEADO"); // acá uso la extension q me deserializa la variable con el tipo q le especifiqué
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -57,7 +64,7 @@
 
                 <div class="contenedor-perfil-nav">
                     <a href="/Perfil/Ver">
-                        <p class="nombre-perfil-nav">German</p>
+                            <p class="nombre-perfil-nav">@userSession.Nombre</p>
                         <i class='bx  bx-user-circle iconos-nav'></i>
                     </a>
                     

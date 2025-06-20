@@ -3,6 +3,7 @@ using PredictorTP.Entidades.EF;
 using PredictorTP.Session;
 using PredictorTP.Servicios;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace PredictorTP.Controllers
 {
@@ -39,6 +40,8 @@ namespace PredictorTP.Controllers
                 ViewBag.ErrorLogin = mensajeError;
                 return View();
             }
+
+            HttpContext.Session.Set<Usuario>("USUARIO_LOGUEADO", await this._servicioUsuario.buscarUsuarioPorEmail(email));
 
             return RedirectToAction("Index", "Home");
         }
@@ -77,6 +80,7 @@ namespace PredictorTP.Controllers
         {
             var mensaje = await _servicioUsuario.ConfirmarCuenta(token);
             ViewBag.Mensaje = mensaje;
+            ViewData["login_o_register"] = true;
             return View();
         }
 

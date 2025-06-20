@@ -17,6 +17,7 @@ namespace PredictorTP.Servicios
         Task<string> ConfirmarCuenta(string token);
 
         Task<string> Login(String email, String contraseña, HttpContext httpContext);
+        Task<Usuario> buscarUsuarioPorEmail(string email);
     }
 
     public class ServicioUsuario : IServicioUsuario
@@ -87,33 +88,29 @@ namespace PredictorTP.Servicios
 
             if (!usuario.Verificado)
             {
-
                 return "Debe verificar su cuenta antes de iniciar sesion";
             }
 
-
             bool contraseniaValida = BCrypt.Net.BCrypt.Verify(contrasenia, usuario.Contrasenia);
 
-            if (contraseniaValida == false) {
-
-                return "COntraseña incorrecta!";
-            
-            
+            if (contraseniaValida == false) 
+            {
+                return "Contraseña incorrecta!";
             }
 
-            httpContext.Session.SetInt32("idUsuario", usuario.UserId);
-            httpContext.Session.SetString("nombreUsuario", usuario.Nombre);
-
+            httpContext.Session.SetInt32("userId", usuario.UserId);
             return null;
-
-
-
         }
 
         public string ActualizarUsuario(Usuario userBdd)
         {
             this._usuarioRepositorio.ActualizarUsuario(userBdd);
             return "¡Datos actualizados correctamente!";
+        }
+
+        public Task<Usuario> buscarUsuarioPorEmail(string email)
+        {
+            return this._usuarioRepositorio.BuscarUsuarioPorEmail(email);
         }
     }
 }
