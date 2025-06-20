@@ -75,21 +75,20 @@ html {
 
 
 }
-/* CONTENEDOR PARA LOS ELEMENTOS FLOTANTES - CLAVE PARA QUE FUNCIONE BIEN */
+
 .floating-container {
-    position: relative; /* Esto es FUNDAMENTAL */
-    overflow: hidden; /* Evita que los elementos se salgan del contenedor */
+    position: relative;
+    overflow: hidden;
 }
 
-/* Elementos flotantes decorativos */
 .floating-elements {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Detrás del contenido */
-    pointer-events: none; /* No interfiere con clics */
+    z-index: 1;
+    pointer-events: none; 
 }
 
 .floating-shape {
@@ -100,10 +99,9 @@ html {
     animation: float 6s ease-in-out infinite;
 }
 
-/* Contenido principal encima de los elementos flotantes */
 .content-overlay {
     position: relative;
-    z-index: 2; /* Encima de los elementos flotantes */
+    z-index: 2; 
 }
 
 .shape-1 {
@@ -190,7 +188,6 @@ html {
 
 
 
-/*Estilos del scroll je*/
 ::-webkit-scrollbar {
     width: 5px;
     background-color: #132d46;
