@@ -2,10 +2,15 @@ using Microsoft.EntityFrameworkCore;
 using PredictorTP.Entidades.EF;
 using PredictorTP.Repositorios;
 using PredictorTP.Servicios;
+using PredictorTP.Session;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add(typeof(RequiereInicioSesionAttribute));
+});
+
 builder.Services.AddScoped<PredictorBddContext>();
 builder.Services.AddScoped<IServicioPredictorPolaridad, ServicioPredictorPolaridad>();
 
@@ -42,6 +47,8 @@ app.UseRouting();
 
 app.UseAuthorization();
 app.UseSession();
+
+
 
 app.Use(async (context, next) =>
 {

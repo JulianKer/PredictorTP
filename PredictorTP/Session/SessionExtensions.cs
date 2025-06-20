@@ -1,4 +1,4 @@
-﻿namespace PredictorTP.Extenciones;
+﻿namespace PredictorTP.Session;
 using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 public static class SessionExtensions

@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PredictorTP.Entidades.EF;
-using PredictorTP.Extenciones;
+using PredictorTP.Session;
 using PredictorTP.Servicios;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PredictorTP.Controllers
 {
+    [AllowAnonymous]
     public class AccesoController : Controller
     {
         private IServicioUsuario _servicioUsuario;
