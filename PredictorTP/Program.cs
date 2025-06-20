@@ -52,6 +52,7 @@ app.Use(async (context, next) =>
     }
 });
 
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Predictor}/{action=ProcesarImagen}/{id?}");

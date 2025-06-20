@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PredictorTP.Entidades.EF;
+using PredictorTP.Extenciones;
 using PredictorTP.Servicios;
 
 namespace PredictorTP.Controllers
