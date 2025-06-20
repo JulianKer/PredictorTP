@@ -6,6 +6,7 @@ using PredictorTP.Servicios;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<ITranscripcionAudio, ServicioTranscripcionAudio>();
 builder.Services.AddScoped<PredictorBddContext>();
 builder.Services.AddScoped<IServicioPredictorPolaridad, ServicioPredictorPolaridad>();
 
