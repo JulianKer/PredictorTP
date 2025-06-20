@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Grabar Audio";
+}
+
+<h2>Grabar Audio</h2>
+
+<button id="startButton">Grabar</button>
+<button id="stopButton" disabled>Detener</button>
+<p id="status"></p>
+<pre id="transcript"></pre>
+
+@section Scripts {
+    <script src="~/js/recorder.js"></script>
+    <script src="~/js/grabadora.js"></script>
+}
