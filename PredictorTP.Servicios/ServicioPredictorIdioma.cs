@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.ML;
 using PredictorTP.Entidades;
 using PredictorTP.Servicios;
@@ -20,13 +21,18 @@ public class ServicioPredictorIdioma : IServicioPredictorIdioma
 {
     private readonly MLContext _mlContext;
     private readonly PredictionEngine<DatoIdioma, PrediccionIdioma> _predEngine;
+    private readonly IServicioResultadoPrediccion _servicioResultadoPrediccion;
+    private readonly IHttpContextAccessor _httpContextAccessor;
     private static readonly string modeloPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "modelo_idiomas.zip");
     private static readonly string datosPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Entrenamiento", "idiomas.tsv");
 
     private static List<ResultadoIdioma> _misResultadosLenguaje = new();
 
-    public ServicioPredictorIdioma()
+    public ServicioPredictorIdioma(IServicioResultadoPrediccion servicioResultadoPrediccion, IHttpContextAccessor httpContextAccessor)
     {
+
+        _servicioResultadoPrediccion = servicioResultadoPrediccion;
+        _httpContextAccessor = httpContextAccessor;
         _mlContext = new MLContext();
 
         // si NO tengo guardado el modelo en un zip, lo creo, lo entreno y lo guardo en un .zip
@@ -56,6 +62,8 @@ public class ServicioPredictorIdioma : IServicioPredictorIdioma
         var resultado = _predEngine.Predict(new DatoIdioma { Text = fraseEnIdioma });
         double confianza = Math.Round(resultado.Score.Max() * 100, 4);
 
+        GuardarPrediccion(fraseEnIdioma, "idioma", resultado.PredictedLabel, resultado.Score.Max());
+
         return new ResultadoIdioma(fraseEnIdioma, resultado.PredictedLabel, confianza);
     }
 
@@ -67,6 +75,26 @@ public class ServicioPredictorIdioma : IServicioPredictorIdioma
     public List<ResultadoIdioma> ObtenerResultadosIdioma()
     {
         return ServicioPredictorIdioma._misResultadosLenguaje;
+    }
+
+    private void GuardarPrediccion(string texto, string tipoModelo, string prediccion, double score)
+    {
+        int? userId = _httpContextAccessor.HttpContext.Session.GetInt32("userId");
+
+        if (userId.HasValue)
+        {
+            var resultado = new PredictorTP.Entidades.EF.ResultadoPrediccion
+            {
+                Texto = texto,
+                TipoModelo = tipoModelo,
+                Prediccion = prediccion,
+                Confianza = (decimal)Math.Round(score * 100, 4),
+                Fecha = DateTime.Now,
+                UsuarioId = userId.Value
+            };
+
+            _servicioResultadoPrediccion.GuardarResultado(resultado).Wait();
+        }
     }
 }
 

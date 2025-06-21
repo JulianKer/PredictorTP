@@ -12,9 +12,11 @@ builder.Services.AddControllersWithViews(options =>
 {
     options.Filters.Add(typeof(RequiereInicioSesionAttribute));
 });
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<PredictorBddContext>();
 builder.Services.AddScoped<IServicioPredictorPolaridad, ServicioPredictorPolaridad>();
+
 
 builder.Services.AddScoped<IServicioPredictorIdioma, ServicioPredictorIdioma>();
 
@@ -24,6 +26,8 @@ builder.Services.AddScoped<IServicioEmail, ServicioEmail>();
 
 builder.Services.AddScoped<IServicioUsuario, ServicioUsuario>();
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+builder.Services.AddScoped<IResultadoPrediccionRepositorio, ResultadoPrediccionRepositorio>();
+builder.Services.AddScoped<IServicioResultadoPrediccion, ServicioResultadoPrediccion>();
 
 
 builder.Services.AddSession(options =>

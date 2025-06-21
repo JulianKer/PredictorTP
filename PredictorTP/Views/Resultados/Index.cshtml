@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Historial de Resultados";
+    var resultadosIdioma = Model.ResultadosIdioma;
+    var resultadosSentimiento = Model.ResultadosSentimiento;
+    var resultadosPolaridad = Model.ResultadosPolaridad;
+}
+
+<h2>Resultados Idioma</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Texto</th>
+            <th>Predicción</th>
+            <th>Confianza %</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in resultadosIdioma)
+        {
+            <tr>
+                <td>@r.Texto</td>
+                <td>@r.Prediccion</td>
+                <td>@r.Confianza</td>
+                <td>@r.Fecha.ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Resultados Sentimiento</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Texto</th>
+            <th>Predicción</th>
+            <th>Confianza %</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in resultadosSentimiento)
+        {
+            <tr>
+                <td>@r.Texto</td>
+                <td>@r.Prediccion</td>
+                <td>@r.Confianza</td>
+                <td>@r.Fecha.ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Resultados Polaridad</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Texto</th>
+            <th>Predicción</th>
+            <th>Confianza %</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in resultadosPolaridad)
+        {
+            <tr>
+                <td>@r.Texto</td>
+                <td>@r.Prediccion</td>
+                <td>@r.Confianza</td>
+                <td>@r.Fecha.ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>
