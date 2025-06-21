@@ -24,8 +24,7 @@ namespace PredictorTP.Session
             if (usuario == null || (usuario != null && !usuario.Activo))
             {
                 context.Result = new RedirectToActionResult("Ingresar", "Acceso", null);
-            }   /*COMITEAR ESTO QUE YA ANDA, HICE LA FUNCION DE QUE SE BLOQUEA UN USER Y SE DESBLOQUEA Y ADEMAS VERIFICA AL LOGEARSE SI ESTÁS BLOQUEADO NO DEJARTE ENTRAR, 
-                OJO, AGREGAR TAMBIEN QUE AL REGISTRAR UN USER M PRIMERO NO COINCIDA CON OTRO EMAIL Y ADEMAS EL ACTIVO POR DEFAULT EN TRUE YA QUE LO PONER DEFAULT EN FALSE*/
+            }
         }
     }
 }

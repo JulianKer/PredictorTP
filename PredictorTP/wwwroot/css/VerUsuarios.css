@@ -178,3 +178,7 @@
            margin: 0;
        }
 }
+
+.acciones-protegidas i{
+    font-size: 24px;
+}

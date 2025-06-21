@@ -38,8 +38,23 @@ namespace PredictorTP.Controllers
             }
             else
             {
-                this._servicioUsuario.bloquear(id);
+                this._servicioUsuario.desbloquear(id);
                 TempData["msjExito"] = "Usuario desbloqueado con éxito.";
+            }
+            return RedirectToAction("Ver");
+        }
+
+
+        public IActionResult Convertir(int id)
+        {
+            if (id == 0 || !this._servicioUsuario.Convertir(id))
+            {
+                TempData["msjError"] = "No pudimos cambiar el rol del usuario.";
+            }
+            else
+            {
+                this._servicioUsuario.bloquear(id);
+                TempData["msjExito"] = "Caambio de rol realizado con éxito.";
             }
             return RedirectToAction("Ver");
         }

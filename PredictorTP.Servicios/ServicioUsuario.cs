@@ -22,6 +22,7 @@ namespace PredictorTP.Servicios
         bool bloquear(int id);
         bool desbloquear(int id);
         Usuario buscarUsuarioPorEmailSync(string email);
+        bool Convertir(int id);
     }
 
     public class ServicioUsuario : IServicioUsuario
@@ -155,6 +156,19 @@ namespace PredictorTP.Servicios
         public Usuario buscarUsuarioPorEmailSync(string email)
         {
             return this._usuarioRepositorio.BuscarUsuarioPorEmailSync(email);
+        }
+
+        public bool Convertir(int id)
+        {
+            Usuario usuario = this._usuarioRepositorio.buscarUsuarioPorId(id);
+            if (usuario == null)
+            {
+                return false;
+            }
+
+            usuario.Administrador = usuario.Administrador ? false : true;
+            this._usuarioRepositorio.ActualizarUsuario(usuario);
+            return true;
         }
     }
 }

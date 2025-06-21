@@ -1,5 +1,8 @@
-﻿@using PredictorTP.Entidades.EF;
+﻿@using PredictorTP.Session;
+@using PredictorTP.Entidades.EF;
+
 @{
+    Usuario userSession = Context.Session.Get<Usuario>("USUARIO_LOGUEADO");
 }
 
 <head>
@@ -69,41 +72,69 @@
                                 </td>
                             }
 
-                            @if (user.Administrador)
-                            {
-                                <td class="es-admin">
-                                    <div class="div-contenedor-convertir-admin">
-                                        <p class="es-admin">Administrador</p>
-                                        <a href="/convertir/@user.UserId">
-                                            <i class='bx  bx-refresh-cw-alt-dot'></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            }
-                            else
-                            {
-                                <td class="no-es-admin">
-                                    <div class="div-contenedor-convertir-admin">
-                                        <p class="es-admin">Usuario</p>
-                                        <a href="/convertir/@user.UserId">
-                                            <i class='bx  bx-refresh-cw-alt-dot'></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            }
 
-                            <td>
-                                @if (user.Activo)
+
+                            @if (user.UserId == userSession.UserId)
+                            {
+                                <td class="acciones-protegidas">
+                                    <div class="div-contenedor-convertir-admin">
+                                        <p class="es-admin">
+                                            @(user.Administrador ? "Administrador" : "Usuario")
+                                        </p>
+                                        <i class="bxr bxs-block" title="Sin acciones sobre uno mismo"></i>
+                                    </div>
+                                </td>
+                            }
+                            @if (user.UserId != userSession.UserId)
+                            {
+                                @if (user.Administrador)
                                 {
-                                    <a href="/Usuarios/Bloquear/@user.UserId" class="boton-accion bloquear-usuario">
-                                        <i class='bx bx-lock'></i> Bloquear
-                                    </a>
+                                    <td class="es-admin">
+                                        <div class="div-contenedor-convertir-admin">
+                                            <p class="es-admin">Administrador</p>
+                                            <a href="/Usuarios/Convertir/@user.UserId" title="Convertir a usuario">
+                                                <i class='bx  bx-refresh-cw-alt-dot'></i>
+                                            </a>
+                                        </div>
+                                    </td>
                                 }
                                 else
                                 {
-                                    <a href="/Usuarios/Desbloquear/@user.UserId" class="boton-accion desbloquear-usuario">
-                                        <i class='bx bx-lock-open'></i> Desbloquear
-                                    </a>
+                                    <td class="no-es-admin">
+                                        <div class="div-contenedor-convertir-admin">
+                                            <p class="es-admin">Usuario</p>
+                                            <a href="/Usuarios/Convertir/@user.UserId" title="Convertir a administrador">
+                                                <i class='bx  bx-refresh-cw-alt-dot'></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                }
+                            }
+
+
+
+
+                            <td>
+                                @if (user.UserId == userSession.UserId)
+                                {
+                                    <span title="No puedes bloquearte a ti mismo">
+                                        <i class="bx bxs-lock"></i> Sin acciones
+                                    </span>
+                                }
+                                else
+                                {
+                                    @if (user.Activo)
+                                    {
+                                        <a href="/Usuarios/Bloquear/@user.UserId" class="boton-accion bloquear-usuario">
+                                            <i class='bx bx-lock'></i> Bloquear
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="/Usuarios/Desbloquear/@user.UserId" class="boton-accion desbloquear-usuario">
+                                            <i class='bx bx-lock-open'></i> Desbloquear
+                                        </a>
+                                    }
                                 }
                             </td>
                         </tr>
