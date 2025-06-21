@@ -2,10 +2,17 @@ using Microsoft.EntityFrameworkCore;
 using PredictorTP.Entidades.EF;
 using PredictorTP.Repositorios;
 using PredictorTP.Servicios;
+using PredictorTP.Session;
+using Microsoft.AspNetCore.Mvc;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add(typeof(RequiereInicioSesionAttribute));
+});
+
 builder.Services.AddScoped<PredictorBddContext>();
 builder.Services.AddScoped<IServicioPredictorPolaridad, ServicioPredictorPolaridad>();
 
@@ -43,12 +50,23 @@ app.UseRouting();
 app.UseAuthorization();
 app.UseSession();
 
+
+
 app.Use(async (context, next) =>
 {
     await next();
     if (context.Response.StatusCode == 404 && !context.Response.HasStarted)
     {
-        context.Response.Redirect("/Acceso/Ingresar");
+
+        if (context.Session.Get<Usuario>("USUARIO_LOGUEADO") == null)
+        {
+            context.Response.Redirect("/Acceso/Ingresar");
+        }
+        else
+        {
+            context.Response.Redirect("/Home/Index");
+        }
+
     }
 });
 

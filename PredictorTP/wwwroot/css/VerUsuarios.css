@@ -1,0 +1,184 @@
+﻿
+
+.usuarios-wrapper {
+    max-width: 1200px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+}
+
+.form-busqueda {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+    .form-busqueda input[type="search"] {
+        flex: 1;
+        padding: 10px;
+        font-size: 15px;
+        border: 1px solid #bbb;
+        border-radius: 8px 0 0 8px;
+        outline: none;
+    }
+
+    .form-busqueda button {
+        padding: 10px 18px;
+        border: none;
+        background-color: #0066cc;
+        color: white;
+        font-size: 15px;
+        border-radius: 0 8px 8px 0;
+        cursor: pointer;
+    }
+
+        .form-busqueda button:hover {
+            background-color: #004a99;
+        }
+
+        .contenedor-tabla-usuarios{
+            overflow: auto;
+        }
+
+.contenedor-tabla-usuarios::-webkit-scrollbar {
+    width: 1px;
+    background-color: #fff;
+}
+
+.contenedor-tabla-usuarios::-webkit-scrollbar-thumb {
+    background-color: #132d46;
+    border-radius: 20px;
+}
+
+.contenedor-tabla-usuarios::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.tabla-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .tabla-usuarios thead {
+        background-color: #f0f0f0;
+    }
+
+    .tabla-usuarios th,
+    .tabla-usuarios td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+
+.estado-plan {
+    display: inline-block;
+    padding: 5px 12px;
+    font-size: 13px;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+.estado-activo {
+    background-color: #d1f3d1;
+    color: #1c5d1c;
+}
+
+.estado-inactivo {
+    background-color: #fbdede;
+    color: #841818;
+}
+
+.boton-accion {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #fff;
+}
+
+.boton-accion:hover{
+    color: #fff;
+}
+
+.bloquear-usuario {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.desbloquear-usuario {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.mensaje-error,
+.mensaje-exito {
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    border-radius: 6px;
+}
+
+.mensaje-error {
+    background-color: #fde2e2;
+    color: #a94442;
+}
+
+.mensaje-exito {
+    background-color: #e0f7e9;
+    color: #2e7d32;
+}
+
+
+.es-admin{
+    & i{
+           font-size: 24px;
+           transition: all .2s;
+       }
+}
+
+.no-es-admin{
+    & i{
+           font-size: 24px;
+           transition: all .2s;
+       }
+}
+
+    tr {
+        transition: all .2s;
+    }
+        tr:hover {
+            background-color: #F0F0F0;
+        }
+
+.es-admin i:hover,
+.no-es-admin i:hover{
+    transform: scale(1.15) rotateZ(180deg);
+}
+
+.es-verificado {
+    color: green;
+    font-size: 25px;
+}
+
+.no-es-verificado {
+    color: red;
+    font-size: 25px;
+}
+
+.div-contenedor-convertir-admin{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    & p{
+           margin: 0;
+       }
+}
+
+.acciones-protegidas i{
+    font-size: 24px;
+}

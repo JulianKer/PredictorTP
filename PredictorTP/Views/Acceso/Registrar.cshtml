@@ -4,6 +4,10 @@
     ViewData["Title"] = "Registrar";
 }
 <div class="container-fluid vh-100">
+    @if (!String.IsNullOrEmpty(ViewBag.Error))
+    {
+        <span class="alert alert-danger error-register">@ViewBag.Error</span>
+    }
     <div class="row h-100">
         <div class="col-lg-6 d-none d-lg-flex bg-success text-white align-items-center justify-content-center fondo-predictor-register floating-container">
 
@@ -67,10 +71,6 @@
                                     <span style="color:red; font-weight: bold">*</span>Repetir contraseña
                                 </label>
                                 <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirma tu contraseña" />
-                                @if (!String.IsNullOrEmpty(ViewBag.ErrorConfirmPassword))
-                                {
-                                    <span class="alert-danger">@ViewBag.ErrorConfirmPassword</span>
-                                }
                             </div>
 
                             <div class="d-grid mb-3">

@@ -1,9 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PredictorTP.Entidades.EF;
+using PredictorTP.Session;
 using PredictorTP.Servicios;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace PredictorTP.Controllers
 {
+    [AllowAnonymous]
     public class AccesoController : Controller
     {
         private IServicioUsuario _servicioUsuario;
@@ -37,6 +41,8 @@ namespace PredictorTP.Controllers
                 return View();
             }
 
+            HttpContext.Session.Set<Usuario>("USUARIO_LOGUEADO", await this._servicioUsuario.buscarUsuarioPorEmail(email));
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -59,10 +65,18 @@ namespace PredictorTP.Controllers
             if (!String.Equals(newUser.Contrasenia, confirmPassword))
             {
                 ViewData["login_o_register"] = true;
-                ViewBag.ErrorConfirmPassword = "Las contraseñas no coinciden!";
+                ViewBag.Error = "Las contraseñas no coinciden!";
                 return View(newUser);
             }
 
+            if (this._servicioUsuario.buscarUsuarioPorEmailSync(newUser.Email) != null)
+            {
+                ViewData["login_o_register"] = true;
+                ViewBag.Error = "Ese correo pertenece a otro usuario.";
+                return View(newUser);
+            }
+
+            newUser.Activo = true;
             await this._servicioUsuario.Registrar(newUser);
 
             TempData["MensjaeExito"] = "Usuario creado con éxito, revise su correo para la verificación y luego inicie sesión.";
@@ -74,6 +88,7 @@ namespace PredictorTP.Controllers
         {
             var mensaje = await _servicioUsuario.ConfirmarCuenta(token);
             ViewBag.Mensaje = mensaje;
+            ViewData["login_o_register"] = true;
             return View();
         }
 

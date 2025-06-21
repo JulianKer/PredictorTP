@@ -15,8 +15,7 @@ namespace PredictorTP.Controllers
         [HttpGet]
         public IActionResult Ver()
         {
-            HttpContext.Session.SetInt32("userID", 2); // BORRAR esta línea cuando tomi haga el login
-            int userID = Convert.ToInt32(HttpContext.Session.GetInt32("userID"));
+            int userID = Convert.ToInt32(HttpContext.Session.GetInt32("userId"));
             Usuario usuario = this._servicioUsuario.buscarUsuarioPorId(userID);
 
             if (usuario == null)
@@ -63,7 +62,5 @@ namespace PredictorTP.Controllers
             this._servicioUsuario.eliminarUsuarioPorId(id);
             return RedirectToAction("/");
         }
-
-
     }
 }

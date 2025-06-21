@@ -17,6 +17,12 @@ namespace PredictorTP.Servicios
         Task<string> ConfirmarCuenta(string token);
 
         Task<string> Login(String email, String contraseña, HttpContext httpContext);
+        Task<Usuario> buscarUsuarioPorEmail(string email);
+        List<Usuario> GetUsuarios(string? nombre);
+        bool bloquear(int id);
+        bool desbloquear(int id);
+        Usuario buscarUsuarioPorEmailSync(string email);
+        bool Convertir(int id);
     }
 
     public class ServicioUsuario : IServicioUsuario
@@ -87,33 +93,82 @@ namespace PredictorTP.Servicios
 
             if (!usuario.Verificado)
             {
-
                 return "Debe verificar su cuenta antes de iniciar sesion";
             }
 
+            if (!usuario.Activo)
+            {
+                return "Su usuario se encuentra bloqueado por un Administrador.";
+            }
 
             bool contraseniaValida = BCrypt.Net.BCrypt.Verify(contrasenia, usuario.Contrasenia);
 
-            if (contraseniaValida == false) {
-
-                return "COntraseña incorrecta!";
-            
-            
+            if (contraseniaValida == false) 
+            {
+                return "Contraseña incorrecta!";
             }
 
-            httpContext.Session.SetInt32("idUsuario", usuario.UserId);
-            httpContext.Session.SetString("nombreUsuario", usuario.Nombre);
-
+            httpContext.Session.SetInt32("userId", usuario.UserId);
             return null;
-
-
-
         }
 
         public string ActualizarUsuario(Usuario userBdd)
         {
             this._usuarioRepositorio.ActualizarUsuario(userBdd);
             return "¡Datos actualizados correctamente!";
+        }
+
+        public Task<Usuario> buscarUsuarioPorEmail(string email)
+        {
+            return this._usuarioRepositorio.BuscarUsuarioPorEmail(email);
+        }
+
+        public List<Usuario> GetUsuarios(string? busquedaUsuario)
+        {
+            return this._usuarioRepositorio.GetUsuarios(busquedaUsuario);
+        }
+
+        public bool bloquear(int id)
+        {
+            Usuario usuario = this._usuarioRepositorio.buscarUsuarioPorId(id);
+            if (usuario == null) { 
+                return false;
+            }
+
+            usuario.Activo = false;
+            this._usuarioRepositorio.ActualizarUsuario(usuario);
+            return true;
+        }
+
+        public bool desbloquear(int id)
+        {
+            Usuario usuario = this._usuarioRepositorio.buscarUsuarioPorId(id);
+            if (usuario == null)
+            {
+                return false;
+            }
+
+            usuario.Activo = true;
+            this._usuarioRepositorio.ActualizarUsuario(usuario);
+            return true;
+        }
+
+        public Usuario buscarUsuarioPorEmailSync(string email)
+        {
+            return this._usuarioRepositorio.BuscarUsuarioPorEmailSync(email);
+        }
+
+        public bool Convertir(int id)
+        {
+            Usuario usuario = this._usuarioRepositorio.buscarUsuarioPorId(id);
+            if (usuario == null)
+            {
+                return false;
+            }
+
+            usuario.Administrador = usuario.Administrador ? false : true;
+            this._usuarioRepositorio.ActualizarUsuario(usuario);
+            return true;
         }
     }
 }
