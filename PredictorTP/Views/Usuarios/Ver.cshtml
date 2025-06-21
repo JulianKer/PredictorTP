@@ -1,0 +1,120 @@
+﻿@using PredictorTP.Entidades.EF;
+@{
+}
+
+<head>
+    <link href="~/css/VerUsuarios.css" rel="stylesheet" />
+</head>
+
+
+
+<div class="usuarios-wrapper">
+
+    <form class="form-busqueda" asp-action="Ver" method="get">
+        @if (string.IsNullOrEmpty(ViewData["busquedaUsuario"] as string))
+        {
+            <input type="search" name="busquedaUsuario" placeholder="Buscar usuario">
+        }else{
+            <input type="search" name="busquedaUsuario" placeholder="Buscar usuario" value="@ViewData["busquedaUsuario"]">
+        }
+
+        <button type="submit">Buscar</button>
+    </form>
+
+
+    @if(TempData["msjExito"] != null)
+    {
+        <div class="mensaje-exito">@TempData["msjExito"]</div>
+    }
+
+    @if (TempData["msjError"] != null)
+    {
+        <div class="mensaje-error">@TempData["msjError"]</div>
+    }
+
+
+    <div class="contenedor-tabla-usuarios">
+        <table class="tabla-usuarios">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Verificado</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @if (Model != null && Model.Count > 0)
+                {
+                    @foreach (Usuario user in Model)
+                    {
+                        <tr>
+                            <td>@user.Nombre</td>
+                            <td>@user.Apellido</td>
+                            <td>@user.Email</td>
+
+                            @if (user.Verificado)
+                            {
+                                <td class="es-verificado">
+                                    <i class='bx bx-check'></i>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="no-es-verificado">
+                                    <i class='bx bx-x'></i>
+                                </td>
+                            }
+
+                            @if (user.Administrador)
+                            {
+                                <td class="es-admin">
+                                    <div class="div-contenedor-convertir-admin">
+                                        <p class="es-admin">Administrador</p>
+                                        <a href="/convertir/@user.UserId">
+                                            <i class='bx  bx-refresh-cw-alt-dot'></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="no-es-admin">
+                                    <div class="div-contenedor-convertir-admin">
+                                        <p class="es-admin">Usuario</p>
+                                        <a href="/convertir/@user.UserId">
+                                            <i class='bx  bx-refresh-cw-alt-dot'></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            }
+
+                            <td>
+                                @if (user.Activo)
+                                {
+                                    <a href="/bloquear/@user.UserId" class="boton-accion bloquear-usuario">
+                                        <i class='bx bx-lock'></i> Bloquear
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="/desbloquear/@user.UserId" class="boton-accion desbloquear-usuario">
+                                        <i class='bx bx-lock-open'></i> Desbloquear
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <p class="alert alert-danger">No se encontraron resultados.</p>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -14,6 +14,7 @@ namespace PredictorTP.Repositorios
         Task<Usuario> ObtenerUsuarioPorToken(string token);
 
         Task<Usuario> BuscarUsuarioPorEmail(string email);
+        List<Usuario> GetUsuarios(string? nombre);
     }
     public class UsuarioRepositorio : IUsuarioRepositorio
     {
@@ -54,6 +55,14 @@ namespace PredictorTP.Repositorios
         {
             this._context.Usuarios.Remove(userAEliminar);
             this._context.SaveChanges();
+        }
+
+        public List<Usuario> GetUsuarios(string? busquedaUsuario)
+        {
+            if (busquedaUsuario == null) {
+                return this._context.Usuarios.ToList<Usuario>();
+            }
+            return this._context.Usuarios.Where(u => u.Nombre.ToLower().Contains(busquedaUsuario.ToLower())).ToList<Usuario>();
         }
     }
 }

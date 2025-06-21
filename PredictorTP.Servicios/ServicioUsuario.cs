@@ -18,6 +18,7 @@ namespace PredictorTP.Servicios
 
         Task<string> Login(String email, String contraseña, HttpContext httpContext);
         Task<Usuario> buscarUsuarioPorEmail(string email);
+        List<Usuario> GetUsuarios(string? nombre);
     }
 
     public class ServicioUsuario : IServicioUsuario
@@ -111,6 +112,11 @@ namespace PredictorTP.Servicios
         public Task<Usuario> buscarUsuarioPorEmail(string email)
         {
             return this._usuarioRepositorio.BuscarUsuarioPorEmail(email);
+        }
+
+        public List<Usuario> GetUsuarios(string? busquedaUsuario)
+        {
+            return this._usuarioRepositorio.GetUsuarios(busquedaUsuario);
         }
     }
 }
