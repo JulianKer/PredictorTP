@@ -15,6 +15,7 @@ namespace PredictorTP.Repositorios
 
         Task<Usuario> BuscarUsuarioPorEmail(string email);
         List<Usuario> GetUsuarios(string? nombre);
+        Usuario BuscarUsuarioPorEmailSync(string email);
     }
     public class UsuarioRepositorio : IUsuarioRepositorio
     {
@@ -63,6 +64,11 @@ namespace PredictorTP.Repositorios
                 return this._context.Usuarios.ToList<Usuario>();
             }
             return this._context.Usuarios.Where(u => u.Nombre.ToLower().Contains(busquedaUsuario.ToLower())).ToList<Usuario>();
+        }
+
+        public Usuario BuscarUsuarioPorEmailSync(string email)
+        {
+            return this._context.Usuarios.FirstOrDefault(u => u.Email == email);
         }
     }
 }
