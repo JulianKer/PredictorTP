@@ -47,3 +47,63 @@ GO
 
 SELECT * FROM [dbo].[Usuario]
 GO 
+
+
+
+
+
+
+
+/*  ACÁ VA LO DE PROCESAR IMAGEN, la que guarda la imagen y las personas que se detectaron dentro, si se borra el resultado, se borran las personas que estaban detectadas automaticamente por el ON DELETE CASCADE  */
+USE PredictorBDD
+
+SELECT * FROM Usuario;
+
+-- Tabla ResultadoImagen
+CREATE TABLE ResultadoImagen (
+    resultadoImagenId INT PRIMARY KEY IDENTITY(1,1),
+    userId INT NOT NULL,
+    rutaImg NVARCHAR(255) NOT NULL,
+    FOREIGN KEY (userId) REFERENCES Usuario(userId)
+);
+GO
+
+SELECT * FROM ResultadoImagen;
+GO
+-- Tabla PersonaDetectada
+CREATE TABLE PersonaDetectada (
+    personaDetectadaId INT PRIMARY KEY IDENTITY(1,1),
+    resultadoImagenId INT NOT NULL,
+    descripcionPersona NVARCHAR(100) NOT NULL,
+    FOREIGN KEY (resultadoImagenId) REFERENCES ResultadoImagen(resultadoImagenId) ON DELETE CASCADE
+);
+GO
+
+SELECT * FROM PersonaDetectada;
+GO
+
+
+/* este lo dejé para probar si se borraban en cascada las personas si borraban las imagenes, ajustar el id del user y el de el resultado img para probar el delete
+INSERT INTO ResultadoImagen (userId, rutaImg)
+VALUES (2, 'foto1.jpg');
+GO
+
+DECLARE @idResultadoImagen INT = SCOPE_IDENTITY();
+
+INSERT INTO PersonaDetectada (resultadoImagenId, descripcionPersona)
+VALUES (@idResultadoImagen, 'Persona Detectada 1');
+GO
+
+
+SELECT * FROM ResultadoImagen;
+SELECT * FROM PersonaDetectada;
+
+
+DELETE FROM ResultadoImagen WHERE resultadoImagenId = 1;
+GO
+
+SELECT * FROM ResultadoImagen;
+SELECT * FROM PersonaDetectada;*/
+
+
+

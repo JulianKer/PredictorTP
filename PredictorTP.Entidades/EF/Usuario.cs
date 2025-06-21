@@ -22,4 +22,6 @@ public partial class Usuario
     public bool Verificado { get; set; }
 
     public bool Administrador { get; set; }
+
+    public virtual ICollection<ResultadoImagen> ResultadoImagens { get; set; } = new List<ResultadoImagen>();
 }
