@@ -1,4 +1,19 @@
-﻿let ultimasDetecciones = []
+﻿function obtenerEmocionEnEspaniol(emocion) {
+    switch (emocion) {
+        case "neutral": return "Neutral";
+        case "happy": return "Feliz";
+        case "sad": return "Triste";
+        case "angry": return "Enojado";
+        case "fearful": return "Asustado";
+        case "disgusted": return "Disgustado";
+        case "surprised": return "Sorprendido";
+        default: return emocion;
+    }
+}
+
+
+
+let ultimasDetecciones = []
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#botonCapturarFoto').addEventListener('click', function (e) {
@@ -15,38 +30,78 @@ function capturarFoto() {
     const ctx = canvas.getContext('2d');
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-    const dataUrl = canvas.toDataURL('image/png');
+    let personas = [];
 
-    const item = document.createElement('div');
-    item.className = 'item-historial';
+    if (ultimasDetecciones.length >= 0) {
 
-    const img = document.createElement('img');
-    img.src = dataUrl;
-
-    const infoDiv = document.createElement('div');
-    infoDiv.className = 'info-textos';
-
-    if (ultimasDetecciones.length >= 1) {
         ultimasDetecciones.forEach((det, i) => {
             i++
             const age = Math.round(det.age);
-            const gender = det.gender;
+            const gender = det.gender == "male" ? "Hombre" : "Mujer";
             const genderProb = (det.genderProbability * 100).toFixed(0);
             const expr = det.expressions;
-            const emocion = Object.entries(expr).sort((a, b) => b[1] - a[1])[0][0];
+            let emocion = Object.entries(expr).sort((a, b) => b[1] - a[1])[0][0];
 
-            const texto = `Persona ${i} -> ${gender} (${genderProb}%), Edad: ${age}, Emoción: ${emocion}`;
-
-            const p = document.createElement('p');
-            p.textContent = texto;
-
-            infoDiv.appendChild(p);
+            emocion = obtenerEmocionEnEspaniol(emocion);
+            
+            const texto = `👤 Persona ${i} = ${gender}: ${genderProb}% | Edad: ${age} | Emoción: ${emocion}`;
+            personas.push(texto);
         });
 
-        item.appendChild(img);
-        item.appendChild(infoDiv);
+        //fetch 
+        const base64 = canvas.toDataURL('image/png').split(',')[1];
+        console.log("ANTES DEL FETCH")
+        fetch('/Predictor/Analizar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                {
+                    imagenBase64: base64,
+                    personas: personas
+                }
+            )
+        })
+            .then(async resp => {
+                const data = await resp.json();
 
-        document.getElementById('historial-capturas').prepend(item);
+                if (!resp.ok) {
+                    throw new Error(data.mensaje || "Error desconocido del backend."); //por si algo falló, te mando este msj.
+                }
+                console.log("ANTES DEL DATA")
+                console.log(data)
+
+                const historial = document.getElementById('historial-capturas');
+                historial.innerHTML = ''; 
+
+                data.forEach(r => {
+                    const item = document.createElement('div');
+                    item.className = 'item-historial';
+
+                    const img = document.createElement('img');
+                    img.src = "/img/imgs_users/" + r.rutaImg; 
+
+                    const infoDiv = document.createElement('div');
+                    infoDiv.className = 'info-textos';
+
+                    r.personaDetectada.forEach(personaDetectada => { 
+                        let p = document.createElement('p');
+                        p.textContent = personaDetectada.descripcionPersona; 
+                        infoDiv.appendChild(p);
+                    });
+
+                    item.appendChild(img);
+                    item.appendChild(infoDiv);
+
+                    historial.appendChild(item);
+                });
+            })
+            .catch(err => {
+                console.log("EN EL CATcHHHHHH")
+                console.error("Error al enviar la imagen:", err.message);
+                alert("Hubo un error: " + err.message);
+            });
     }
 }
 
@@ -118,18 +173,18 @@ async function detectar() {
             
 
             ctx.strokeStyle = "#FF0000";
-            ctx.lineWidth = 2;
+            ctx.lineWidth = 4;
             ctx.strokeRect(box.x, box.y, box.width, box.height);
 
             ctx.fillStyle = "#FF0000"; // si queiro modificar estilos del recuadro o fuente, cambiar esto
-            ctx.font = "20px Arial";
+            ctx.font = "30px Arial";
             //const texto = `${gender} (${genderProb}%), Edad: ${age}, Emoción: ${emocion}`;  ---> esta línea mostraba en vivo arriba del recuadrito, los datos de las personas, pero mejor lo movimos para que los muestre al tomar la foto
             const texto = `Persona ${i}`;
             ctx.fillText(texto, box.x, box.y > 20 ? box.y - 8 : box.y + 20);
         });
 
         resultado.innerText = `Caras detectadas: ${redimensionadas.length}`;
-    }, 350);
+    }, 100);
 }
 
 async function main() {

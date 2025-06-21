@@ -20,6 +20,9 @@ builder.Services.AddScoped<IServicioPredictorIdioma, ServicioPredictorIdioma>();
 
 builder.Services.AddScoped<IServicioPredictorSentimiento, ServicioPredictorSentimiento>();
 
+builder.Services.AddScoped<IServicioProcesarImagen, ServicioProcesarImagen>();
+builder.Services.AddScoped<IRepositorioProcesarImagen, RepositorioProcesarImagen>();
+
 builder.Services.AddScoped<IServicioEmail, ServicioEmail>();
 
 builder.Services.AddScoped<IServicioUsuario, ServicioUsuario>();

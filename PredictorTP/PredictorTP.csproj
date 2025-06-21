@@ -20,4 +20,8 @@
     <ProjectReference Include="..\PredictorTP.Servicios\PredictorTP.Servicios.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\imgs_users\" />
+  </ItemGroup>
+
 </Project>

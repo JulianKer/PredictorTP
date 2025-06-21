@@ -42,6 +42,7 @@ namespace PredictorTP.Controllers
             }
 
             HttpContext.Session.Set<Usuario>("USUARIO_LOGUEADO", await this._servicioUsuario.buscarUsuarioPorEmail(email));
+            HttpContext.Session.SetInt32("userID", HttpContext.Session.Get<Usuario>("USUARIO_LOGUEADO").UserId);
 
             return RedirectToAction("Index", "Home");
         }
