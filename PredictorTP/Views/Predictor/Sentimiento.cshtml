@@ -4,43 +4,50 @@
 	ViewData["Title"] = "Detector de sentimientos";
 }
 
-<form asp-controller="Predictor" asp-action="DetectarSentimiento" method="post">
-	<label>
-		Ingresá una frase:
-		<input type="text" name="fraseConSentimiento" placeholder="estoy triste..." />
-		<input type="submit" value="Detectar..." class="btn-primary" />
-	</label>
+
+<head>
+	<link href="~/css/buscador.css" rel="stylesheet" />
+	<link href="~/css/sentimiento.css" rel="stylesheet" />
+	<script src="~/js/buscador.js" defer></script>
+</head>
+
+<form asp-controller="Predictor" asp-action="DetectarSentimiento" method="post" id="form-sentimiento">
+	<div class="texto-buscador">
+		<h2>¡Predice el sentimiento de tu frase!</h2>
+	</div>
+	<div class="contenedor-buscador">
+		<input type="text" placeholder="Escribir..." id="input-sentimiento" name="fraseConSentimiento" />
+		<i class='bx  bx-send-alt-2' id="enviar" onclick="document.getElementById('form-sentimiento').submit();"></i>
+		<i class='bx  bx-microphone mostrar-icono' id="mic"></i>
+		<i class='bx  bx-stop-circle ocultar-icono' id="stop"></i>
+	</div>
 </form>
 
-<br />
-
-<div>
-	@if (Model != null && Model.Count > 0)
-	{
-
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Frase</th>
-					<th>Idioma detectado</th>
-					<th>Porcentaje de confianza</th>
-				</tr>
-			</thead>
-
-			@foreach (ResultadoSentimiento cadaResultado in Model)
-			{
-				<tr>
-					<th>@cadaResultado._fraseConSentimiento</th>
-					<th>@cadaResultado._sentimiento</th>
-					<th>% @cadaResultado._porcentajeDeConfianza.ToString("F3")</th>
-				</tr>
-			}
-
-		</table>
-
-	}
-	else
-	{
-		<h2> No hay resultados aún.</h2>
-	}
+<div class="contenedor-tabla-sentimiento">
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="tabla-sentimiento">
+            <thead>
+                <tr>
+                    <th><i class='bx  bx-message-bubble-captions'></i> Frase</th>
+                    <th><i class='bx  bx-donate-heart'></i> Sentimiento detectado</th>
+                    <th><i class='bx  bxs-chart-bar-columns bx-rotate-270 bx-flip-horizontal'></i> Confianza</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (ResultadoSentimiento cadaResultado in Model)
+                {
+                    <tr>
+                        <td>@cadaResultado._fraseConSentimiento</td>
+                        <td>@cadaResultado._sentimiento</td>
+                        <td>% @cadaResultado._porcentajeDeConfianza.ToString("F3")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h2>No hay resultados aún.</h2>
+    }
 </div>

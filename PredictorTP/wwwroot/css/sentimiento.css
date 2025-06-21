@@ -1,0 +1,169 @@
+﻿
+.contenedor-tabla-sentimiento {
+    padding: 50px;
+    background-color: #ffff;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+    .contenedor-tabla-sentimiento h2 {
+        color: #132D46;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 400;
+        margin: 0;
+        padding: 30px 20px;
+        background: white;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(19, 45, 70, 0.1);
+    }
+
+.tabla-sentimiento {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0px 5px gray;
+    margin: 0 auto;
+    border: 1px solid #e9ecef;
+    table-layout: fixed;
+    animation: fadeIn 0.5s ease-out;
+}
+
+    .tabla-sentimiento thead {
+        background-color: #132D46;
+    }
+
+        .tabla-sentimiento thead th {
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 18px 15px;
+            border: none;
+            text-align: center;
+            position: relative;
+        }
+
+            .tabla-sentimiento thead th:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 20%;
+                height: 60%;
+                width: 1px;
+                background: rgba(255, 255, 255, 0.2);
+            }
+
+    .tabla-sentimiento tbody tr {
+        transition: all 0.2s ease;
+        border-bottom: 1px solid #f1f3f4;
+    }
+
+        .tabla-sentimiento tbody tr:last-child {
+            border-bottom: none;
+        }
+
+    .tabla-sentimiento tbody td {
+        background: white;
+        color: #495057;
+        font-weight: 500;
+        padding: 16px 15px;
+        border: none;
+        text-align: center;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+
+        .tabla-sentimiento tbody td:first-child {
+            text-align: left;
+            background-color: #ffff;
+            font-style: italic;
+        }
+
+        .tabla-sentimiento tbody td:nth-child(2) {
+            color: #132D46;
+            font-weight: 600;
+            text-transform: capitalize;
+            background-color: #ffff;
+        }
+
+        .tabla-sentimiento tbody td:nth-child(3) {
+            color: #28a745;
+            font-weight: 700;
+            background-color: #ffff;
+        }
+
+    .tabla-sentimiento tbody tr:hover {
+            background-color: #ffff;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(19, 45, 70, 0.08);
+    }
+
+        .tabla-sentimiento tbody tr:hover td {
+            background-color: #f5f6f7;
+        }
+
+    .tabla-sentimiento tbody tr:nth-child(even) {
+        background-color: #ffff;
+    }
+
+        .tabla-sentimiento tbody tr:nth-child(even) td {
+            background-color: #ffff;
+        }
+
+        .tabla-sentimiento tbody tr:nth-child(even):hover td {
+            background-color: #f5f6f7;
+        }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .contenedor-tabla-sentimiento {
+        padding: 30px 20px;
+    }
+
+    .tabla-sentimiento {
+        font-size: 14px;
+    }
+
+        .tabla-sentimiento thead th,
+        .tabla-sentimiento tbody td {
+            padding: 12px 10px;
+        }
+
+        .tabla-sentimiento thead th {
+            font-size: 13px;
+        }
+}
+
+@media (max-width: 480px) {
+    .contenedor-tabla-sentimiento {
+        padding: 20px 15px;
+    }
+
+    .tabla-sentimiento {
+        font-size: 13px;
+    }
+
+        .tabla-sentimiento thead th,
+        .tabla-sentimiento tbody td {
+            padding: 10px 8px;
+        }
+
+        .tabla-sentimiento thead th {
+            font-size: 12px;
+        }
+}
