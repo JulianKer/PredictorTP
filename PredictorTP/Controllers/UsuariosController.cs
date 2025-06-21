@@ -16,5 +16,32 @@ namespace PredictorTP.Controllers
             ViewData["busquedaUsuario"] = busquedaUsuario;
             return View(this._servicioUsuario.GetUsuarios(busquedaUsuario));
         }
+
+        public IActionResult Bloquear(int id) {
+            if (id == 0 || !this._servicioUsuario.bloquear(id))
+            {
+                TempData["msjError"] = "No pudimos encontrar/bloquear el usuario.";
+            }
+            else
+            {
+                this._servicioUsuario.bloquear(id);
+                TempData["msjExito"] = "Usuario bloqueado con éxito.";
+            }
+            return RedirectToAction("Ver");
+        }
+
+        public IActionResult Desbloquear(int id)
+        {
+            if (id == 0 || !this._servicioUsuario.desbloquear(id))
+            {
+                TempData["msjError"] = "No pudimos encontrar/desbloquear el usuario.";
+            }
+            else
+            {
+                this._servicioUsuario.bloquear(id);
+                TempData["msjExito"] = "Usuario desbloqueado con éxito.";
+            }
+            return RedirectToAction("Ver");
+        }
     }
 }

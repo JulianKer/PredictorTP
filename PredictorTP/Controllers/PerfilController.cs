@@ -62,7 +62,5 @@ namespace PredictorTP.Controllers
             this._servicioUsuario.eliminarUsuarioPorId(id);
             return RedirectToAction("/");
         }
-
-
     }
 }

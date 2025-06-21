@@ -19,6 +19,8 @@ namespace PredictorTP.Servicios
         Task<string> Login(String email, String contraseña, HttpContext httpContext);
         Task<Usuario> buscarUsuarioPorEmail(string email);
         List<Usuario> GetUsuarios(string? nombre);
+        bool bloquear(int id);
+        bool desbloquear(int id);
     }
 
     public class ServicioUsuario : IServicioUsuario
@@ -92,6 +94,11 @@ namespace PredictorTP.Servicios
                 return "Debe verificar su cuenta antes de iniciar sesion";
             }
 
+            if (!usuario.Activo)
+            {
+                return "Su usuario se encuentra bloqueado por un Administrador.";
+            }
+
             bool contraseniaValida = BCrypt.Net.BCrypt.Verify(contrasenia, usuario.Contrasenia);
 
             if (contraseniaValida == false) 
@@ -117,6 +124,31 @@ namespace PredictorTP.Servicios
         public List<Usuario> GetUsuarios(string? busquedaUsuario)
         {
             return this._usuarioRepositorio.GetUsuarios(busquedaUsuario);
+        }
+
+        public bool bloquear(int id)
+        {
+            Usuario usuario = this._usuarioRepositorio.buscarUsuarioPorId(id);
+            if (usuario == null) { 
+                return false;
+            }
+
+            usuario.Activo = false;
+            this._usuarioRepositorio.ActualizarUsuario(usuario);
+            return true;
+        }
+
+        public bool desbloquear(int id)
+        {
+            Usuario usuario = this._usuarioRepositorio.buscarUsuarioPorId(id);
+            if (usuario == null)
+            {
+                return false;
+            }
+
+            usuario.Activo = true;
+            this._usuarioRepositorio.ActualizarUsuario(usuario);
+            return true;
         }
     }
 }
