@@ -4,54 +4,64 @@
 	ViewData["Title"] = "Ingresá un texto";
 }
 
-<form asp-controller="Predictor" asp-action="PredecirPolaridad">
-	<label>
-		Ingresá un texto:
-		<input type="text" name="texto" placeholder="Me gusta..." />
-		<input type="submit" value="Predecir..." class="btn-primary" />
-	</label>
+<head>
+	<link href="~/css/buscador.css" rel="stylesheet" />
+	<link href="~/css/polaridad.css" rel="stylesheet" />
+	<script src="~/js/buscador.js" defer></script>
+</head>
+
+
+
+<form asp-controller="Predictor" asp-action="PredecirPolaridad" id="form-polaridad">
+	<div class="texto-buscador">
+		<h2>¡Predice la positividad de tu frase!</h2>
+	</div>
+	<div class="contenedor-buscador">
+		<input type="text" placeholder="Escribir..." id="input-custom" name="texto" />
+		<i class='bx  bx-send-alt-2' id="enviar" onclick="document.getElementById('form-polaridad').submit();"></i>
+		<i class='bx  bx-microphone mostrar-icono' id="mic"></i>
+		<i class='bx  bx-stop-circle ocultar-icono' id="stop"></i>
+	</div>
 </form>
 
-<br/>
+<div class="contenedor-tabla-polaridad">
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="tabla-polaridad">
+            <thead>
+                <tr>
+                    <th><i class='bx  bx-message-bubble-captions'></i> Frase</th>
+                    <th>Resultado</th>
+                    <th><i class='bx  bx-percentage'></i> Positividad</th>
+                    <th><i class='bx  bx-percentage'></i> Negatividad</th>
+                </tr>
+            </thead>
 
-<div>
-	@if (Model != null && Model.Count > 0)
-	{
-
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Frase</th>
-					<th>Resultado</th>
-					<th>Positividad (%)</th>
-					<th>Negatividad (%)</th>
-				</tr>
-			</thead>
-
-			@foreach (ResultadoPolaridad cadaResultado in Model)
-			{
-				<tr>
-					<th>@cadaResultado._textoProcesado</th>
-					@if (@cadaResultado._resutlado == "Positiva"){
-						<th style="color: green">@cadaResultado._resutlado</th>
-					}
-					else if(@cadaResultado._resutlado == "Negativa"){
-						<th style="color: red">@cadaResultado._resutlado</th>
-					}
-					else
-					{
-						<th style="color: #efb810;">@cadaResultado._resutlado</th>
-					}
-					<th>@cadaResultado._probabilidadPositiva</th>
-					<th>@cadaResultado._probabilidadNegativa</th>
-				</tr>
-			}
-
-		</table>
-
-	}
-	else
-	{
-		<h2> No hay resultados aún.</h2>
-	}
+            @foreach (ResultadoPolaridad cadaResultado in Model)
+            {
+                <tr>
+                    <td>@cadaResultado._textoProcesado</td>
+                    @if (@cadaResultado._resutlado == "Positiva")
+                    {
+                        <td class="positivo" style="color: forestgreen">@cadaResultado._resutlado</td>
+                    }
+                    else if (@cadaResultado._resutlado == "Negativa")
+                    {
+                        <td class="negativo" style="color: darkred">@cadaResultado._resutlado</td>
+                    }
+                    else
+                    {
+                        <td class="neutral" style="color: #EC9714">@cadaResultado._resutlado</td>
+                    }
+                    <td>% @cadaResultado._probabilidadPositiva.ToString("F3")</td>
+                    <td>% @cadaResultado._probabilidadNegativa.ToString("F3")</td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h2>No hay resultados aún.</h2>
+    }
 </div>
+
