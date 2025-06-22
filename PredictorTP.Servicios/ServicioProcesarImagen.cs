@@ -14,6 +14,12 @@ namespace PredictorTP.Servicios
     {
         List<ResultadoImagen> GetImagenesDelUsuario(int userID);
         void GuardarResultado(string fileName, List<string> personas, int userId);
+        List<int> ObtenerCantidadEstadisticas();
+        List<int> ObtenerCantidadEstadisticasPersonasEmociones();
+        List<int> ObtenerCantidadEstadisticasUsuariosAdmin();
+        List<string> ObtenerLabelEstadisticas();
+        List<string> ObtenerLabelEstadisticasPersonasEmociones();
+        List<string> ObtenerLabelEstadisticasUsuariosAdmin();
     }
 
 
@@ -56,5 +62,37 @@ namespace PredictorTP.Servicios
         }
 
 
+        // GRAFICOS ------------------------------------------------------------------
+        public List<int> ObtenerCantidadEstadisticas()
+        {
+            return this._repositorioProcesarImagen.ObtenerCantidadEstadisticas();
+        }
+
+        public List<string> ObtenerLabelEstadisticas()
+        {
+            return this._repositorioProcesarImagen.ObtenerLabelEstadisticas();
+        }
+
+        public List<int> ObtenerCantidadEstadisticasPersonasEmociones()
+        {
+            return this._repositorioProcesarImagen.ObtenerCantidadEstadisticasPersonasEmociones();
+        }
+
+        public List<int> ObtenerCantidadEstadisticasUsuariosAdmin()
+        {
+            return this._repositorioProcesarImagen.ObtenerCantidadEstadisticasUsuariosAdmin();
+        }
+
+        public List<string> ObtenerLabelEstadisticasPersonasEmociones()
+        {
+            return this._repositorioProcesarImagen.ObtenerLabelEstadisticasPersonasEmociones();
+        }
+
+        public List<string> ObtenerLabelEstadisticasUsuariosAdmin()
+        {
+            return this._repositorioProcesarImagen.ObtenerLabelEstadisticasUsuariosAdmin();
+        }
+
+        // ---------------------------------------------------------------------------------
     }
 }

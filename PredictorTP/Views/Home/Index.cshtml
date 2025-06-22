@@ -1,24 +1,32 @@
-﻿@{
+﻿@model PredictorTP.Models.EstadisticasAdminViewModel;
+@using PredictorTP.Session;
+@using PredictorTP.Entidades.EF;
+@using System.Text.Json
+
+
+
+@{
     ViewData["Title"] = "Home";
+    Usuario userSession = Context.Session.Get<Usuario>("USUARIO_LOGUEADO");
 }
 
 <style>
     body {
-        background-color: #fafbfc;
+    background-color: #fafbfc;
     }
 
     .card {
-        background-color: #fff;
+    background-color: #fff;
     }
 
     .card-hover-effect {
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     }
 
-        .card-hover-effect:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-        }
+    .card-hover-effect:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
 </style>
 
 <div class="text-center mb-5">
@@ -27,17 +35,17 @@
 </div>
 
 <div class="container">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
         <div class="col">
-            <a asp-controller="Predictor" asp-action="MostrarFormularioDePrediccionLenguaje" class="text-decoration-none text-reset">
+            <a asp-controller="Predictor" asp-action="Idioma" class="text-decoration-none text-reset">
                 <div class="card h-100 shadow-sm border-0 rounded-4 card-hover-effect">
                     <div class="card-body text-center">
                         <h5 class="card-title fs-4">Idioma Detectado</h5>
                         <ul class="list-unstyled my-0">
                             <li class="fs-4 mb-2">🌍</li>
-                            <li>🧭 Detección automática de idioma</li>
-                            <li>📄 Útil para textos multilingües</li>
-                            <li>🔤 Ej: Español (es), Inglés (en)</li>
+                            <li>🧭 Detección automática de idioma.</li>
+                            <li>📄 Útil para textos multilingües.</li>
+                            <li>🔤 Ej: Español (es), Inglés (en).</li>
                         </ul>
                     </div>
                 </div>
@@ -45,15 +53,15 @@
         </div>
 
         <div class="col">
-            <a asp-controller="Predictor" asp-action="MostrarFormularioDePrediccionSentimiento" class="text-decoration-none text-reset">
+            <a asp-controller="Predictor" asp-action="Polaridad" class="text-decoration-none text-reset">
                 <div class="card h-100 shadow-sm border-0 rounded-4 card-hover-effect">
                     <div class="card-body text-center">
                         <h5 class="card-title fs-4">Polaridad</h5>
                         <ul class="list-unstyled my-0">
                             <li class="fs-4 mb-2">📊</li>
-                            <li>🎯 Analiza el tono general del mensaje</li>
-                            <li>⚖️ Valor entre -1 (negativo) y +1 (positivo)</li>
-                            <li>🔍 Ej: 0.75 indica tono positivo</li>
+                            <li>🎯 Analiza el tono general del mensaje.</li>
+                            <li>⚖️ Valor entre -1 (negativo) y +1 (positivo).</li>
+                            <li>🔍 Ej: 0.75 indica tono positivo.</li>
                         </ul>
                     </div>
                 </div>
@@ -61,19 +69,65 @@
         </div>
 
         <div class="col">
-            <a asp-controller="Predictor" asp-action="MostrarFormularioDePrediccionSentimiento" class="text-decoration-none text-reset">
+            <a asp-controller="Predictor" asp-action="Sentimiento" class="text-decoration-none text-reset">
                 <div class="card h-100 shadow-sm border-0 rounded-4 card-hover-effect">
                     <div class="card-body text-center">
                         <h5 class="card-title fs-4">Sentimiento</h5>
                         <ul class="list-unstyled my-0">
                             <li class="fs-4 mb-2">😊</li>
-                            <li>💬 Clasifica el mensaje emocionalmente</li>
-                            <li>🤖 Resultado: Positivo, Negativo o Neutro</li>
-                            <li>🧠 Útil para entender opiniones</li>
+                            <li>💬 Clasifica el mensaje emocionalmente.</li>
+                            <li>🤖 Resultado: Positivo, Negativo o Neutro.</li>
+                            <li>🧠 Útil para entender opiniones.</li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col">
+            <a asp-controller="Predictor" asp-action="ProcesarImagen" class="text-decoration-none text-reset">
+                <div class="card h-100 shadow-sm border-0 rounded-4 card-hover-effect">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fs-4">Procesar imagen</h5>
+                        <ul class="list-unstyled my-0">
+                            <li class="fs-4 mb-2">📸</li>
+                            <li>👤 Detecta cantidad de personas.</li>
+                            <li>🤖 Resultado: Género, edad y emoción.</li>
+                            <li>🧠 Histórico de imágenes tomadas.</li>
                         </ul>
                     </div>
                 </div>
             </a>
         </div>
     </div>
+
+    @if (userSession.Administrador)
+    {
+        <div class="seccion-auditoria">
+            <h2 class="titulo-auditoria">Auditoría</h2>
+
+            <div class="contenedor-admin-graficos">
+                <canvas id="grafico1" width="400" height="200"></canvas>
+                <canvas id="grafico3" width="400" height="200"></canvas>
+                <canvas id="grafico4" width="400" height="200"></canvas>
+            </div>
+        </div>
+    }
 </div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        window.chartLabels = @Html.Raw(JsonSerializer.Serialize(Model.Labels));
+        window.chartData = @Html.Raw(JsonSerializer.Serialize(Model.Cantidades));
+
+        window.chartLabelsUsuariosAdmin = @Html.Raw(JsonSerializer.Serialize(Model.LabelsUsuariosAdmin));
+        window.chartCantidadesUsuariosAdmin = @Html.Raw(JsonSerializer.Serialize(Model.CantidadesUsuariosAdmin));
+
+        window.chartLabelsPersonasEmociones = @Html.Raw(JsonSerializer.Serialize(Model.LabelsPersonasEmociones));
+        window.chartCantidadesPersonasEmociones = @Html.Raw(JsonSerializer.Serialize(Model.CantidadesPersonasEmociones));
+    </script>
+
+    <script src="~/js/estadisticas.js"></script>
+}
