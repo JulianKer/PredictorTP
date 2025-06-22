@@ -25,7 +25,7 @@
                 },
                 title: {
                     display: true,
-                    text: 'Cantidad de usuarios por rol.'
+                    text: 'Géneros detectados en las imágenes.'
                 }
             }
         }
@@ -56,7 +56,7 @@
                 },
                 title: {
                     display: true,
-                    text: 'Emociones detectadas en imágenes tomadas.'
+                    text: 'Cantidad de usuarios por rol.'
                 }
             }
         }
@@ -87,7 +87,7 @@
                 },
                 title: {
                     display: true,
-                    text: 'Distribución de Personas Detectadas'
+                    text: 'Emociones detectadas en imágenes'
                 }
             }
         }

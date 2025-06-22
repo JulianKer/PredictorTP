@@ -16,8 +16,8 @@ namespace PredictorTP.Servicios
 
         private readonly MLContext _mlContext;
         private readonly PredictionEngine<DatoPolaridad, PrediccionPolaridad> _predEngine;
-        private static readonly string modeloPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "modelo_polaridad.zip");
-        private static readonly string datosPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Entrenamiento", "polaridad.tsv");
+        private static readonly string modeloPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Entrenamiento", "modelo_polaridad.zip");
+        private static readonly string datosPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Entrenamiento", "polaridad.tsv");
 
         private static List<ResultadoPolaridad> _misResultados = new();
 

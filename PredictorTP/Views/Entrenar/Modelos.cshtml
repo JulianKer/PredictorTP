@@ -1,13 +1,36 @@
-﻿<form method="post" enctype="multipart/form-data" asp-controller="Entrenar" asp-action="ModeloIdioma" id="formArchivo">
-    <input type="file" name="archivo" />
+﻿<h3>Idiomas</h3>
+<form method="post" enctype="multipart/form-data" id="idioma-form">
+    <input type="file" name="archivo" accept=".tsv" id="inputIdioma" required/>
     <button type="submit">Enviar</button>
 </form>
-<p id="resultado"></p> <!-- FALTA BORRAR EL ZIP EN EL CONTROLLER OSEA, BORRAR EL ZIP Q SE GENERA EN LA CARPETA BIN ASÍ AL ENVIAR OTRO SERVICIO, SE ENTRENA DE NUEVO,
+<p id="resultado-idioma"></p> 
+
+<h3>Polaridad</h3>
+<form method="post" enctype="multipart/form-data" id="polaridad-form">
+    <input type="file" name="archivo" accept=".tsv" id="inputPolaridad" required />
+    <button type="submit">Enviar</button>
+</form>
+<p id="resultado-polaridad"></p>
+
+
+<h3>Sentimientos</h3>
+<form method="post" enctype="multipart/form-data" id="sentimiento-form">
+    <input type="file" name="archivo" accept=".tsv" id="inputSentimientos" required />
+    <button type="submit">Enviar</button>
+</form>
+<p id="resultado-sentimiento"></p>
+
+
+
+
+
+
+<!-- FALTA BORRAR EL ZIP EN EL CONTROLLER OSEA, BORRAR EL ZIP Q SE GENERA EN LA CARPETA BIN ASÍ AL ENVIAR OTRO SERVICIO, SE ENTRENA DE NUEVO,
     ADEMÁS, ELIMINAR LA CARPETA Entrenamiento DE LA BIBLIOTECA DE ENTIDADES ASI LO DEJO EN WWWROOT y CAMBAIR LAS REFERENCIAS DE LOS SERVICIOS DE PREDICTOR A ESA CARPETA DEL WWWROOT
 -->
 
 <script>
-    document.getElementById("formArchivo").addEventListener("submit", async function (e) {
+    document.getElementById("idioma-form").addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const form = e.target;
@@ -20,19 +43,85 @@
             });
 
             if (!response.ok) {
-                document.getElementById("resultado").innerText = "Ocurrió un error al procesar el archivo.";
+                document.getElementById("resultado-idioma").innerText = "Ocurrió un error al procesar el archivo.";
                 return;
             }
 
             const data = await response.json();
 
-            document.getElementById("resultado").innerHTML =
+            document.getElementById("resultado-idioma").innerHTML =
                 "Coincidencias: " + data.coincidencias +
                 " | No Coincidencias: " + data.noCoincidencias +
                 " | Total: " + data.total;
         } catch (error) {
             console.error("Error:", error);
-            document.getElementById("resultado").innerText = "Error de red o del servidor.";
+            document.getElementById("resultado-idioma").innerText = "Error de red o del servidor.";
+        }
+    });
+
+
+
+
+
+    document.getElementById("sentimiento-form").addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch("/Entrenar/ModeloSentimiento", {
+                method: "POST",
+                body: formData
+            });
+
+            if (!response.ok) {
+                document.getElementById("resultado-sentimiento").innerText = "Ocurrió un error al procesar el archivo.";
+                return;
+            }
+
+            const data = await response.json();
+
+            document.getElementById("resultado-sentimiento").innerHTML =
+                "Coincidencias: " + data.coincidencias +
+                " | No Coincidencias: " + data.noCoincidencias +
+                " | Total: " + data.total;
+        } catch (error) {
+            console.error("Error:", error);
+            document.getElementById("resultado-sentimiento").innerText = "Error de red o del servidor.";
+        }
+    });
+
+
+
+
+
+    document.getElementById("polaridad-form").addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch("/Entrenar/ModeloPolaridad", {
+                method: "POST",
+                body: formData
+            });
+
+            if (!response.ok) {
+                document.getElementById("resultado-polaridad").innerText = "Ocurrió un error al procesar el archivo.";
+                return;
+            }
+
+            const data = await response.json();
+
+            document.getElementById("resultado-polaridad").innerHTML =
+                "Coincidencias: " + data.coincidencias +
+                " | No Coincidencias: " + data.noCoincidencias +
+                " | Total: " + data.total;
+        } catch (error) {
+            console.error("Error:", error);
+            document.getElementById("resultado-polaridad").innerText = "Error de red o del servidor.";
         }
     });
 </script>

@@ -20,8 +20,8 @@ public class ServicioPredictorSentimiento : IServicioPredictorSentimiento
 {
     private readonly MLContext _mlContext;
     private readonly PredictionEngine<DatoSentimiento, PrediccionIdioma> _predEngine;
-    private static readonly string modeloPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "modelo_sentimiento.zip");
-    private static readonly string datosPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Entrenamiento", "sentimiento.tsv");
+    private static readonly string modeloPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Entrenamiento", "modelo_sentimiento.zip");
+    private static readonly string datosPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Entrenamiento", "sentimiento.tsv");
 
     private static List<ResultadoSentimiento> _misResultadosLenguaje = new();
 

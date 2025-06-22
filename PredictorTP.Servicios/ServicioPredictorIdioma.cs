@@ -20,8 +20,8 @@ public class ServicioPredictorIdioma : IServicioPredictorIdioma
 {
     private readonly MLContext _mlContext;
     private readonly PredictionEngine<DatoIdioma, PrediccionIdioma> _predEngine;
-    private static readonly string modeloPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "modelo_idiomas.zip");
-    private static readonly string datosPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Entrenamiento", "idiomas.tsv");
+    private static readonly string modeloPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Entrenamiento", "modelo_idiomas.zip");
+    private static readonly string datosPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Entrenamiento", "idiomas.tsv");
 
     private static List<ResultadoIdioma> _misResultadosLenguaje = new();
 
