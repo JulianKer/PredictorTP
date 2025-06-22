@@ -16,6 +16,7 @@ namespace PredictorTP.Repositorios
         Task<Usuario> BuscarUsuarioPorEmail(string email);
         List<Usuario> GetUsuarios(string? nombre);
         Usuario BuscarUsuarioPorEmailSync(string email);
+        void EliminarHistorialImagen();
     }
     public class UsuarioRepositorio : IUsuarioRepositorio
     {
@@ -69,6 +70,11 @@ namespace PredictorTP.Repositorios
         public Usuario BuscarUsuarioPorEmailSync(string email)
         {
             return this._context.Usuarios.FirstOrDefault(u => u.Email == email);
+        }
+
+        public void EliminarHistorialImagen()
+        {
+            this._context.Database.ExecuteSqlRaw("DELETE FROM ResultadoImagen");
         }
     }
 }

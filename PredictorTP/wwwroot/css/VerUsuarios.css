@@ -99,15 +99,20 @@
     align-items: center;
     gap: 6px;
     color: #fff;
+    transition: all .2s;
 }
 
 .boton-accion:hover{
-    color: #fff;
+    color: #ffff;
 }
 
 .bloquear-usuario {
     background-color: #e74c3c;
     color: white;
+}
+
+.bloquear-usuario:hover {
+    background-color: #e40303;
 }
 
 .desbloquear-usuario {
@@ -182,3 +187,40 @@
 .acciones-protegidas i{
     font-size: 24px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------- inputs de buscar y de borrar el hitorial--*/
+
+.contenedor-inputs-admin{
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+.div-coontenedor-a-trash{
+    justify-self: end;
+}
+
+
+
+
+/*----------------------------*/

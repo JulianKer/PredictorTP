@@ -23,6 +23,7 @@ namespace PredictorTP.Servicios
         bool desbloquear(int id);
         Usuario buscarUsuarioPorEmailSync(string email);
         bool Convertir(int id);
+        void EliminarHistorialImagen();
     }
 
     public class ServicioUsuario : IServicioUsuario
@@ -169,6 +170,11 @@ namespace PredictorTP.Servicios
             usuario.Administrador = usuario.Administrador ? false : true;
             this._usuarioRepositorio.ActualizarUsuario(usuario);
             return true;
+        }
+
+        public void EliminarHistorialImagen()
+        {
+            this._usuarioRepositorio.EliminarHistorialImagen();
         }
     }
 }

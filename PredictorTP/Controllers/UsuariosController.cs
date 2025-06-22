@@ -7,8 +7,13 @@ namespace PredictorTP.Controllers
     {
 
         public IServicioUsuario _servicioUsuario;
-        public UsuariosController(IServicioUsuario servicioUsuario) { 
+
+        private readonly IWebHostEnvironment _env;
+
+        public UsuariosController(IServicioUsuario servicioUsuario,
+                                  IWebHostEnvironment env) { 
             this._servicioUsuario = servicioUsuario;
+            this._env = env;
         }
 
         public IActionResult Ver(string? busquedaUsuario)
@@ -54,8 +59,27 @@ namespace PredictorTP.Controllers
             else
             {
                 this._servicioUsuario.bloquear(id);
-                TempData["msjExito"] = "Caambio de rol realizado con éxito.";
+                TempData["msjExito"] = "Cambio de rol realizado con éxito.";
             }
+            return RedirectToAction("Ver");
+        }
+
+
+        public IActionResult EliminarHistorialImagen()
+        {
+            this._servicioUsuario.EliminarHistorialImagen();
+            string folder = Path.Combine(_env.WebRootPath, "img", "imgs_users");
+
+            if (Directory.Exists(folder))
+            {
+                string[] archivos = Directory.GetFiles(folder);
+                foreach (var archivo in archivos)
+                {
+                    System.IO.File.Delete(archivo);
+                }
+            }
+
+            TempData["msjExito"] = "Historial de imágenes eliminado con éxito.";
             return RedirectToAction("Ver");
         }
     }

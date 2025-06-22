@@ -13,16 +13,24 @@
 
 <div class="usuarios-wrapper">
 
-    <form class="form-busqueda" asp-action="Ver" method="get">
-        @if (string.IsNullOrEmpty(ViewData["busquedaUsuario"] as string))
-        {
-            <input type="search" name="busquedaUsuario" placeholder="Buscar usuario">
-        }else{
-            <input type="search" name="busquedaUsuario" placeholder="Buscar usuario" value="@ViewData["busquedaUsuario"]">
-        }
+    <div class="contenedor-inputs-admin">
+        <form class="form-busqueda" asp-action="Ver" method="get">
+            @if (string.IsNullOrEmpty(ViewData["busquedaUsuario"] as string))
+            {
+                <input type="search" name="busquedaUsuario" placeholder="Buscar usuario">
+            }else{
+                <input type="search" name="busquedaUsuario" placeholder="Buscar usuario" value="@ViewData["busquedaUsuario"]">
+            }
 
-        <button type="submit">Buscar</button>
-    </form>
+            <button type="submit">Buscar</button>
+        </form>
+
+        <div class="div-coontenedor-a-trash">
+            <a href="/Usuarios/EliminarHistorialImagen" class="boton-accion bloquear-usuario">
+                <i class='bxr  bx-trash'></i>  Eliminar historial de imagenes
+            </a>
+        </div>
+    </div>
 
 
     @if(TempData["msjExito"] != null)
