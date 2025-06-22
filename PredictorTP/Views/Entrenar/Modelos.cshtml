@@ -1,0 +1,38 @@
+﻿<form method="post" enctype="multipart/form-data" asp-controller="Entrenar" asp-action="ModeloIdioma" id="formArchivo">
+    <input type="file" name="archivo" />
+    <button type="submit">Enviar</button>
+</form>
+<p id="resultado"></p> <!-- FALTA BORRAR EL ZIP EN EL CONTROLLER OSEA, BORRAR EL ZIP Q SE GENERA EN LA CARPETA BIN ASÍ AL ENVIAR OTRO SERVICIO, SE ENTRENA DE NUEVO,
+    ADEMÁS, ELIMINAR LA CARPETA Entrenamiento DE LA BIBLIOTECA DE ENTIDADES ASI LO DEJO EN WWWROOT y CAMBAIR LAS REFERENCIAS DE LOS SERVICIOS DE PREDICTOR A ESA CARPETA DEL WWWROOT
+-->
+
+<script>
+    document.getElementById("formArchivo").addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch("/Entrenar/ModeloIdioma", {
+                method: "POST",
+                body: formData
+            });
+
+            if (!response.ok) {
+                document.getElementById("resultado").innerText = "Ocurrió un error al procesar el archivo.";
+                return;
+            }
+
+            const data = await response.json();
+
+            document.getElementById("resultado").innerHTML =
+                "Coincidencias: " + data.coincidencias +
+                " | No Coincidencias: " + data.noCoincidencias +
+                " | Total: " + data.total;
+        } catch (error) {
+            console.error("Error:", error);
+            document.getElementById("resultado").innerText = "Error de red o del servidor.";
+        }
+    });
+</script>

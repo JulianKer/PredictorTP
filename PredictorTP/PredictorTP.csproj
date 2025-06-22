@@ -24,4 +24,16 @@
     <Folder Include="wwwroot\img\imgs_users\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\Entrenamiento\idiomas.tsv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Entrenamiento\polaridad.tsv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Entrenamiento\sentimiento.tsv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
