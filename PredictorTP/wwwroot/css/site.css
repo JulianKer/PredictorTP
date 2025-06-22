@@ -12,7 +12,9 @@ html {
     min-height: 80vh;
 }
 
-
+.text-center{
+    margin: 50px 0;
+}
 
 .btn:focus,
 .btn:active:focus,
@@ -204,3 +206,43 @@ html {
     transform: translate(-50%, -50%);
     z-index: 10;
 }
+
+
+
+
+
+/* graficos---------------------------------------------------*/
+
+.seccion-auditoria {
+    padding: 20px;
+    margin: 60px 0;
+    border-top: 2px solid;
+}
+
+.titulo-auditoria {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 600;
+}
+
+.contenedor-admin-graficos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+    .contenedor-admin-graficos canvas {
+        flex: 1 1 100px;
+        max-width: 500px;
+        height: auto;
+        max-height: 400px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }

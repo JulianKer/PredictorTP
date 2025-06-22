@@ -42,7 +42,13 @@ GO
 INSERT INTO [dbo].[Usuario] ([email], [nombre], [apellido], [contrasenia], [activo], [verificado], [administrador])
 VALUES 
 ('admin@pw3.com', 'Admin', 'PW3', 'admin123', 1, 1, 1),
-('user@normal.com', 'User', 'Normal', 'user123', 1, 1, 0);
+('user@normal.com', 'User', 'Normal', 'user123', 0, 0, 0),
+('Loren@pw3.com', 'Loren', 'Noceda', 'admin123', 0, 1, 1),
+('Felipe@normal.com', 'Felipe', 'Wigel', 'user123', 0, 1, 0),
+('Tomas@pw3.com', 'Tomas', 'Nania', 'admin123', 1, 0, 1),
+('Lucas@normal.com', 'Lucas', 'Rios', 'user123', 1, 1, 0),
+('Julian@pw3.com', 'Julian', 'Schmuker', 'admin123', 0, 1, 0),
+('German@normal.com', 'German', 'Schmuker', 'user123', 1, 1, 0);
 GO
 
 SELECT * FROM [dbo].[Usuario]
