@@ -6,7 +6,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const startButton = document.getElementById("startButton");
     const stopButton = document.getElementById("stopButton");
-    const status = document.getElementById("status");
+    const status = document.querySelector(".input-buscador-estado");
 
     const form = document.querySelector("form[data-grabadora-input][data-grabadora-form]");
 
@@ -40,13 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
             mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
 
             mediaRecorder.onstart = () => {
-                status.textContent = "🎙️ Grabando...";
+                status.value = "🎙️ Grabando...";
                 startButton.classList.add("ocultar-icono");
                 stopButton.classList.remove("ocultar-icono");
             };
       
             mediaRecorder.onstop = async () => {
-                status.textContent = "⏳ Transcribiendo...";
+                status.value = "⏳ Transcribiendo...";
                 const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
 
                 const formData = new FormData();
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
 
                     if (!response.ok) {
-                        status.textContent = "❌ Error en la transcripción";
+                        status.value = "❌ Error en la transcripción";
                         return;
                     }
 
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 } catch (err) {
                     console.error("Error al transcribir:", err);
-                    status.textContent = "❌ Falló la conexión al servidor";
+                    status.value = "❌ Falló la conexión al servidor";
                 }
 
                 stopButton.classList.add("ocultar-icono");
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         } catch (err) {
             console.error("Error al acceder al micrófono:", err);
-            status.textContent = "❌ No se pudo acceder al micrófono";
+            status.value = "❌ No se pudo acceder al micrófono";
         }
     };
 

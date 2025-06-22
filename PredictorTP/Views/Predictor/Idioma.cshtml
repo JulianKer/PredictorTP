@@ -16,12 +16,8 @@ data-grabadora-form="form-idioma">
     <div class="texto-buscador">
         <h2>¡Predice el idioma de tu frase!</h2>
     </div>
-
-    <!-- Div para mostrar estado de la grabación -->
-    <div id="status"></div>
-
     <div class="contenedor-buscador">
-        <input type="text" placeholder="Escribir..." id="input-idioma" name="fraseEnIdioma" />
+        <input type="text" placeholder="Escribir..." id="input-idioma" name="fraseEnIdioma" class="input-buscador-estado" />
         <i class='bx bx-send-alt-2' id="enviar" onclick="document.getElementById('form-idioma').submit();"></i>
         <i class='bx bx-microphone mostrar-icono' id="startButton"></i>
         <i class='bx bx-stop-circle ocultar-icono' id="stopButton"></i>
@@ -61,3 +57,4 @@ data-grabadora-form="form-idioma">
 
 <script src="~/js/buscador.js" defer></script>
 <script src="~/js/grabadora.js" defer></script>
+
