@@ -1,4 +1,6 @@
-﻿
+﻿@using PredictorTP.Entidades.EF;
+@model List<ResultadoImagen>;
+
 @{
     ViewData["Title"] = "Reconocimiento";
 }
@@ -24,7 +26,29 @@
         </div>
     </div>
 
-    <div id="historial-capturas"></div>
+    <div id="historial-capturas">
+
+        @if (Model != null && Model.Count() > 0)
+        {
+            @foreach (ResultadoImagen r in Model)
+            {
+                <div class="item-historial">
+                    <img src="~/img/imgs_users/@r.RutaImg" alt="Imagen" />
+                    <div class="info-textos">
+                        @foreach (PersonaDetectadum personaDetectadum in r.PersonaDetectada)
+                        {
+                            <p>@personaDetectadum.DescripcionPersona</p>
+                        }
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <h4>No hay fotos.</h4>
+        }
+
+    </div>
 
 </div>
 

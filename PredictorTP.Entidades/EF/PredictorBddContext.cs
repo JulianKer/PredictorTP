@@ -23,13 +23,13 @@ public partial class PredictorBddContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=GERMAN\\SQLEXPRESS;Database=PredictorBDD;Trusted_Connection=True;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=GEMELOS\\SQLEXPRESS;Database=PredictorBDD;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<PersonaDetectadum>(entity =>
         {
-            entity.HasKey(e => e.PersonaDetectadaId).HasName("PK__PersonaD__54351980A1E822F7");
+            entity.HasKey(e => e.PersonaDetectadaId).HasName("PK__PersonaD__5435198038CC080F");
 
             entity.Property(e => e.PersonaDetectadaId).HasColumnName("personaDetectadaId");
             entity.Property(e => e.DescripcionPersona)
@@ -44,7 +44,7 @@ public partial class PredictorBddContext : DbContext
 
         modelBuilder.Entity<ResultadoImagen>(entity =>
         {
-            entity.HasKey(e => e.ResultadoImagenId).HasName("PK__Resultad__FEF8BEC96CD409EE");
+            entity.HasKey(e => e.ResultadoImagenId).HasName("PK__Resultad__FEF8BEC9443F926F");
 
             entity.ToTable("ResultadoImagen");
 
@@ -62,7 +62,7 @@ public partial class PredictorBddContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__Usuario__CB9A1CFF84158EED");
+            entity.HasKey(e => e.UserId).HasName("PK__Usuario__CB9A1CFF5E6FDE47");
 
             entity.ToTable("Usuario");
 

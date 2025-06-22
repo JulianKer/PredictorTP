@@ -88,9 +88,8 @@ namespace PredictorTP.Controllers
         // ProcesarImagen ----------------------------------------------------------
         public IActionResult ProcesarImagen()
         {
-            //List<ResultadoImagen> historial = this._servicioProcesarImagen.GetImagenesDelUsuario(Convert.ToInt32(HttpContext.Session.GetInt32("userID")));
-            // acá hay que añadir de pasarle este historial a la primer vista así me aparece el historial apenas entro a la vista y no cuando saco la foto
-            return View();
+            List<ResultadoImagen> historial = this._servicioProcesarImagen.GetImagenesDelUsuario(Convert.ToInt32(HttpContext.Session.GetInt32("userID")));
+            return View(historial);
         }
 
         [HttpPost]
@@ -113,7 +112,6 @@ namespace PredictorTP.Controllers
             await System.IO.File.WriteAllBytesAsync(path, bytes);
 
             int userID = Convert.ToInt32(HttpContext.Session.GetInt32("userID"));
-            Console.WriteLine("USER ID ------------------------------->>>>>>>>>>>>>>>" + userID);
 
             this._servicioProcesarImagen.GuardarResultado(fileName, Personas, userID);
 
