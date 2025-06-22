@@ -37,6 +37,7 @@ namespace PredictorTP.Servicios
                 CreateNoWindow = true
             };
 
+
             using (var process = Process.Start(ffmpeg))
             {
                 string errorOutput = await process.StandardError.ReadToEndAsync();
@@ -45,13 +46,17 @@ namespace PredictorTP.Servicios
                 if (process.ExitCode != 0)
                 {
                     throw new Exception("Error al convertir el archivo WAV a 16kHz con ffmpeg:\n" + errorOutput);
+
                 }
+                Console.WriteLine("FFmpeg error output:\n" + errorOutput);
+
             }
 
             // Procesar el archivo convertido con Whisper
             using var factory = WhisperFactory.FromPath(Modelo);
             using var processor = factory.CreateBuilder()
-                                         .WithLanguage("es")
+                                         //.WithLanguage("es")
+                                         .WithLanguageDetection()
                                          .Build();
 
             using var audioStream = File.OpenRead(convertedPath);

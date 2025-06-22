@@ -11,15 +11,22 @@
 	<script src="~/js/buscador.js" defer></script>
 </head>
 
-<form asp-controller="Predictor" asp-action="DetectarSentimiento" method="post" id="form-sentimiento">
+<form asp-controller="Predictor"
+      asp-action="DetectarSentimiento"
+      method="post"
+      id="form-sentimiento"
+      data-grabadora-input="input-sentimiento"
+      data-grabadora-form="form-sentimiento">
+
 	<div class="texto-buscador">
 		<h2>¡Predice el sentimiento de tu frase!</h2>
 	</div>
+    <div id="status"></div>
 	<div class="contenedor-buscador">
 		<input type="text" placeholder="Escribir..." id="input-sentimiento" name="fraseConSentimiento" />
 		<i class='bx  bx-send-alt-2' id="enviar" onclick="document.getElementById('form-sentimiento').submit();"></i>
-		<i class='bx  bx-microphone mostrar-icono' id="mic"></i>
-		<i class='bx  bx-stop-circle ocultar-icono' id="stop"></i>
+        <i class='bx  bx-microphone mostrar-icono' id="startButton"></i>
+        <i class='bx  bx-stop-circle ocultar-icono' id="stopButton"></i>
 	</div>
 </form>
 
@@ -51,3 +58,6 @@
         <h2>No hay resultados aún.</h2>
     }
 </div>
+<script src="~/js/buscador.js" defer></script>
+<script src="~/js/grabadora.js" defer></script>
+

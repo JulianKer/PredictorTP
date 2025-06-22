@@ -34,6 +34,8 @@ namespace PredictorTP.Web.Controllers
             var filePath = Path.Combine(rutaTemp, "grabacion.wav");
 
             // Guardar el archivo de audio en el directorio temporal
+            Console.WriteLine($"Tamaño del archivo recibido: {audioFile.Length} bytes");
+
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
                 await audioFile.CopyToAsync(stream);

@@ -14,7 +14,7 @@ builder.Services.AddControllersWithViews(options =>
 });
 
 builder.Services.AddScoped<PredictorBddContext>();
-builder.Services.AddScoped<ITranscripcionAudio, ServicioTranscripcionAudio>()
+builder.Services.AddScoped<ITranscripcionAudio, ServicioTranscripcionAudio>();
 
 builder.Services.AddScoped<IServicioPredictorPolaridad, ServicioPredictorPolaridad>();
 

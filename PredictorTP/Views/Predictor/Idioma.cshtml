@@ -1,55 +1,63 @@
 ﻿@using PredictorTP.Entidades
 @model List<ResultadoIdioma>
 @{
-	ViewData["Title"] = "Detector de idiomas";
+    ViewData["Title"] = "Detector de idiomas";
 }
 
 <head>
-	<link href="~/css/buscador.css" rel="stylesheet"/>
-	<link href="~/css/idiomas.css" rel="stylesheet"/>
-	<script src="~/js/buscador.js" defer></script>
+    <link href="~/css/buscador.css" rel="stylesheet" />
+    <link href="~/css/idiomas.css" rel="stylesheet" />
 </head>
 
-<form asp-controller="Predictor" asp-action="DetectarIdioma" method="post" id="form-idioma">
-	
-	<div class="texto-buscador">
-		<h2>¡Predice el idioma de tu frase!</h2>
-	</div>
-	<div class="contenedor-buscador">
-		<input type="text" placeholder="Escribir..." id="input-idioma" name="fraseEnIdioma" />
-		<i class='bx  bx-send-alt-2' id="enviar" onclick="document.getElementById('form-idioma').submit();"></i>
-		<i class='bx  bx-microphone mostrar-icono' id="mic"></i>
-		<i class='bx  bx-stop-circle ocultar-icono' id="stop"></i>
-	</div>
+<form asp-controller="Predictor" asp-action="DetectarIdioma" method="post" id="form-idioma" data-grabadora-input="input-idioma" 
+data-grabadora-form="form-idioma">
+  
+
+    <div class="texto-buscador">
+        <h2>¡Predice el idioma de tu frase!</h2>
+    </div>
+
+    <!-- Div para mostrar estado de la grabación -->
+    <div id="status"></div>
+
+    <div class="contenedor-buscador">
+        <input type="text" placeholder="Escribir..." id="input-idioma" name="fraseEnIdioma" />
+        <i class='bx bx-send-alt-2' id="enviar" onclick="document.getElementById('form-idioma').submit();"></i>
+        <i class='bx bx-microphone mostrar-icono' id="startButton"></i>
+        <i class='bx bx-stop-circle ocultar-icono' id="stopButton"></i>
+    </div>
 </form>
 
 <div class="contenedor-tabla-idiomas">
-	@if (Model != null && Model.Count > 0)
-	{
+    @if (Model != null && Model.Count > 0)
+    {
 
-		<table class="tabla-idiomas">
-			<thead>
-				<tr>
-					<th><i class='bx  bx-message-bubble-captions'></i>  Frase</th>
-					<th><i class='bx  bx-translate'></i>  Idioma detectado</th>
-					<th><i class='bx  bxs-chart-bar-columns bx-rotate-270 bx-flip-horizontal'></i>  Porcentaje de confianza</th>
-				</tr>
-			</thead>
+        <table class="tabla-idiomas">
+            <thead>
+                <tr>
+                    <th><i class='bx bx-message-bubble-captions'></i> Frase</th>
+                    <th><i class='bx bx-translate'></i> Idioma detectado</th>
+                    <th><i class='bx bxs-chart-bar-columns bx-rotate-270 bx-flip-horizontal'></i> Porcentaje de confianza</th>
+                </tr>
+            </thead>
 
-			@foreach (ResultadoIdioma cadaResultado in Model)
-			{
-				<tr>
-					<th>@cadaResultado._fraseEnIdioma</th>
-					<th>@cadaResultado._idioma</th>
-					<th>% @cadaResultado._porcentajeDeConfianza.ToString("F3")</th>
-				</tr>
-			}
+            @foreach (ResultadoIdioma cadaResultado in Model)
+            {
+                <tr>
+                    <th>@cadaResultado._fraseEnIdioma</th>
+                    <th>@cadaResultado._idioma</th>
+                    <th>% @cadaResultado._porcentajeDeConfianza.ToString("F3")</th>
+                </tr>
+            }
 
-		</table>
+        </table>
 
-	}
-	else
-	{
-		<h2> No hay resultados aún.</h2>
-	}
+    }
+    else
+    {
+        <h2>No hay resultados aún.</h2>
+    }
 </div>
+
+<script src="~/js/buscador.js" defer></script>
+<script src="~/js/grabadora.js" defer></script>
