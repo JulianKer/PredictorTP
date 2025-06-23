@@ -33,44 +33,50 @@ namespace PredictorTP.Controllers
             if (Path.GetExtension(archivo.FileName).ToLower() != ".tsv")
                 return BadRequest("Solo se permiten archivos con extensión .tsv.");
 
-            var coincidencias = new List<(string Text, string Label)>();
+            /*var coincidencias = new List<(string Text, string Label)>();
             var noCoincidencias = new List<(string Text, string Label)>();
+            var totales = new List<(string Text, string Label)>();*/
+            
+            var coincidencias = new List<ResultadoIdioma>();
+            var noCoincidencias = new List<ResultadoIdioma>();
+            var totales = new List<ResultadoIdioma>();
 
             using (var stream = new StreamReader(archivo.OpenReadStream()))
             {
-                int i = 0;
+                await stream.ReadLineAsync();
+
                 while (!stream.EndOfStream)
                 {
-                    i++;
-                    if (i == 1) continue;
 
                     var linea = await stream.ReadLineAsync();
                     if (string.IsNullOrWhiteSpace(linea))
-                        continue; // ignora líneas vacías
+                        continue; 
 
-                    var partes = linea.Split('\t'); // TSV usa tabulación
+                    var partes = linea.Split('\t');
                     if (partes.Length != 2)
-                        continue; // ignorar líneas mal formateadas
+                        continue;
 
                     string texto = partes[0].Trim();
                     string resultadoEsperado = partes[1].Trim();
 
                     ResultadoIdioma resultadoIdioma = this._servicioPredictorLenguaje.predecirIdioma(texto);
+                    ResultadoIdioma final = new ResultadoIdioma(texto, resultadoEsperado, 0);
 
                     if ( resultadoIdioma._idioma.ToLower().Equals(resultadoEsperado.ToLower()) )
-                        coincidencias.Add((texto, resultadoEsperado));
+                        coincidencias.Add(final);
                     else
-                        noCoincidencias.Add((texto, resultadoEsperado));
+                        noCoincidencias.Add(final);
+                    
+                    totales.Add(final);
                 }
             }
 
-            // Guardar coincidencias en un archivo .tsv EXISTENTE
             string rutaArchivo = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Entrenamiento", "idiomas.tsv");
             using (var writer = new StreamWriter(rutaArchivo, append: true))
             {
                 foreach (var fila in coincidencias)
                 {
-                    await writer.WriteLineAsync($"{fila.Text}\t{fila.Label}");
+                    await writer.WriteLineAsync($"{fila._fraseEnIdioma}\t{fila._idioma}");
                 }
             }
 
@@ -80,9 +86,12 @@ namespace PredictorTP.Controllers
 
             return Json(new
             {
-                NoCoincidencias = noCoincidencias.Count - 1,
+                NoCoincidencias = noCoincidencias.Count,
                 Coincidencias = coincidencias.Count,
-                Total = coincidencias.Count + noCoincidencias.Count - 1
+                Total = coincidencias.Count + noCoincidencias.Count,
+                frasesCoincidencias = coincidencias,
+                frasesNoCoincidencias = noCoincidencias,
+                frasesTotales = totales
             });
         }
 
@@ -100,34 +109,37 @@ namespace PredictorTP.Controllers
             if (Path.GetExtension(archivo.FileName).ToLower() != ".tsv")
                 return BadRequest("Solo se permiten archivos con extensión .tsv.");
 
-            var coincidencias = new List<(string Text, string Label)>();
-            var noCoincidencias = new List<(string Text, string Label)>();
+            var coincidencias = new List<ResultadoSentimiento>();
+            var noCoincidencias = new List<ResultadoSentimiento>();
+            var totales = new List<ResultadoSentimiento>();
 
             using (var stream = new StreamReader(archivo.OpenReadStream()))
             {
-                int i = 0;
+                await stream.ReadLineAsync();
+
                 while (!stream.EndOfStream)
                 {
-                    i++;
-                    if (i == 1) continue;
 
                     var linea = await stream.ReadLineAsync();
                     if (string.IsNullOrWhiteSpace(linea))
-                        continue; // ignora líneas vacías
+                        continue;
 
-                    var partes = linea.Split('\t'); // TSV usa tabulación
+                    var partes = linea.Split('\t');
                     if (partes.Length != 2)
-                        continue; // ignorar líneas mal formateadas
+                        continue; 
 
                     string texto = partes[0].Trim();
                     string resultadoEsperado = partes[1].Trim();
 
                     ResultadoSentimiento resultadoSentimiento = this._servicioPredictorSentimiento.predecirSentimiento(texto);
+                    ResultadoSentimiento final = new ResultadoSentimiento(texto, resultadoEsperado, 0);
 
                     if (resultadoSentimiento._sentimiento.ToLower().Equals(resultadoEsperado.ToLower()))
-                        coincidencias.Add((texto, resultadoEsperado));
+                        coincidencias.Add(final);
                     else
-                        noCoincidencias.Add((texto, resultadoEsperado));
+                        noCoincidencias.Add(final);
+
+                    totales.Add(final);
                 }
             }
 
@@ -136,7 +148,7 @@ namespace PredictorTP.Controllers
             {
                 foreach (var fila in coincidencias)
                 {
-                    await writer.WriteLineAsync($"{fila.Text}\t{fila.Label}");
+                    await writer.WriteLineAsync($"{fila._fraseConSentimiento}\t{fila._sentimiento}");
                 }
             }
 
@@ -146,9 +158,12 @@ namespace PredictorTP.Controllers
 
             return Json(new
             {
-                NoCoincidencias = noCoincidencias.Count - 1,
+                NoCoincidencias = noCoincidencias.Count,
                 Coincidencias = coincidencias.Count,
-                Total = coincidencias.Count + noCoincidencias.Count - 1
+                Total = coincidencias.Count + noCoincidencias.Count,
+                frasesCoincidencias = coincidencias,
+                frasesNoCoincidencias = noCoincidencias,
+                frasesTotales = totales
             });
         }
 
@@ -164,8 +179,9 @@ namespace PredictorTP.Controllers
             if (Path.GetExtension(archivo.FileName).ToLower() != ".tsv")
                 return BadRequest("Solo se permiten archivos con extensión .tsv.");
 
-            var coincidencias = new List<(string Text, bool Label)>();
-            var noCoincidencias = new List<(string Text, bool Label)>();
+            var coincidencias = new List<ResultadoPolaridad>();
+            var noCoincidencias = new List<ResultadoPolaridad>();
+            var totales = new List<ResultadoPolaridad>();
 
             using (var stream = new StreamReader(archivo.OpenReadStream()))
             {
@@ -184,13 +200,17 @@ namespace PredictorTP.Controllers
                     string texto = partes[0].Trim();
                     bool resultadoEsperado = Convert.ToBoolean(partes[1].Trim());
 
-                    var resultadoPolaridad = _servicioPredictorPolaridad.PredecirPolaridad(texto);
+                    ResultadoPolaridad resultadoPolaridad = _servicioPredictorPolaridad.PredecirPolaridad(texto);
                     bool resultadoObtenido = resultadoPolaridad._resutlado.Trim().ToLower() == "positiva";
 
+                    ResultadoPolaridad final = new ResultadoPolaridad(texto, Convert.ToString(resultadoEsperado), 0.0, 0.0);
+
                     if (resultadoObtenido == resultadoEsperado)
-                        coincidencias.Add((texto, resultadoEsperado));
+                        coincidencias.Add(final);
                     else
-                        noCoincidencias.Add((texto, resultadoEsperado));
+                        noCoincidencias.Add(final);
+
+                    totales.Add(final);
                 }
             }
 
@@ -198,7 +218,7 @@ namespace PredictorTP.Controllers
             using (var writer = new StreamWriter(rutaArchivo, append: true))
             {
                 foreach (var fila in coincidencias)
-                    await writer.WriteLineAsync($"{fila.Text}\t{fila.Label}");
+                    await writer.WriteLineAsync($"{fila._textoProcesado}\t{fila._resutlado}");
             }
 
             string zipABorrar = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Entrenamiento", "modelo_polaridad.zip");
@@ -208,7 +228,10 @@ namespace PredictorTP.Controllers
             {
                 NoCoincidencias = noCoincidencias.Count,
                 Coincidencias = coincidencias.Count,
-                Total = coincidencias.Count + noCoincidencias.Count
+                Total = coincidencias.Count + noCoincidencias.Count,
+                frasesCoincidencias = coincidencias,
+                frasesNoCoincidencias = noCoincidencias,
+                frasesTotales = totales
             });
         }
 

@@ -1,127 +1,91 @@
-﻿<h3>Idiomas</h3>
-<form method="post" enctype="multipart/form-data" id="idioma-form">
-    <input type="file" name="archivo" accept=".tsv" id="inputIdioma" required/>
-    <button type="submit">Enviar</button>
-</form>
-<p id="resultado-idioma"></p> 
-
-<h3>Polaridad</h3>
-<form method="post" enctype="multipart/form-data" id="polaridad-form">
-    <input type="file" name="archivo" accept=".tsv" id="inputPolaridad" required />
-    <button type="submit">Enviar</button>
-</form>
-<p id="resultado-polaridad"></p>
+﻿
+<head>
+    <link href="~/css/entrenar.css" rel="stylesheet" />
+</head>
 
 
-<h3>Sentimientos</h3>
-<form method="post" enctype="multipart/form-data" id="sentimiento-form">
-    <input type="file" name="archivo" accept=".tsv" id="inputSentimientos" required />
-    <button type="submit">Enviar</button>
-</form>
-<p id="resultado-sentimiento"></p>
+<div class="container">
+    <div class="section">
+        <h3>Idiomas</h3>
+        <form method="post" enctype="multipart/form-data" id="idioma-form">
+            <input type="file" name="archivo" accept=".tsv" id="inputIdioma" required />
+            <button type="submit">Enviar</button>
+        </form>
+        <p id="resultado-idioma"></p>
 
 
 
 
+        <!-- aca meto la tabla para mostrar lo q subio el user y si estaba mal o bien-->
+        <table class ="tabla" id="tabla-datos-idioma">
+            <thead>
+                <tr>
+                    <th>Text</th>
+                    <th>Label</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <!----------------------------------------------------------------------------->
 
 
-<!-- FALTA BORRAR EL ZIP EN EL CONTROLLER OSEA, BORRAR EL ZIP Q SE GENERA EN LA CARPETA BIN ASÍ AL ENVIAR OTRO SERVICIO, SE ENTRENA DE NUEVO,
-    ADEMÁS, ELIMINAR LA CARPETA Entrenamiento DE LA BIBLIOTECA DE ENTIDADES ASI LO DEJO EN WWWROOT y CAMBAIR LAS REFERENCIAS DE LOS SERVICIOS DE PREDICTOR A ESA CARPETA DEL WWWROOT
--->
+    </div>
 
-<script>
-    document.getElementById("idioma-form").addEventListener("submit", async function (e) {
-        e.preventDefault();
-
-        const form = e.target;
-        const formData = new FormData(form);
-
-        try {
-            const response = await fetch("/Entrenar/ModeloIdioma", {
-                method: "POST",
-                body: formData
-            });
-
-            if (!response.ok) {
-                document.getElementById("resultado-idioma").innerText = "Ocurrió un error al procesar el archivo.";
-                return;
-            }
-
-            const data = await response.json();
-
-            document.getElementById("resultado-idioma").innerHTML =
-                "Coincidencias: " + data.coincidencias +
-                " | No Coincidencias: " + data.noCoincidencias +
-                " | Total: " + data.total;
-        } catch (error) {
-            console.error("Error:", error);
-            document.getElementById("resultado-idioma").innerText = "Error de red o del servidor.";
-        }
-    });
+    <div class="section">
+        <h3>Polaridad</h3>
+        <form method="post" enctype="multipart/form-data" id="polaridad-form">
+            <input type="file" name="archivo" accept=".tsv" id="inputPolaridad" required />
+            <button type="submit">Enviar</button>
+        </form>
+        <p id="resultado-polaridad"></p>
 
 
 
+             <!-- aca meto la tabla para mostrar lo q subio el user y si estaba mal o bien-->
+        <table class="tabla" id="tabla-datos-polaridad">
+            <thead>
+                <tr>
+                    <th>Text</th>
+                    <th>Label</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <!----------------------------------------------------------------------------->
 
 
-    document.getElementById("sentimiento-form").addEventListener("submit", async function (e) {
-        e.preventDefault();
 
-        const form = e.target;
-        const formData = new FormData(form);
+    </div>
 
-        try {
-            const response = await fetch("/Entrenar/ModeloSentimiento", {
-                method: "POST",
-                body: formData
-            });
-
-            if (!response.ok) {
-                document.getElementById("resultado-sentimiento").innerText = "Ocurrió un error al procesar el archivo.";
-                return;
-            }
-
-            const data = await response.json();
-
-            document.getElementById("resultado-sentimiento").innerHTML =
-                "Coincidencias: " + data.coincidencias +
-                " | No Coincidencias: " + data.noCoincidencias +
-                " | Total: " + data.total;
-        } catch (error) {
-            console.error("Error:", error);
-            document.getElementById("resultado-sentimiento").innerText = "Error de red o del servidor.";
-        }
-    });
+    <div class="section">
+        <h3>Sentimientos</h3>
+        <form method="post" enctype="multipart/form-data" id="sentimiento-form">
+            <input type="file" name="archivo" accept=".tsv" id="inputSentimientos" required />
+            <button type="submit">Enviar</button>
+        </form>
+        <p id="resultado-sentimiento"></p>
 
 
 
 
+        <!-- aca meto la tabla para mostrar lo q subio el user y si estaba mal o bien-->
+        <table class="tabla" id="tabla-datos-sentimientos">
+            <thead>
+                <tr>
+                    <th>Text</th>
+                    <th>Label</th>
+                </tr>
+            </thead>
+            <tbody>
 
-    document.getElementById("polaridad-form").addEventListener("submit", async function (e) {
-        e.preventDefault();
+            </tbody>
+        </table>
+        <!----------------------------------------------------------------------------->
+    </div>
+</div>
 
-        const form = e.target;
-        const formData = new FormData(form);
-
-        try {
-            const response = await fetch("/Entrenar/ModeloPolaridad", {
-                method: "POST",
-                body: formData
-            });
-
-            if (!response.ok) {
-                document.getElementById("resultado-polaridad").innerText = "Ocurrió un error al procesar el archivo.";
-                return;
-            }
-
-            const data = await response.json();
-
-            document.getElementById("resultado-polaridad").innerHTML =
-                "Coincidencias: " + data.coincidencias +
-                " | No Coincidencias: " + data.noCoincidencias +
-                " | Total: " + data.total;
-        } catch (error) {
-            console.error("Error:", error);
-            document.getElementById("resultado-polaridad").innerText = "Error de red o del servidor.";
-        }
-    });
-</script>
+<script src="~/js/entrenar_modelos.js" defer></script>
