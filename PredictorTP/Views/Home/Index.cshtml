@@ -107,8 +107,11 @@
             <h2 class="titulo-auditoria">Auditoría</h2>
 
             <div class="contenedor-admin-graficos">
-                <canvas id="grafico1" width="400" height="200"></canvas>
+                <canvas id="grafico5" width="400" height="200"></canvas>
+                <canvas id="grafico6" width="400" height="200"></canvas>
+                <canvas id="grafico7" width="400" height="200"></canvas>
                 <canvas id="grafico4" width="400" height="200"></canvas>
+                <canvas id="grafico1" width="400" height="200"></canvas>
                 <canvas id="grafico3" width="400" height="200"></canvas>
             </div>
         </div>
@@ -127,6 +130,15 @@
 
         window.chartLabelsPersonasEmociones = @Html.Raw(JsonSerializer.Serialize(Model.LabelsPersonasEmociones));
         window.chartCantidadesPersonasEmociones = @Html.Raw(JsonSerializer.Serialize(Model.CantidadesPersonasEmociones));
+
+        window.chartLabelsLabelsPolaridad = @Html.Raw(JsonSerializer.Serialize(Model.LabelsPolaridad));
+        window.chartCantidadesPolaridad = @Html.Raw(JsonSerializer.Serialize(Model.CantidadesPolaridad));
+
+        window.chartLabelsIdioma = @Html.Raw(JsonSerializer.Serialize(Model.LabelsIdioma));
+        window.chartCantidadesIdioma = @Html.Raw(JsonSerializer.Serialize(Model.CantidadesIdioma));
+
+        window.chartLabelsEmociones = @Html.Raw(JsonSerializer.Serialize(Model.LabelsEmociones));
+        window.chartCantidadesEmociones = @Html.Raw(JsonSerializer.Serialize(Model.CantidadesEmociones));
     </script>
 
     <script src="~/js/estadisticas.js"></script>

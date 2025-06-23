@@ -14,12 +14,18 @@ namespace PredictorTP.Servicios
     {
         List<ResultadoImagen> GetImagenesDelUsuario(int userID);
         void GuardarResultado(string fileName, List<string> personas, int userId);
+        List<int> ObtenerCantidadesEmociones();
+        List<int> ObtenerCantidadesIdioma();
+        List<int> ObtenerCantidadesPolaridad();
         List<int> ObtenerCantidadEstadisticas();
         List<int> ObtenerCantidadEstadisticasPersonasEmociones();
         List<int> ObtenerCantidadEstadisticasUsuariosAdmin();
         List<string> ObtenerLabelEstadisticas();
         List<string> ObtenerLabelEstadisticasPersonasEmociones();
         List<string> ObtenerLabelEstadisticasUsuariosAdmin();
+        List<string> ObtenerLabelsEmociones();
+        List<string> ObtenerLabelsIdioma();
+        List<string> ObtenerLabelsPolaridad();
     }
 
 
@@ -91,6 +97,36 @@ namespace PredictorTP.Servicios
         public List<string> ObtenerLabelEstadisticasUsuariosAdmin()
         {
             return this._repositorioProcesarImagen.ObtenerLabelEstadisticasUsuariosAdmin();
+        }
+
+        public List<int> ObtenerCantidadesPolaridad()
+        {
+            return this._repositorioProcesarImagen.ObtenerCantidadesPolaridad();
+        }
+
+        public List<string> ObtenerLabelsPolaridad()
+        {
+            return this._repositorioProcesarImagen.ObtenerLabelsPolaridad();
+        }
+
+        public List<int> ObtenerCantidadesEmociones()
+        {
+            return this._repositorioProcesarImagen.ObtenerCantidadesEmociones();
+        }
+
+        public List<int> ObtenerCantidadesIdioma()
+        {
+            return this._repositorioProcesarImagen.ObtenerCantidadesIdioma();
+        }
+
+        public List<string> ObtenerLabelsEmociones()
+        {
+            return this._repositorioProcesarImagen.ObtenerLabelsEmociones();
+        }
+
+        public List<string> ObtenerLabelsIdioma()
+        {
+            return this._repositorioProcesarImagen.ObtenerLabelsIdioma();
         }
 
         // ---------------------------------------------------------------------------------

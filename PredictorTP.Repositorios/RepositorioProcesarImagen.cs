@@ -14,12 +14,18 @@ namespace PredictorTP.Repositorios
         List<ResultadoImagen> GetImagenesDelUsuario(int userID);
         void GuardarPersonasDetectadas(List<PersonaDetectadum> personasDetectadas);
         int GuardarResultadoImagen(ResultadoImagen nuevoResultadoImagen);
+        List<int> ObtenerCantidadesEmociones();
+        List<int> ObtenerCantidadesIdioma();
+        List<int> ObtenerCantidadesPolaridad();
         List<int> ObtenerCantidadEstadisticas();
         List<int> ObtenerCantidadEstadisticasPersonasEmociones();
         List<int> ObtenerCantidadEstadisticasUsuariosAdmin();
         List<string> ObtenerLabelEstadisticas();
         List<string> ObtenerLabelEstadisticasPersonasEmociones();
         List<string> ObtenerLabelEstadisticasUsuariosAdmin();
+        List<string> ObtenerLabelsEmociones();
+        List<string> ObtenerLabelsIdioma();
+        List<string> ObtenerLabelsPolaridad();
     }
 
 
@@ -158,6 +164,108 @@ namespace PredictorTP.Repositorios
             List<string> datos = new List<string>();
             datos.Add("Administradores");
             datos.Add("Usuarios");
+
+            return datos;
+        }
+
+        public List<int> ObtenerCantidadesPolaridad()
+        {
+            var totalPositivas = this._contexto.DatoPolaridads
+                .Count(d => d.Resutlado.ToLower().Equals("positiva"));
+
+            var totalNegativas = this._contexto.DatoPolaridads
+                .Count(d => !d.Resutlado.ToLower().Equals("positiva"));
+
+            List<int> datos = new List<int>();
+            datos.Add(totalPositivas);
+            datos.Add(totalNegativas);
+
+            return datos;
+        }
+
+        public List<string> ObtenerLabelsPolaridad()
+        {
+            List<string> datos = new List<string>();
+            datos.Add("Positivas");
+            datos.Add("Negativas");
+
+            return datos;
+        }
+
+        public List<string> ObtenerLabelsEmociones()
+        {
+            List<string> datos = new List<string>();
+            datos.Add("Felicidad");
+            datos.Add("Tristeza");
+            datos.Add("Enojo");
+            datos.Add("Frustración");
+            datos.Add("Miedo");
+            datos.Add("Vergüenza");
+            datos.Add("Amor");
+            datos.Add("Sarcasmo");
+
+            return datos;
+        }
+
+        public List<string> ObtenerLabelsIdioma()
+        {
+            List<string> datos = new List<string>();
+            datos.Add("Inglés");
+            datos.Add("Español");
+
+            return datos;
+        }
+
+        public List<int> ObtenerCantidadesEmociones()
+        {
+            var totalFelicidad = this._contexto.DatoSentimientos
+                 .Count(d => d.Sentimiento.ToLower().Equals("felicidad"));
+
+            var totalTristeza = this._contexto.DatoSentimientos
+                .Count(d => !d.Sentimiento.ToLower().Equals("tristeza"));
+
+            var totalEnojo = this._contexto.DatoSentimientos
+                 .Count(d => d.Sentimiento.ToLower().Equals("enojo"));
+
+            var totalFrustracion = this._contexto.DatoSentimientos
+                .Count(d => !d.Sentimiento.ToLower().Equals("frustración"));
+
+            var totalMiedo = this._contexto.DatoSentimientos
+                 .Count(d => d.Sentimiento.ToLower().Equals("miedo"));
+
+            var totalVerguenza = this._contexto.DatoSentimientos
+                .Count(d => !d.Sentimiento.ToLower().Equals("vergüenza"));
+
+            var totalAmor = this._contexto.DatoSentimientos
+                .Count(d => !d.Sentimiento.ToLower().Equals("amor"));
+
+            var totalSarcasmo = this._contexto.DatoSentimientos
+                .Count(d => !d.Sentimiento.ToLower().Equals("sarcasmo"));
+
+            List<int> datos = new List<int>();
+            datos.Add(totalFelicidad);
+            datos.Add(totalTristeza);
+            datos.Add(totalEnojo);
+            datos.Add(totalFrustracion);
+            datos.Add(totalMiedo);
+            datos.Add(totalVerguenza);
+            datos.Add(totalAmor);
+            datos.Add(totalSarcasmo);
+
+            return datos;
+        }
+
+        public List<int> ObtenerCantidadesIdioma()
+        {
+            var totalIngles = this._contexto.DatoIdiomas
+                 .Count(d => d.Idioma.ToLower().Equals("inglés"));
+
+            var totalEspaniol = this._contexto.DatoIdiomas
+                .Count(d => !d.Idioma.ToLower().Equals("español"));
+
+            List<int> datos = new List<int>();
+            datos.Add(totalIngles);
+            datos.Add(totalEspaniol);
 
             return datos;
         }

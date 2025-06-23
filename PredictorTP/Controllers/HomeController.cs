@@ -30,6 +30,15 @@ namespace PredictorTP.Controllers
 
                 estadisticasAdminViewModel.LabelsPersonasEmociones = this._servicioProcesarImagen.ObtenerLabelEstadisticasPersonasEmociones();
                 estadisticasAdminViewModel.CantidadesPersonasEmociones = this._servicioProcesarImagen.ObtenerCantidadEstadisticasPersonasEmociones();
+
+                estadisticasAdminViewModel.LabelsPolaridad = this._servicioProcesarImagen.ObtenerLabelsPolaridad();
+                estadisticasAdminViewModel.CantidadesPolaridad = this._servicioProcesarImagen.ObtenerCantidadesPolaridad();
+
+                estadisticasAdminViewModel.LabelsIdioma = this._servicioProcesarImagen.ObtenerLabelsIdioma();
+                estadisticasAdminViewModel.CantidadesIdioma = this._servicioProcesarImagen.ObtenerCantidadesIdioma();
+
+                estadisticasAdminViewModel.LabelsEmociones = this._servicioProcesarImagen.ObtenerLabelsEmociones();
+                estadisticasAdminViewModel.CantidadesEmociones = this._servicioProcesarImagen.ObtenerCantidadesEmociones();
             }
             return View(estadisticasAdminViewModel);
         }
