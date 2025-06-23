@@ -1,5 +1,6 @@
 ﻿using Microsoft.ML;
 using PredictorTP.Entidades;
+using PredictorTP.Repositorios;
 
 namespace PredictorTP.Servicios
 {
@@ -16,14 +17,15 @@ namespace PredictorTP.Servicios
 
         private readonly MLContext _mlContext;
         private readonly PredictionEngine<DatoPolaridad, PrediccionPolaridad> _predEngine;
+
         private static readonly string modeloPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Entrenamiento", "modelo_polaridad.zip");
         private static readonly string datosPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Entrenamiento", "polaridad.tsv");
+        private readonly IRepositorioPredictorPolaridad _repositorio;
 
-        private static List<ResultadoPolaridad> _misResultados = new();
-
-        public ServicioPredictorPolaridad()
+        public ServicioPredictorPolaridad(IRepositorioPredictorPolaridad repositorio)
         {
             _mlContext = new MLContext();
+            _repositorio = repositorio;
 
             // si no existe el modelo entrenado, lo genero y lo guardo
             if (!File.Exists(modeloPath))
@@ -71,82 +73,12 @@ namespace PredictorTP.Servicios
 
         public void guardarResultado(ResultadoPolaridad resultadoAGuardar)
         {
-            _misResultados.Add(resultadoAGuardar);
+            _repositorio.GuardarResultadoPolaridad(resultadoAGuardar);
         }
 
         public List<ResultadoPolaridad> obtenerTodosLosResultados()
         {
-            return _misResultados;
+            return _repositorio.GetResultadosPolaridad();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        public static List<Resultado> misResultados { get; set; } = new List<Resultado>();
-
-        public Resultado PredecirSentimiento(string texto)
-        {
-            string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Entrenamiento", "sentimientos.tsv");
-
-            var mlContext = new MLContext();
-
-            var data = mlContext.Data.LoadFromTextFile<DatoSentimiento>(
-                rutaArchivo, hasHeader: true);
-
-            var pipeline = mlContext.Transforms.Text.FeaturizeText("Features", nameof(DatoSentimiento.Text))
-                .Append(mlContext.BinaryClassification.Trainers.SdcaLogisticRegression("Label", "Features"));
-
-            var model = pipeline.Fit(data); // con los datos extraidos del archvo .tsv, entreno al pipeline y obtengo el modelo entrenado
-
-            var predictor = mlContext.Model.CreatePredictionEngine<DatoSentimiento, PrediccionSentimiento>(model); // creo un motor para predecir usando dicho modelo
-
-            var resultado = predictor.Predict(new DatoSentimiento { Text = texto }); // realizo una predicción pasándole el string obtenido del usuario
-
-            string prediccion = (resultado.Prediction ? "Positiva" : "Negativa");
-            double porcentajePositivo = resultado.Probability * 100;   // con una sencilla operación puedo obtener el porcentaje de ambas polaridades (Positivo y Negativo)
-            double porcentajeNegativo = 100 - porcentajePositivo;
-
-            return new Resultado(texto, prediccion, porcentajeNegativo, porcentajePositivo); // devuelvo la respuesta obtenida
-        }
-
-
-        public void guardarResultado(Resultado resultadoAGuardar)
-        {
-            ServicioPredictorSentimiento.misResultados.Add(resultadoAGuardar);
-        }
-
-        public List<Resultado> obtenerTodosLosResultados()
-        {
-            return ServicioPredictorSentimiento.misResultados;
-        }
-        */
     }
 }

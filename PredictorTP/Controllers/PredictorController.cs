@@ -120,5 +120,24 @@ namespace PredictorTP.Controllers
 
         //-----------------------------------------------------------------
 
+        [HttpPost]
+        public async Task<IActionResult> GenerarTextoDesdeAudio (IFormFile audioFile, [FromServices] ITranscripcionAudio transcriptor)
+        {
+            if (audioFile == null || audioFile.Length == 0)
+                return BadRequest("No se recibió archivo");
+
+            var tempPath = Path.Combine(Path.GetTempPath(), Guid.NewGuid() + ".webm");
+            using (var stream = new FileStream(tempPath, FileMode.Create))
+            {
+                await audioFile.CopyToAsync(stream);
+            }
+
+            var texto = await transcriptor.TranscribirAsync(tempPath);
+            try { System.IO.File.Delete(tempPath); } catch { }
+
+            return Content(texto);
+        }
+
     }
+
 }

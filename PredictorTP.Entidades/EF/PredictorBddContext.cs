@@ -15,6 +15,12 @@ public partial class PredictorBddContext : DbContext
     {
     }
 
+    public virtual DbSet<DatoIdioma> DatoIdiomas { get; set; }
+
+    public virtual DbSet<DatoPolaridad> DatoPolaridads { get; set; }
+
+    public virtual DbSet<DatoSentimiento> DatoSentimientos { get; set; }
+
     public virtual DbSet<PersonaDetectadum> PersonaDetectada { get; set; }
 
     public virtual DbSet<ResultadoImagen> ResultadoImagens { get; set; }
@@ -28,9 +34,50 @@ public partial class PredictorBddContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<DatoIdioma>(entity =>
+        {
+            entity.HasKey(e => e.FraseIdiomaId).HasName("PK__FraseIdi__55238423D55AF83E");
+
+            entity.Property(e => e.FraseIdiomaId).HasColumnName("fraseIdiomaId");
+            entity.Property(e => e.FraseEnIdioma).HasColumnName("fraseEnIdioma");
+            entity.Property(e => e.Idioma)
+                .HasMaxLength(50)
+                .HasColumnName("idioma");
+            entity.Property(e => e.PorcentajeDeConfianza).HasColumnName("porcentajeDeConfianza");
+        });
+
+        modelBuilder.Entity<DatoPolaridad>(entity =>
+        {
+            entity.HasKey(e => e.DatoPolaridadId).HasName("PK__DatoPola__A2F5753C93E90CF0");
+
+            entity.ToTable("DatoPolaridad");
+
+            entity.Property(e => e.DatoPolaridadId).HasColumnName("datoPolaridadId");
+            entity.Property(e => e.ProbabilidadNegativa).HasColumnName("_probabilidadNegativa");
+            entity.Property(e => e.ProbabilidadPositiva).HasColumnName("_probabilidadPositiva");
+            entity.Property(e => e.Resutlado)
+                .HasMaxLength(50)
+                .HasColumnName("_resutlado");
+            entity.Property(e => e.TextoProcesado).HasColumnName("_textoProcesado");
+        });
+
+        modelBuilder.Entity<DatoSentimiento>(entity =>
+        {
+            entity.HasKey(e => e.ResultadoId).HasName("PK__DatoSent__008B853710FD781D");
+
+            entity.ToTable("DatoSentimiento");
+
+            entity.Property(e => e.ResultadoId).HasColumnName("resultadoId");
+            entity.Property(e => e.FraseConSentimiento).HasColumnName("fraseConSentimiento");
+            entity.Property(e => e.PorcentajeDeConfianza).HasColumnName("porcentajeDeConfianza");
+            entity.Property(e => e.Sentimiento)
+                .HasMaxLength(100)
+                .HasColumnName("sentimiento");
+        });
+
         modelBuilder.Entity<PersonaDetectadum>(entity =>
         {
-            entity.HasKey(e => e.PersonaDetectadaId).HasName("PK__PersonaD__54351980A1E822F7");
+            entity.HasKey(e => e.PersonaDetectadaId).HasName("PK__PersonaD__543519802952B3DA");
 
             entity.Property(e => e.PersonaDetectadaId).HasColumnName("personaDetectadaId");
             entity.Property(e => e.DescripcionPersona)
@@ -40,12 +87,12 @@ public partial class PredictorBddContext : DbContext
 
             entity.HasOne(d => d.ResultadoImagen).WithMany(p => p.PersonaDetectada)
                 .HasForeignKey(d => d.ResultadoImagenId)
-                .HasConstraintName("FK__PersonaDe__resul__5FB337D6");
+                .HasConstraintName("FK__PersonaDe__resul__3F466844");
         });
 
         modelBuilder.Entity<ResultadoImagen>(entity =>
         {
-            entity.HasKey(e => e.ResultadoImagenId).HasName("PK__Resultad__FEF8BEC96CD409EE");
+            entity.HasKey(e => e.ResultadoImagenId).HasName("PK__Resultad__FEF8BEC99C4FFA23");
 
             entity.ToTable("ResultadoImagen");
 
@@ -58,12 +105,12 @@ public partial class PredictorBddContext : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.ResultadoImagens)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Resultado__userI__5CD6CB2B");
+                .HasConstraintName("FK__Resultado__userI__3C69FB99");
         });
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__Usuario__CB9A1CFF84158EED");
+            entity.HasKey(e => e.UserId).HasName("PK__Usuario__CB9A1CFF0DA90A16");
 
             entity.ToTable("Usuario");
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ML;
 using PredictorTP.Entidades;
+using PredictorTP.Repositorios;
 using PredictorTP.Servicios;
 
 
@@ -20,14 +21,17 @@ public class ServicioPredictorIdioma : IServicioPredictorIdioma
 {
     private readonly MLContext _mlContext;
     private readonly PredictionEngine<DatoIdioma, PrediccionIdioma> _predEngine;
+
     private static readonly string modeloPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Entrenamiento", "modelo_idiomas.zip");
     private static readonly string datosPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Entrenamiento", "idiomas.tsv");
+    private readonly IRepositorioPredictorIdioma _repositorio;
 
     private static List<ResultadoIdioma> _misResultadosLenguaje = new();
 
-    public ServicioPredictorIdioma()
+    public ServicioPredictorIdioma( IRepositorioPredictorIdioma repositorio)
     {
         _mlContext = new MLContext();
+        _repositorio = repositorio;
 
         // si NO tengo guardado el modelo en un zip, lo creo, lo entreno y lo guardo en un .zip
         if (!File.Exists(modeloPath))
@@ -61,12 +65,12 @@ public class ServicioPredictorIdioma : IServicioPredictorIdioma
 
     public void guardarResultdoIdioma(ResultadoIdioma nuevoResultadoLenguaje)
     {
-        _misResultadosLenguaje.Add(nuevoResultadoLenguaje);
+        _repositorio.GuardarResultadoIdioma(nuevoResultadoLenguaje);
     }
 
     public List<ResultadoIdioma> ObtenerResultadosIdioma()
     {
-        return ServicioPredictorIdioma._misResultadosLenguaje;
+        return _repositorio.ObtenerResultadosIdioma();
     }
 }
 
