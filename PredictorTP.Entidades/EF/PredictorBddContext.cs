@@ -15,11 +15,11 @@ public partial class PredictorBddContext : DbContext
     {
     }
 
-    public virtual DbSet<DatoIdioma> DatoIdiomas { get; set; }
-
     public virtual DbSet<DatoPolaridad> DatoPolaridads { get; set; }
 
     public virtual DbSet<DatoSentimiento> DatoSentimientos { get; set; }
+
+    public virtual DbSet<FraseIdioma> FraseIdiomas { get; set; }
 
     public virtual DbSet<PersonaDetectadum> PersonaDetectada { get; set; }
 
@@ -29,26 +29,13 @@ public partial class PredictorBddContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=GEMELOS\\SQLEXPRESS;Database=PredictorBDD;Trusted_Connection=True;TrustServerCertificate=True;",
-            sqlOptions => sqlOptions.CommandTimeout(180));
+        => optionsBuilder.UseSqlServer("Server=GEMELOS\\SQLEXPRESS;Database=PredictorBDD;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<DatoIdioma>(entity =>
-        {
-            entity.HasKey(e => e.FraseIdiomaId).HasName("PK__FraseIdi__55238423D55AF83E");
-
-            entity.Property(e => e.FraseIdiomaId).HasColumnName("fraseIdiomaId");
-            entity.Property(e => e.FraseEnIdioma).HasColumnName("fraseEnIdioma");
-            entity.Property(e => e.Idioma)
-                .HasMaxLength(50)
-                .HasColumnName("idioma");
-            entity.Property(e => e.PorcentajeDeConfianza).HasColumnName("porcentajeDeConfianza");
-        });
-
         modelBuilder.Entity<DatoPolaridad>(entity =>
         {
-            entity.HasKey(e => e.DatoPolaridadId).HasName("PK__DatoPola__A2F5753C93E90CF0");
+            entity.HasKey(e => e.DatoPolaridadId).HasName("PK__DatoPola__A2F5753CF8533BC3");
 
             entity.ToTable("DatoPolaridad");
 
@@ -63,7 +50,7 @@ public partial class PredictorBddContext : DbContext
 
         modelBuilder.Entity<DatoSentimiento>(entity =>
         {
-            entity.HasKey(e => e.ResultadoId).HasName("PK__DatoSent__008B853710FD781D");
+            entity.HasKey(e => e.ResultadoId).HasName("PK__DatoSent__008B8537E9AF8BF6");
 
             entity.ToTable("DatoSentimiento");
 
@@ -75,9 +62,23 @@ public partial class PredictorBddContext : DbContext
                 .HasColumnName("sentimiento");
         });
 
+        modelBuilder.Entity<FraseIdioma>(entity =>
+        {
+            entity.HasKey(e => e.FraseIdiomaId).HasName("PK__FraseIdi__552384233A88CE85");
+
+            entity.ToTable("FraseIdioma");
+
+            entity.Property(e => e.FraseIdiomaId).HasColumnName("fraseIdiomaId");
+            entity.Property(e => e.FraseEnIdioma).HasColumnName("fraseEnIdioma");
+            entity.Property(e => e.Idioma)
+                .HasMaxLength(50)
+                .HasColumnName("idioma");
+            entity.Property(e => e.PorcentajeDeConfianza).HasColumnName("porcentajeDeConfianza");
+        });
+
         modelBuilder.Entity<PersonaDetectadum>(entity =>
         {
-            entity.HasKey(e => e.PersonaDetectadaId).HasName("PK__PersonaD__543519802952B3DA");
+            entity.HasKey(e => e.PersonaDetectadaId).HasName("PK__PersonaD__5435198038CC080F");
 
             entity.Property(e => e.PersonaDetectadaId).HasColumnName("personaDetectadaId");
             entity.Property(e => e.DescripcionPersona)
@@ -87,12 +88,12 @@ public partial class PredictorBddContext : DbContext
 
             entity.HasOne(d => d.ResultadoImagen).WithMany(p => p.PersonaDetectada)
                 .HasForeignKey(d => d.ResultadoImagenId)
-                .HasConstraintName("FK__PersonaDe__resul__3F466844");
+                .HasConstraintName("FK__PersonaDe__resul__5FB337D6");
         });
 
         modelBuilder.Entity<ResultadoImagen>(entity =>
         {
-            entity.HasKey(e => e.ResultadoImagenId).HasName("PK__Resultad__FEF8BEC99C4FFA23");
+            entity.HasKey(e => e.ResultadoImagenId).HasName("PK__Resultad__FEF8BEC9443F926F");
 
             entity.ToTable("ResultadoImagen");
 
@@ -105,12 +106,12 @@ public partial class PredictorBddContext : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.ResultadoImagens)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Resultado__userI__3C69FB99");
+                .HasConstraintName("FK__Resultado__userI__5CD6CB2B");
         });
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__Usuario__CB9A1CFF0DA90A16");
+            entity.HasKey(e => e.UserId).HasName("PK__Usuario__CB9A1CFF5E6FDE47");
 
             entity.ToTable("Usuario");
 
