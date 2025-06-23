@@ -15,11 +15,11 @@ public partial class PredictorBddContext : DbContext
     {
     }
 
+    public virtual DbSet<DatoIdioma> DatoIdiomas { get; set; }
+
     public virtual DbSet<DatoPolaridad> DatoPolaridads { get; set; }
 
     public virtual DbSet<DatoSentimiento> DatoSentimientos { get; set; }
-
-    public virtual DbSet<FraseIdioma> FraseIdiomas { get; set; }
 
     public virtual DbSet<PersonaDetectadum> PersonaDetectada { get; set; }
 
@@ -33,6 +33,20 @@ public partial class PredictorBddContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<DatoIdioma>(entity =>
+        {
+            entity.HasKey(e => e.FraseIdiomaId).HasName("PK__DatoIdio__5523842341B2AEEC");
+
+            entity.ToTable("DatoIdioma");
+
+            entity.Property(e => e.FraseIdiomaId).HasColumnName("fraseIdiomaId");
+            entity.Property(e => e.FraseEnIdioma).HasColumnName("fraseEnIdioma");
+            entity.Property(e => e.Idioma)
+                .HasMaxLength(50)
+                .HasColumnName("idioma");
+            entity.Property(e => e.PorcentajeDeConfianza).HasColumnName("porcentajeDeConfianza");
+        });
+
         modelBuilder.Entity<DatoPolaridad>(entity =>
         {
             entity.HasKey(e => e.DatoPolaridadId).HasName("PK__DatoPola__A2F5753CF8533BC3");
@@ -60,20 +74,6 @@ public partial class PredictorBddContext : DbContext
             entity.Property(e => e.Sentimiento)
                 .HasMaxLength(100)
                 .HasColumnName("sentimiento");
-        });
-
-        modelBuilder.Entity<FraseIdioma>(entity =>
-        {
-            entity.HasKey(e => e.FraseIdiomaId).HasName("PK__FraseIdi__552384233A88CE85");
-
-            entity.ToTable("FraseIdioma");
-
-            entity.Property(e => e.FraseIdiomaId).HasColumnName("fraseIdiomaId");
-            entity.Property(e => e.FraseEnIdioma).HasColumnName("fraseEnIdioma");
-            entity.Property(e => e.Idioma)
-                .HasMaxLength(50)
-                .HasColumnName("idioma");
-            entity.Property(e => e.PorcentajeDeConfianza).HasColumnName("porcentajeDeConfianza");
         });
 
         modelBuilder.Entity<PersonaDetectadum>(entity =>

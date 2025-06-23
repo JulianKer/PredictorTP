@@ -92,7 +92,7 @@ GO
 USE PredictorBDD
 GO
 
-CREATE TABLE FraseIdioma (
+CREATE TABLE DatoIdioma (
     fraseIdiomaId INT PRIMARY KEY IDENTITY(1,1),
     fraseEnIdioma NVARCHAR(MAX) NOT NULL,
     idioma NVARCHAR(50) NOT NULL,

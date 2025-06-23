@@ -33,7 +33,7 @@ namespace PredictorTP.Repositorios
                 Idioma = ResultadoLenguaje._idioma,
                 PorcentajeDeConfianza = ResultadoLenguaje._porcentajeDeConfianza
             };
-            _contexto.DatoIdiomas.Add(datoIdioma);
+           _contexto.DatoIdiomas.Add(datoIdioma);
             _contexto.SaveChanges();
         }
 
@@ -41,15 +41,15 @@ namespace PredictorTP.Repositorios
         public List<ResultadoIdioma> ObtenerResultadosIdioma()
         {
             var resultados = _contexto.DatoIdiomas
-                .Select(d => new ResultadoIdioma(
-                
-                     d.FraseEnIdioma,
-                     d.Idioma,
-                     d.PorcentajeDeConfianza
-                    
-                ))
-                .ToList();
-            return resultados;
+                 .Select(d => new ResultadoIdioma(
+
+                      d.FraseEnIdioma,
+                      d.Idioma,
+                      d.PorcentajeDeConfianza
+
+                 ))
+                 .ToList();
+             return resultados;
         }
 
     }
