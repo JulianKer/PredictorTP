@@ -89,6 +89,51 @@ SELECT * FROM PersonaDetectada;
 GO
 
 
+USE PredictorBDD
+GO
+
+CREATE TABLE FraseIdioma (
+    fraseIdiomaId INT PRIMARY KEY IDENTITY(1,1),
+    fraseEnIdioma NVARCHAR(MAX) NOT NULL,
+    idioma NVARCHAR(50) NOT NULL,
+    porcentajeDeConfianza FLOAT NOT NULL
+);
+GO
+
+USE [PredictorBDD]
+GO
+
+CREATE TABLE [dbo].[DatoSentimiento] (
+    [resultadoId] INT IDENTITY(1,1) PRIMARY KEY,
+    [fraseConSentimiento] NVARCHAR(MAX) NOT NULL,
+    [sentimiento] NVARCHAR(100) NOT NULL,
+    [porcentajeDeConfianza] FLOAT NOT NULL
+);
+GO
+
+USE [PredictorBDD]
+GO
+
+/****** Object:  Table [dbo].[DatoPolaridad]    Script Date: 22/6/2025 21:05:23 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[DatoPolaridad](
+	[datoPolaridadId] [int] IDENTITY(1,1) NOT NULL,
+	[_textoProcesado] [nvarchar](max) NULL,
+	[_resutlado] [nvarchar](50) NULL,
+	[_probabilidadNegativa] [float] NULL,
+	[_probabilidadPositiva] [float] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[datoPolaridadId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
 /* este lo dejé para probar si se borraban en cascada las personas si borraban las imagenes, ajustar el id del user y el de el resultado img para probar el delete
 INSERT INTO ResultadoImagen (userId, rutaImg)
 VALUES (2, 'foto1.jpg');
