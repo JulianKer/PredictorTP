@@ -1,5 +1,6 @@
 ﻿using Microsoft.ML;
 using PredictorTP.Entidades;
+using PredictorTP.Repositorios;
 
 namespace PredictorTP.Servicios
 {
@@ -16,14 +17,14 @@ namespace PredictorTP.Servicios
 
         private readonly MLContext _mlContext;
         private readonly PredictionEngine<DatoPolaridad, PrediccionPolaridad> _predEngine;
+        private readonly IRepositorioPredictorPolaridad _repositorio;
         private static readonly string modeloPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "modelo_polaridad.zip");
         private static readonly string datosPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Entrenamiento", "polaridad.tsv");
 
-        private static List<ResultadoPolaridad> _misResultados = new();
-
-        public ServicioPredictorPolaridad()
+        public ServicioPredictorPolaridad(IRepositorioPredictorPolaridad repositorio)
         {
             _mlContext = new MLContext();
+            _repositorio = repositorio;
 
             // si no existe el modelo entrenado, lo genero y lo guardo
             if (!File.Exists(modeloPath))
@@ -71,12 +72,12 @@ namespace PredictorTP.Servicios
 
         public void guardarResultado(ResultadoPolaridad resultadoAGuardar)
         {
-            _misResultados.Add(resultadoAGuardar);
+            _repositorio.GuardarResultadoPolaridad(resultadoAGuardar);
         }
 
         public List<ResultadoPolaridad> obtenerTodosLosResultados()
         {
-            return _misResultados;
+            return _repositorio.GetResultadosPolaridad();
         }
 
 

@@ -17,10 +17,13 @@ builder.Services.AddScoped<PredictorBddContext>();
 builder.Services.AddScoped<ITranscripcionAudio, ServicioTranscripcionAudio>();
 
 builder.Services.AddScoped<IServicioPredictorPolaridad, ServicioPredictorPolaridad>();
+builder.Services.AddScoped<IRepositorioPredictorPolaridad, RepositorioPredictorPolaridad>();
 
 builder.Services.AddScoped<IServicioPredictorIdioma, ServicioPredictorIdioma>();
+builder.Services.AddScoped<IRepositorioPredictorIdioma, RepositorioPredictorIdioma>();
 
 builder.Services.AddScoped<IServicioPredictorSentimiento, ServicioPredictorSentimiento>();
+builder.Services.AddScoped<IRepositorioPredictorSentimiento, RepositorioPredictorSentimiento>();
 
 builder.Services.AddScoped<IServicioProcesarImagen, ServicioProcesarImagen>();
 builder.Services.AddScoped<IRepositorioProcesarImagen, RepositorioProcesarImagen>();
