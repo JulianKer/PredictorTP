@@ -7,11 +7,10 @@ using Microsoft.ML.Data;
 
 namespace PredictorTP.Entidades
 {
-    public class DatoLenguaje
+    public class PrediccionIdioma
     {
-        [LoadColumn(0)]
-        public string Text { get; set; }
-        [LoadColumn(1)]
-        public string Label { get; set; }
+        [ColumnName("PredictedLabel")]
+        public string PredictedLabel { get; set; }
+        public float[] Score { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -16,7 +16,24 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PredictorTP.Entidades\PredictorTP.Entidades.csproj" />
+    <ProjectReference Include="..\PredictorTP.Repositorios\PredictorTP.Repositorios.csproj" />
     <ProjectReference Include="..\PredictorTP.Servicios\PredictorTP.Servicios.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\img\imgs_users\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\Entrenamiento\idiomas.tsv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Entrenamiento\polaridad.tsv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Entrenamiento\sentimiento.tsv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

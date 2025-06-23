@@ -1,54 +1,78 @@
-﻿using Microsoft.ML;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.ML;
 using PredictorTP.Entidades;
+using PredictorTP.Repositorios;
+using PredictorTP.Servicios;
 
-namespace PredictorTP.Servicios
+
+public interface IServicioPredictorSentimiento
 {
+    ResultadoSentimiento predecirSentimiento(string fraseConSentimiento);
+    void guardarResultdoSentimiento(ResultadoSentimiento nuevoResultadoSentimiento);
+    List<ResultadoSentimiento> ObtenerResultadosSentimiento();
+}
 
-    public interface IServicioPredictorSentimiento
+
+public class ServicioPredictorSentimiento : IServicioPredictorSentimiento
+{
+    private readonly MLContext _mlContext;
+    private readonly IRepositorioPredictorSentimiento _repositorio;
+    private readonly PredictionEngine<DatoSentimiento, PrediccionIdioma> _predEngine;
+    private static readonly string modeloPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Entrenamiento", "modelo_sentimiento.zip");
+    private static readonly string datosPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Entrenamiento", "sentimiento.tsv");
+
+    private static List<ResultadoSentimiento> _misResultadosLenguaje = new();
+
+    public ServicioPredictorSentimiento(IRepositorioPredictorSentimiento repositorio)
     {
-        List<Resultado> obtenerTodosLosResultados();
-        Resultado PredecirSentimiento(string texto);
-        void guardarResultado(Resultado resultadoAGuardar);
+        _mlContext = new MLContext();
+        _repositorio = repositorio;
+
+        // si NO tengo guardado el modelo en un zip, lo creo, lo entreno y lo guardo en un .zip
+        if (!File.Exists(modeloPath))
+        {
+            var data = _mlContext.Data.LoadFromTextFile<DatoSentimiento>(datosPath, hasHeader: true);
+
+            var pipeline = _mlContext.Transforms.Conversion.MapValueToKey("Label")
+                .Append(_mlContext.Transforms.Text.FeaturizeText("Features", nameof(DatoSentimiento.Text)))
+                .Append(_mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy("Label", "Features"))
+                .Append(_mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel"));
+
+            var modelo = pipeline.Fit(data);
+
+            _mlContext.Model.Save(modelo, data.Schema, modeloPath);
+        }
+
+        // si ya existe o bien ya se creo en el if anterior, lo busco para usarlo
+        using var stream = new FileStream(modeloPath, FileMode.Open, FileAccess.Read, FileShare.Read);
+        var loadedModel = _mlContext.Model.Load(stream, out _);
+
+        _predEngine = _mlContext.Model.CreatePredictionEngine<DatoSentimiento, PrediccionIdioma>(loadedModel);
     }
-    public class ServicioPredictorSentimiento : IServicioPredictorSentimiento
+
+    public ResultadoSentimiento predecirSentimiento(string fraseConSentimiento)
     {
-        public static List<Resultado> misResultados { get; set; } = new List<Resultado>();
-
-        public Resultado PredecirSentimiento(string texto)
+        var resultado = _predEngine.Predict(new DatoSentimiento { Text = fraseConSentimiento });
+        double confianza = Math.Round(resultado.Score.Max() * 100, 4);
+        foreach (var valor in resultado.Score)
         {
-            string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Entrenamiento", "sentimientos.tsv");
-
-            var mlContext = new MLContext();
-
-            var data = mlContext.Data.LoadFromTextFile<DatoSentimiento>(
-                rutaArchivo, hasHeader: true);
-
-            var pipeline = mlContext.Transforms.Text.FeaturizeText("Features", nameof(DatoSentimiento.Text))
-                .Append(mlContext.BinaryClassification.Trainers.SdcaLogisticRegression("Label", "Features"));
-
-            var model = pipeline.Fit(data); // con los datos extraidos del archvo .tsv, entreno al pipeline y obtengo el modelo entrenado
-
-            var predictor = mlContext.Model.CreatePredictionEngine<DatoSentimiento, PrediccionSentimiento>(model); // creo un motor para predecir usando dicho modelo
-
-            var resultado = predictor.Predict(new DatoSentimiento { Text = texto }); // realizo una predicción pasándole el string obtenido del usuario
-
-            string prediccion = (resultado.Prediction ? "Positiva" : "Negativa");
-            double porcentajePositivo = resultado.Probability * 100;   // con una sencilla operación puedo obtener el porcentaje de ambas polaridades (Positivo y Negativo)
-            double porcentajeNegativo = 100 - porcentajePositivo;
-
-            return new Resultado(texto, prediccion, porcentajeNegativo, porcentajePositivo); // devuelvo la respuesta obtenida
+            Console.WriteLine(valor);
         }
+        return new ResultadoSentimiento(fraseConSentimiento, resultado.PredictedLabel, confianza);
+    }
 
+    public void guardarResultdoSentimiento(ResultadoSentimiento nuevoResultadoLenguaje)
+    {
+        _repositorio.GuardarSentimiento(nuevoResultadoLenguaje);
+    }
 
-        public void guardarResultado(Resultado resultadoAGuardar)
-        {
-            ServicioPredictorSentimiento.misResultados.Add(resultadoAGuardar);
-        }
-
-        public List<Resultado> obtenerTodosLosResultados()
-        {
-            return ServicioPredictorSentimiento.misResultados;
-        }
-
+    public List<ResultadoSentimiento> ObtenerResultadosSentimiento()
+    {
+        return _repositorio.ObtenerResultadosSentimiento();
     }
 }
+

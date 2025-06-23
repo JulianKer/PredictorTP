@@ -1,0 +1,77 @@
+﻿@using PredictorTP.Entidades
+@model List<ResultadoPolaridad>
+@{
+	ViewData["Title"] = "Ingresá un texto";
+}
+
+<head>
+	<link href="~/css/buscador.css" rel="stylesheet" />
+	<link href="~/css/polaridad.css" rel="stylesheet" />
+
+</head>
+
+
+
+<form asp-controller="Predictor"
+      asp-action="PredecirPolaridad"
+      method="post"
+      id="form-polaridad"
+      data-grabadora-input="input-custom"
+      data-grabadora-form="form-polaridad">
+
+	<div class="texto-buscador">
+		<h2>¡Predice la positividad de tu frase!</h2>
+	</div>
+  
+	<div class="contenedor-buscador">
+        <input type="text" placeholder="Escribir..." id="input-custom" name="texto" class="input-buscador-estado" />
+		<i class='bx  bx-send-alt-2' id="enviar" onclick="document.getElementById('form-polaridad').submit();"></i>
+		<i class='bx  bx-microphone mostrar-icono' id="startButton"></i>
+		<i class='bx  bx-stop-circle ocultar-icono' id="stopButton"></i>
+	</div>
+</form>
+
+<div class="contenedor-tabla-polaridad">
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="tabla-polaridad">
+            <thead>
+                <tr>
+                    <th><i class='bx  bx-message-bubble-captions'></i> Frase</th>
+                    <th>Resultado</th>
+                    <th><i class='bx  bx-percentage'></i> Positividad</th>
+                    <th><i class='bx  bx-percentage'></i> Negatividad</th>
+                </tr>
+            </thead>
+
+            @foreach (ResultadoPolaridad cadaResultado in Model)
+            {
+                <tr>
+                    <td>@cadaResultado._textoProcesado</td>
+                    @if (@cadaResultado._resutlado == "Positiva")
+                    {
+                        <td class="positivo" style="color: forestgreen">@cadaResultado._resutlado</td>
+                    }
+                    else if (@cadaResultado._resutlado == "Negativa")
+                    {
+                        <td class="negativo" style="color: darkred">@cadaResultado._resutlado</td>
+                    }
+                    else
+                    {
+                        <td class="neutral" style="color: #EC9714">@cadaResultado._resutlado</td>
+                    }
+                    <td>% @cadaResultado._probabilidadPositiva.ToString("F3")</td>
+                    <td>% @cadaResultado._probabilidadNegativa.ToString("F3")</td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h2>No hay resultados aún.</h2>
+    }
+</div>
+<script src="~/js/buscador.js" defer></script>
+<script src="~/js/grabadora.js" defer></script>
+
+

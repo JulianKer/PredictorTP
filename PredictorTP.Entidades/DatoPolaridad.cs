@@ -7,10 +7,12 @@ using Microsoft.ML.Data;
 
 namespace PredictorTP.Entidades
 {
-    public class PrediccionLenguaje
+    public class DatoPolaridad
     {
-        [ColumnName("PredictedLabel")]
-        public string PredictedLabel { get; set; }
-        public float[] Score { get; set; }
+        [LoadColumn(0)]
+        public string Text { get; set; }
+
+        [LoadColumn(1)]
+        public bool Label { get; set; }
     }
 }

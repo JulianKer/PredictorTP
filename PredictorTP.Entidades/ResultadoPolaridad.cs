@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace PredictorTP.Entidades
 {
-    public class Resultado
+    public class ResultadoPolaridad
     {
         public string _textoProcesado { get; set; }
         public string _resutlado { get; set; }
         public double _probabilidadNegativa { get; set; }
         public double _probabilidadPositiva { get; set; }
 
-        public Resultado(string texto, string resultado, double probabilidadNegativa, double probabilidadPositiva)
+        public ResultadoPolaridad(string texto, string resultado, double probabilidadNegativa, double probabilidadPositiva)
         {
             this._textoProcesado = texto;
             this._resutlado = resultado;    

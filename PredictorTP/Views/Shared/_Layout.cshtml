@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using PredictorTP.Session;
+@using PredictorTP.Entidades.EF;
+
+@{
+    Usuario userSession = Context.Session.Get<Usuario>("USUARIO_LOGUEADO"); // acá uso la extension q me deserializa la variable con el tipo q le especifiqué
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,38 +16,71 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PredictorTP.styles.css" asp-append-version="true" />
+    <link href="~/css/nav.css" rel="stylesheet"/>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Boxicons CSS -->
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
 </head>
 <body>
 
     @if (ViewBag.login_o_register == null || ViewBag.login_o_register != null && Convert.ToBoolean(ViewBag.login_o_register) == false)
     {
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PredictorTP</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3 contendor-nav">
+                <div class="container-fluid">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="~/img/logo_app/logo_predictor_nav.png"/>
+                    </a>
+                    <button class="navbar-toggler btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">
+                            <i class='bx  bxs-menu-wide iconos-nav'></i>
+                        </span>
+                    </button>
 
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Predictor" asp-action="MostrarFormularioDePrediccionSentimiento">Predecir</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Predictor" asp-action="MostrarFormularioDePrediccionLenguaje">Detectar idioma</a>
-                        </li>
-                    </ul>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                            </li>
+
+                            @if (!userSession.Administrador)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Predictor" asp-action="Idioma">Idiomas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Predictor" asp-action="Polaridad">Polaridad</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Predictor" asp-action="Sentimiento">Sentimientos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Predictor" asp-action="ProcesarImagen">Procesar Imagen</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Ver">Usuarios</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Entrenar" asp-action="Modelos">Entrenar modelos</a>
+                                </li>
+                            }
+                        </ul>
+                </div>
+
+                <div class="contenedor-perfil-nav">
+                    <a href="/Perfil/Ver">
+                            <p class="nombre-perfil-nav">@userSession.Nombre</p>
+                        <i class='bx  bx-user-circle iconos-nav'></i>
+                    </a>
+                    <a href="/Acceso/Salir"><i class='bx  bx-arrow-out-right-square-half iconos-nav'></i></a>
                 </div>
             </div>
         </nav>
@@ -48,7 +88,7 @@
     }
 
 
-    <div class="">
+    <div class="div-layout">
         <main role="main">
             @RenderBody()
         </main>
@@ -56,9 +96,33 @@
 
     @if (ViewBag.login_o_register == null || ViewBag.login_o_register != null && Convert.ToBoolean(ViewBag.login_o_register) == false)
      {
-        <footer class="border-top footer text-muted">
+        <footer style="background-color: #132d46; border-top: 2px solid #01c38e; color: white; padding: 20px 0; box-shadow: 0px -5px 10px gray;">
             <div class="container">
-                &copy; 2025 - PredictorTP - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                <div class="row align-items-center">
+                    <div class="col-md-4 d-flex align-items-center mb-3 mb-md-0">
+                        <img src="~/img/logo_unlam/logo-unlam.png" alt="Logo UNLaM" style="height: 40px; margin-right: 10px; border-radius: 50%">
+                        <div>
+                            <div><strong>UNLaM</strong></div>
+                            <div>Programación Web 3</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 text-md-end justify-content-center ">
+                        <div><strong>Integrantes del grupo:</strong></div>
+                        <div class="d-flex flex-wrap justify-content-md-end" style="gap: 10px; line-height: 1.4;">
+                            <a href="https://github.com/JulianKer" style="text-decoration: none; color: white;">Julián Schmuker -</a>
+                            <a href="https://github.com/FeliWeigel" style="text-decoration: none; color: white;">Felipe Weigel -</a>
+                            <a href="https://github.com/GermanSchmuker" style="text-decoration: none; color: white;">Germán Schmuker -</a>
+                            <a href="https://github.com/lorenzo-noceda" style="text-decoration: none; color: white;">Lorenzo Noceda -</a>
+                            <a href="https://github.com/TNania04" style="text-decoration: none; color: white;">Tomás Nania -</a>
+                            <a href="https://github.com/rioslucas1" style="text-decoration: none; color: white;">Lucas Ríos</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-3" style="font-size: 0.9rem; text-decoration: none; color: white;">
+                    &copy; 2025 - <a href="https://github.com/JulianKer/PredictorTP" style="text-decoration: none; color: white;">PredictorTP</a>
+                </div>
             </div>
         </footer>
      } 

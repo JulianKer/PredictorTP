@@ -12,26 +12,35 @@
 
                     @if (TempData["MensjaeExito"] != null)
                     {
-                        <span class="alert alert-success">@TempData["MensjaeExito"]</span>
+                        <span class="alert alert-success alert-ingreso">
+                            @TempData["MensjaeExito"]
+                            <a href="/Acceso/Ingresar">
+                                <i class='bx bx-x'></i>
+                            </a>
+                        </span>
                     }
 
                     <div class="card-body p-4">
                         <h3 class="card-title text-center mb-4 color-login-letra">Iniciar Sesión</h3>
 
-                        <form id="loginForm">
+                        <form id="loginForm" method="post" asp-controller="Acceso" asp-action="Ingresar">
+                            @if (ViewBag.ErrorLogin != null)
+                            {
+                                <div class="alert alert-danger">
+                                    @ViewBag.ErrorLogin
+                                </div>
+                            }
+
                             <div class="mb-3">
                                 <label for="email" class="form-label fw-semibold">Correo electrónico</label>
                                 <input type="email" class="form-control form-control-lg" id="email" name="email"
-                                       placeholder="ejemplo@correo.com" >
-                                <span class="alert-danger"></span> <!-- acordarse de poner el ASP-VALIDATION-FOR cuando hagamos la vista tipada -->
+                                       placeholder="ejemplo@correo.com">
                             </div>
 
                             <div class="mb-3">
-                                <label for="password" class="form-label fw-semibold">Contraseña</label>
-                                <input type="password" class="form-control form-control-lg" id="password" name="password"
-                                       placeholder="Tu contraseña" >
-                                <span class="alert-danger"></span> <!-- acordarse de poner el ASP-VALIDATION-FOR cuando hagamos la vista tipada -->
-
+                                <label for="contrasenia" class="form-label fw-semibold">Contraseña</label>
+                                <input type="password" class="form-control form-control-lg" id="contrasenia" name="contrasenia"
+                                       placeholder="Tu contraseña">
                                 <div class="text-center" style="margin-top: 15px">
                                     <a asp-controller="Acceso" asp-action="RecuperarContrasenia" class="text-decoration-none">Olvidé mi contraseña</a>
                                 </div>

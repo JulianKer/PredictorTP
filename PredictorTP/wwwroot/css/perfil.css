@@ -1,0 +1,92 @@
+﻿.div-perfil-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.div-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 50%;
+}
+
+
+.grupo-btn-perfil {
+    display:  flex;
+    justify-content: space-evenly;
+    align-content: center;
+
+    > button{
+        min-width: 120px;
+    }
+}
+
+.div-msj-perfil{
+    min-width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+}
+
+.div-msj-perfil .alert{
+    display: flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+    justify-items: center;
+    text-decoration: none;
+}
+
+.div-msj-perfil .alert i{
+    font-size: 1.5em;
+    transition: all .3s;
+    color: green;
+}
+
+.div-msj-perfil .alert i:hover {
+    cursor: pointer;
+}
+
+
+
+/*------------ POP UP ----------- */
+
+.pop-up-fondo {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-up {
+    width: 20em;
+    padding: 2em;
+    border-radius: .5em;
+    position: fixed;
+    z-index: 20;
+    background-color: #fff;
+    display: grid;
+    gap: 1em;
+
+    & p{
+        text-align: center;
+        font-size: 1.5em;
+        margin-bottom: .5em;
+
+       }
+
+       > .btn{
+           min-width: 120px
+       }
+}
+/*-------------------------------------------------*/

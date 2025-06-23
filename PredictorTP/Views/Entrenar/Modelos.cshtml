@@ -1,0 +1,91 @@
+﻿
+<head>
+    <link href="~/css/entrenar.css" rel="stylesheet" />
+</head>
+
+
+<div class="container">
+    <div class="section">
+        <h3>Idiomas</h3>
+        <form method="post" enctype="multipart/form-data" id="idioma-form">
+            <input type="file" name="archivo" accept=".tsv" id="inputIdioma" required />
+            <button type="submit">Enviar</button>
+        </form>
+        <p id="resultado-idioma"></p>
+
+
+
+
+        <!-- aca meto la tabla para mostrar lo q subio el user y si estaba mal o bien-->
+        <table class ="tabla" id="tabla-datos-idioma">
+            <thead>
+                <tr>
+                    <th>Text</th>
+                    <th>Label</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <!----------------------------------------------------------------------------->
+
+
+    </div>
+
+    <div class="section">
+        <h3>Polaridad</h3>
+        <form method="post" enctype="multipart/form-data" id="polaridad-form">
+            <input type="file" name="archivo" accept=".tsv" id="inputPolaridad" required />
+            <button type="submit">Enviar</button>
+        </form>
+        <p id="resultado-polaridad"></p>
+
+
+
+             <!-- aca meto la tabla para mostrar lo q subio el user y si estaba mal o bien-->
+        <table class="tabla" id="tabla-datos-polaridad">
+            <thead>
+                <tr>
+                    <th>Text</th>
+                    <th>Label</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <!----------------------------------------------------------------------------->
+
+
+
+    </div>
+
+    <div class="section">
+        <h3>Sentimientos</h3>
+        <form method="post" enctype="multipart/form-data" id="sentimiento-form">
+            <input type="file" name="archivo" accept=".tsv" id="inputSentimientos" required />
+            <button type="submit">Enviar</button>
+        </form>
+        <p id="resultado-sentimiento"></p>
+
+
+
+
+        <!-- aca meto la tabla para mostrar lo q subio el user y si estaba mal o bien-->
+        <table class="tabla" id="tabla-datos-sentimientos">
+            <thead>
+                <tr>
+                    <th>Text</th>
+                    <th>Label</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <!----------------------------------------------------------------------------->
+    </div>
+</div>
+
+<script src="~/js/entrenar_modelos.js" defer></script>

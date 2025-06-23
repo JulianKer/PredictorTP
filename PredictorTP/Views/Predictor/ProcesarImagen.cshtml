@@ -1,0 +1,56 @@
+﻿@using PredictorTP.Entidades.EF;
+@model List<ResultadoImagen>;
+
+@{
+    ViewData["Title"] = "Reconocimiento";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/procesar_imagen.css" />
+</head>
+
+
+<div class="facial-detection-container">
+    <div id="contenedor">
+        <video id="video" autoplay muted></video>
+        <canvas id="canvas"></canvas>
+        <!--<a href="#" id="botonCapturarFoto" onclick="capturarFoto()"> -->
+        <a href="#" id="botonCapturarFoto">
+            <i class='bx  bx-camera-alt'  ></i>
+        </a>
+        <div id="resultado" class="loading">Cargando modelos...</div>
+
+        <div class="indicador-rec">
+            <span class="punto-rec"></span>
+            <span class="texto-rec">REC</span>
+        </div>
+    </div>
+
+    <div id="historial-capturas">
+
+        @if (Model != null && Model.Count() > 0)
+        {
+            @foreach (ResultadoImagen r in Model)
+            {
+                <div class="item-historial">
+                    <img src="~/img/imgs_users/@r.RutaImg" alt="Imagen" />
+                    <div class="info-textos">
+                        @foreach (PersonaDetectadum personaDetectadum in r.PersonaDetectada)
+                        {
+                            <p>@personaDetectadum.DescripcionPersona</p>
+                        }
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <h4>No hay fotos.</h4>
+        }
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+<script src="~/js/proceso_imagen.js" ></script>

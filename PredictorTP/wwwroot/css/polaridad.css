@@ -1,0 +1,142 @@
+﻿.contenedor-tabla-polaridad {
+    padding: 50px;
+    background-color: #fff;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+    .contenedor-tabla-polaridad h2 {
+        color: #132D46;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 400;
+        margin: 0;
+        padding: 30px 20px;
+        background: white;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(19, 45, 70, 0.1);
+    }
+
+.tabla-polaridad {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0px 5px gray;
+    margin: 0 auto;
+    border: 1px solid #e9ecef;
+    font-size: 16px;
+    table-layout: fixed;
+    animation: fadeIn 0.5s ease-out;
+}
+
+    .tabla-polaridad thead {
+        background-color: #132D46;
+    }
+
+        .tabla-polaridad thead th {
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 18px 15px;
+            border: none;
+            text-align: center;
+            position: relative;
+        }
+
+    .tabla-polaridad tbody td {
+        background: white;
+        color: #495057;
+        font-weight: 500;
+        padding: 16px 15px;
+        text-align: center;
+        border: none;
+    }
+
+    .tabla-polaridad tbody tr:nth-child(even) {
+        background-color: #fafbfc;
+    }
+
+    .tabla-polaridad tbody tr:hover {
+        background-color: #f5f6f7;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(19, 45, 70, 0.08);
+    }
+
+.positivo {
+    color: #28a745; /* verde */
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.negativo {
+    color: #dc3545; /* rojo */
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.neutral {
+    color: #ffc107; /* amarillo */
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .contenedor-tabla-polaridad {
+        padding: 30px 20px;
+    }
+
+    .tabla-polaridad {
+        font-size: 14px;
+    }
+
+        .tabla-polaridad thead th,
+        .tabla-polaridad tbody td {
+            padding: 12px 10px;
+        }
+
+        .tabla-polaridad thead th {
+            font-size: 13px;
+        }
+        .tabla-polaridad td:nth-child(1) {
+            word-wrap: break-word;
+            white-space: normal;
+        }
+}
+
+@media (max-width: 480px) {
+    .contenedor-tabla-polaridad {
+        padding: 20px 15px;
+    }
+
+    .tabla-polaridad {
+        font-size: 13px;
+    }
+
+        .tabla-polaridad thead th,
+        .tabla-polaridad tbody td {
+            padding: 10px 8px;
+        }
+
+        .tabla-polaridad thead th {
+            font-size: 12px;
+        }
+        .tabla-polaridad td:nth-child(1) {
+            word-wrap: break-word;
+            white-space: normal;
+        }
+}

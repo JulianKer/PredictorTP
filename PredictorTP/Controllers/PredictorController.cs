@@ -1,17 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PredictorTP.Entidades;
+using PredictorTP.Entidades.EF;
 using PredictorTP.Servicios;
 
 namespace PredictorTP.Controllers
 {
     public class PredictorController : Controller
     {
+        private IServicioPredictorPolaridad _servicioPredictorPolaridad { get; set; }
+        private IServicioPredictorIdioma _servicioPredictorLenguaje { get; set; }
         private IServicioPredictorSentimiento _servicioPredictorSentimiento { get; set; }
-        private IServicioPredictorLenguaje _servicioPredictorLenguaje { get; set; }
-        public PredictorController(IServicioPredictorSentimiento servicioPredictorSentimiento, 
-                                   IServicioPredictorLenguaje servicioPredictorLenguaje) { 
-            this._servicioPredictorSentimiento = servicioPredictorSentimiento;
+        private IServicioProcesarImagen _servicioProcesarImagen { get; set; }
+
+        private readonly IWebHostEnvironment _env;
+
+        public PredictorController(IServicioPredictorPolaridad servicioPredictorPolaridad, 
+                                   IServicioPredictorIdioma servicioPredictorLenguaje,
+                                   IServicioPredictorSentimiento servicioPredictorSentimiento,
+                                   IServicioProcesarImagen servicioProcesarImagen,
+                                   IWebHostEnvironment env) { 
+            this._servicioPredictorPolaridad = servicioPredictorPolaridad;
             this._servicioPredictorLenguaje = servicioPredictorLenguaje;
+            this._servicioPredictorSentimiento = servicioPredictorSentimiento;
+            this._servicioProcesarImagen = servicioProcesarImagen;
+            this._env = env;
         }
 
         public IActionResult Index()
@@ -19,18 +31,18 @@ namespace PredictorTP.Controllers
             return View();
         }
 
-        // sentimientos ---------------------------------------------------
-        public IActionResult MostrarFormularioDePrediccionSentimiento()
+        // polaridad ---------------------------------------------------
+        public IActionResult Polaridad()
         {
-            return View(this._servicioPredictorSentimiento.obtenerTodosLosResultados());
+            return View(this._servicioPredictorPolaridad.obtenerTodosLosResultados());
         }
 
-        public IActionResult PredecirSentimiento(string texto)
+        public IActionResult PredecirPolaridad(string texto)
         {
-            Resultado nuevoResultado = this._servicioPredictorSentimiento.PredecirSentimiento(texto);
-            this._servicioPredictorSentimiento.guardarResultado(nuevoResultado);
+            ResultadoPolaridad nuevoResultado = this._servicioPredictorPolaridad.PredecirPolaridad(texto);
+            this._servicioPredictorPolaridad.guardarResultado(nuevoResultado);
 
-            return RedirectToAction("MostrarFormularioDePrediccionSentimiento");
+            return RedirectToAction("Polaridad");
         }
         // -------------------------------------------------------------------
 
@@ -38,17 +50,94 @@ namespace PredictorTP.Controllers
 
 
         // idiomas ----------------------------------------------------------
-        public IActionResult MostrarFormularioDePrediccionLenguaje()
+        public IActionResult Idioma()
         {
-            return View(this._servicioPredictorLenguaje.ObtenerResultadosLenguaje());
+            return View(this._servicioPredictorLenguaje.ObtenerResultadosIdioma());
         }
+
+        [HttpPost]
         public IActionResult DetectarIdioma(string fraseEnIdioma)
         {
-            ResultadoLenguaje nuevoResultadoLenguaje = this._servicioPredictorLenguaje.predecirLenguaje(fraseEnIdioma);
-            this._servicioPredictorLenguaje.guardarResultdoLenguaje(nuevoResultadoLenguaje);
+            ResultadoIdioma nuevoResultadoLenguaje = this._servicioPredictorLenguaje.predecirIdioma(fraseEnIdioma);
+            this._servicioPredictorLenguaje.guardarResultdoIdioma(nuevoResultadoLenguaje);
 
-            return RedirectToAction("MostrarFormularioDePrediccionLenguaje");            
+            return RedirectToAction("Idioma");            
         }
         //-----------------------------------------------------------------
+
+
+
+
+        // sentimiento ----------------------------------------------------------
+        public IActionResult Sentimiento()
+        {
+            return View(this._servicioPredictorSentimiento.ObtenerResultadosSentimiento());
+        }
+
+        [HttpPost]
+        public IActionResult DetectarSentimiento(string fraseConSentimiento)
+        {
+            ResultadoSentimiento nuevoResultadoSentimiento = this._servicioPredictorSentimiento.predecirSentimiento(fraseConSentimiento);
+            this._servicioPredictorSentimiento.guardarResultdoSentimiento(nuevoResultadoSentimiento);
+
+            return RedirectToAction("Sentimiento");
+        }
+        //-----------------------------------------------------------------
+
+
+        // ProcesarImagen ----------------------------------------------------------
+        public IActionResult ProcesarImagen()
+        {
+            List<ResultadoImagen> historial = this._servicioProcesarImagen.GetImagenesDelUsuario(Convert.ToInt32(HttpContext.Session.GetInt32("userID")));
+            return View(historial);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Analizar([FromBody] ImagenConPersonasRequest request)
+        {
+            if (string.IsNullOrEmpty(request.ImagenBase64))
+                return BadRequest("Imagen vacía");
+
+            byte[] bytes = Convert.FromBase64String(request.ImagenBase64);
+
+            List<string> Personas = request.Personas;
+
+            string fileName = $"captura_{DateTime.Now:yyyyMMdd_HHmmss}.png";
+            string folder = Path.Combine(_env.WebRootPath, "img/imgs_users");
+
+            Directory.CreateDirectory(folder); // pensé que tenia que verificar si existia el directorio pero este metodo ya lo hace.
+
+            string path = Path.Combine(folder, fileName);
+
+            await System.IO.File.WriteAllBytesAsync(path, bytes);
+
+            int userID = Convert.ToInt32(HttpContext.Session.GetInt32("userID"));
+
+            this._servicioProcesarImagen.GuardarResultado(fileName, Personas, userID);
+
+            return Json(this._servicioProcesarImagen.GetImagenesDelUsuario(userID));
+        }
+
+        //-----------------------------------------------------------------
+
+        [HttpPost]
+        public async Task<IActionResult> GenerarTextoDesdeAudio (IFormFile audioFile, [FromServices] ITranscripcionAudio transcriptor)
+        {
+            if (audioFile == null || audioFile.Length == 0)
+                return BadRequest("No se recibió archivo");
+
+            var tempPath = Path.Combine(Path.GetTempPath(), Guid.NewGuid() + ".webm");
+            using (var stream = new FileStream(tempPath, FileMode.Create))
+            {
+                await audioFile.CopyToAsync(stream);
+            }
+
+            var texto = await transcriptor.TranscribirAsync(tempPath);
+            try { System.IO.File.Delete(tempPath); } catch { }
+
+            return Content(texto);
+        }
+
     }
+
 }

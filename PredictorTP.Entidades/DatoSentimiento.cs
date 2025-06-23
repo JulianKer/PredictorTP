@@ -11,8 +11,7 @@ namespace PredictorTP.Entidades
     {
         [LoadColumn(0)]
         public string Text { get; set; }
-
         [LoadColumn(1)]
-        public bool Label { get; set; }
+        public string Label { get; set; }
     }
 }
