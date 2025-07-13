@@ -61,7 +61,7 @@ Scaffold-DbContext "Server=[REEMPLAZAR];Database=PredictorBDD;Trusted_Connection
 
 ## 5. Ejecutar el proyecto.
 <div style="border-left: 4px solid #4CAF50; background: #e7f5e1; padding: 10px; margin: 10px 0;">
-  <strong>💡 Tip:</strong> Nosotros lo ejecutamos por http y no por https..
+  <strong>💡 Tip:</strong> Nosotros lo ejecutamos por http y no por https.
 </div>
 
 _____________________________________________________________________
@@ -70,27 +70,44 @@ _____________________________________________________________________
 
 # Preview:
 
-* ![Usuario](https://img.shields.io/badge/Usuario-DD0031?style=for-the-badge&logo=hackthebox&logoColor=white)
+![Rol](https://img.shields.io/badge/Rol-000000?style=for-the-badge&logo=account&logoColor=white)
+![Usuario](https://img.shields.io/badge/Usuario-011681?style=for-the-badge&logo=account&logoColor=white)
+<img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/logo_app/logo_predictor_nav.png" alt="f1" width="50" style="vertical-align:middle;"/> 
 
 
 | Sección       | Imagen       |
 |-----------------|-----------------|
-| Inicio de sesión y Registro | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/1.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/2.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/3.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/4.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/5.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/6.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/7.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/8.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/9.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/10.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/10.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/11_admin.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/12_admin.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/13_admin.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/14_admin.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/15_admin.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/16_admin.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/17_admin.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
-|  | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/18_admin.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Registro | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/1.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Creación de usuario | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/2.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Validación usuario no verificado | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/3.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Verificacción vía Mail | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/4.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Inicio | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/5.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Predicción de Idioma | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/6.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Predicción de Polaridad | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/7.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Predicción de Sentimiento | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/8.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Proceso de imagen (detección de rostros, edad, género y emoción) | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/9.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Perfil | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/10.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+
+_________________________________________________________________
+
+
+![Rol](https://img.shields.io/badge/Rol-000000?style=for-the-badge&logo=account&logoColor=white)
+![Administrador](https://img.shields.io/badge/Administrador-011681?style=for-the-badge&logo=account&logoColor=white)
+<img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/logo_app/logo_predictor_nav.png" alt="f1" width="50" style="vertical-align:middle;"/> 
+
+| Sección       | Imagen       |
+|-----------------|-----------------|
+| Inicio | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/11_admin.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Gráficos de Auditoría 1 | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/12_admin.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Gráficos de Auditoría 2 | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/13_admin.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Gestión de Usuarios (cambio de Rol, bloquear, desbloquear y eliminar historial de imgs) | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/14_admin.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Entrenamiento de modelos | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/15_admin.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Entrenamiento modelo Idiomas | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/16_admin.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Entrenamiento modelo Polaridad | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/17_admin.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+| Entrenamiento modelo Sentimientos | <img src="https://github.com/JulianKer/PredictorTP/blob/master/PredictorTP/wwwroot/img/preview/18_admin.png" alt="predictor" width="700" style="vertical-align:middle;"/>|
+
+
+______________________________________________
+
+![Readme by:](https://img.shields.io/badge/Readme%20by:-011681?style=for-the-badge&logo=account&logoColor=white)
+[![JulianKer](https://img.shields.io/badge/JulianKer-000000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/JulianKer)
